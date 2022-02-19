@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 enum Main {
     struct LoadGreeting {
@@ -14,6 +15,16 @@ enum Main {
             case error(Error)
             case loading
             case greeting(String)
+        }
+    }
+    
+    struct RequestCameraAuthorization {
+        struct Response {
+            let cameraStatus: CameraStatus
+            let previewLayer: AVCaptureVideoPreviewLayer?
+        }
+        enum ViewModel {
+            case status(CameraStatus, AVCaptureVideoPreviewLayer?)
         }
     }
 }

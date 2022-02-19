@@ -16,24 +16,26 @@ extension MainViews {
             ))
             return label
         }()
-        private lazy var startButton: UIButton = {
+        private lazy var openSettingsButton: UIButton = {
             let button = UIButton()
-            button.setTitle("START", for: .normal)
-            button.setTitleColor(.red, for: .normal)
-            button.addTarget(self, action: #selector(startButtonAction), for: .touchUpInside)
+            button.setTitle(L10n.Main.Button.Settings.open, for: .normal)
+            button.titleLabel?.font = activeTheme.fonts.buttonLabel
+            button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)
+            button.setTitleColor(activeTheme.colors.buttonDefault.withAlphaComponent(0.7), for: .highlighted)
+            button.addTarget(self, action: #selector(openSettingsAction), for: .touchUpInside)
+            button.layer.opacity = 0
             return button
         }()
         private lazy var resultView: ResultView = {
             let view = ResultView()
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 12
+            view.layer.opacity = 0
             return view
         }()
         
         // MARK: - Variables
-        private let avCapture: AVCapture = AVCapture()
-        
-        private var startButtonHandler: (() -> Void)?
+        private var openSettingsActionHandler: (() -> Void)?
 
         // MARK: - Life Cycle
         init() {
@@ -48,17 +50,15 @@ extension MainViews {
         // MARK: - Setup
         private func setupViews() {
             backgroundColor = activeTheme.colors.text
-            setupTitleLabel()
+            setupStatusLabel()
             setupResultView()
+            setupOpenSettingsButton()
         }
         
         func setupCamera() {
             setupCameraView()
             cameraView.layoutIfNeeded()
-            requestCameraAuthorization()
             sendSubviewToBack(cameraView)
-//            bringSubviewToFront(statusLabel)
-//            bringSubviewToFront(resultView)
         }
         
         private func setupCameraView() {
@@ -72,12 +72,7 @@ extension MainViews {
             ])
         }
         
-        func setupPreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
-            previewLayer.frame = cameraView.bounds
-            cameraView.layer.addSublayer(previewLayer)
-        }
-        
-        private func setupTitleLabel() {
+        private func setupStatusLabel() {
             addSubview(statusLabel)
             statusLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
@@ -98,60 +93,43 @@ extension MainViews {
             ])
         }
         
-//        private func setupStartButton() {
-//            addSubview(startButton)
-//            NSLayoutConstraint.activate([
-//                startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-//                startButton.centerXAnchor.constraint(equalTo: centerXAnchor)
-//            ])
-//        }
+        private func setupOpenSettingsButton() {
+            addSubview(openSettingsButton)
+            openSettingsButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                openSettingsButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
+                openSettingsButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
+                openSettingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                openSettingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            ])
+        }
         
-        func setupStartButtonHandler(_ handler: @escaping () -> Void) {
-            startButtonHandler = handler
+        func setupOpenSettingsActionHandler(_ handler: @escaping () -> Void) {
+            openSettingsActionHandler = handler
         }
 
-        // MARK: - Populate
-        func populate(_ viewModel: Main.LoadGreeting.ViewModel) {
-            guard case let .greeting(text) = viewModel else {
+        // MARK: - Actions
+        @objc private func openSettingsAction() {
+            openSettingsActionHandler?()
+        }
+        
+        // MARK: - Update View Based on Camera Authorization and Output
+        func updateViewBasedOnCameraAuthorizationStatus(_ viewModel: Main.RequestCameraAuthorization.ViewModel) {
+            guard case let .status(cameraStatus, previewLayer) = viewModel else {
                 return
             }
-        }
-        
-        // MARK: - Actions
-        @objc private func startButtonAction() {
-            startButtonHandler?()
-        }
-        
-        public func requestCameraAuthorization() {
-            switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .authorized:
-                if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
-                    setupPreviewLayer(previewLayer)
-                } else {
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .unknownFailure)
-                }
-            case .notDetermined:
-                AVCaptureDevice.requestAccess(for: .video) { granted in
-                    guard granted else {
-                        self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
-                        return
-                    }
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
-                    if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
-                        self.setupPreviewLayer(previewLayer)
-                    }
-                }
-            case .denied:
-                self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
-            case .restricted:
-                self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
-            @unknown default:
-                self.setCameraStatusLabelBasedOn(cameraStatus: .unknownFailure)
+            updateViewLabelBasedOn(cameraStatus: cameraStatus)
+            if let previewLayer = previewLayer {
+                updatePreviewLayer(previewLayer)
             }
         }
         
-        private func setCameraStatusLabelBasedOn(cameraStatus: CameraStatus) {
+        func updatePreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
+            previewLayer.frame = cameraView.bounds
+            cameraView.layer.addSublayer(previewLayer)
+        }
+        
+        private func updateViewLabelBasedOn(cameraStatus: CameraStatus) {
             mainAsync(execute: {
                 self.statusLabel.layer.opacity = 1
                 switch cameraStatus {
@@ -160,12 +138,15 @@ extension MainViews {
                 case .loading:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.checking
                 case .allowed:
-                    self.statusLabel.layer.opacity = 0
                     self.statusLabel.text = ""
+                    self.statusLabel.layer.opacity = 0
+                    self.resultView.layer.opacity = 1
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed
+                    self.openSettingsButton.layer.opacity = 1
                 case .unknownFailure:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.unknownFailure
+                    self.openSettingsButton.layer.opacity = 1
                 }
             })
         }

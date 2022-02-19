@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainPresentationLogic {
-    func presentLoadGreeting(_ response: Main.LoadGreeting.Response)
+    func presentRequestCameraAuthorization(_ response: Main.RequestCameraAuthorization.Response)
 }
 
 protocol MainPresenter: MainPresentationLogic {
@@ -14,20 +14,12 @@ class DefaultMainPresenter: MainPresenter {
 
 // MARK: - Presentation Logic
 extension DefaultMainPresenter {
-    // MARK: - Load Greeting
-    func presentLoadGreeting(_ response: Main.LoadGreeting.Response) {
-        let viewModel: Main.LoadGreeting.ViewModel
-        if let error = response.error {
-            viewModel = .error(error)
-        } else if response.isLoading {
-            viewModel = .loading
-        } else if let name = response.name {
-            viewModel = .greeting("Hello \(name)!")
-        } else {
-            viewModel = .error(NSError(domain: "", code: 0))
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.displayLogic.displayLoadGreeting(viewModel)
-        }
+    // MARK: - Load Request Camera Authorization
+    func presentRequestCameraAuthorization(_ response: Main.RequestCameraAuthorization.Response) {
+        let viewModel: Main.RequestCameraAuthorization.ViewModel
+        viewModel = .status(response.cameraStatus, response.previewLayer)
+        mainAsync(execute: { [weak self] in
+            self?.displayLogic.displayRequestCameraAuthorization(viewModel)
+        })
     }
 }

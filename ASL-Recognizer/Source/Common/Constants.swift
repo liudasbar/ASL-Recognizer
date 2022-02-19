@@ -1,6 +1,6 @@
 import Foundation
 
 enum Constants {
-    /// 6
-    static var additionalContentPadding = 6
+    /// 0.3
+    static var defaultAnimationDuration = 0.3
 }

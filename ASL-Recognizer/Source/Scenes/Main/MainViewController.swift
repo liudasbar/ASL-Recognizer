@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainDisplayLogic: AnyObject {
-    func displayLoadGreeting(_ viewModel: Main.LoadGreeting.ViewModel)
+    func displayRequestCameraAuthorization(_ viewModel: Main.RequestCameraAuthorization.ViewModel)
 }
 
 class MainViewController: UIViewController {
@@ -26,13 +26,13 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         rootView.setupCamera()
+        interactor.requestCameraAuthorization()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupActions()
-        loadGreating()
     }
 
     // MARK: - Setup
@@ -48,15 +48,12 @@ class MainViewController: UIViewController {
     }
     
     private func setupActions() {
-        rootView.setupStartButtonHandler { [weak self] in self?.start() }
+        rootView.setupOpenSettingsActionHandler { [weak self] in
+            self?.openAppSettings()
+        }
     }
     
     // MARK: - Actions
-    private func loadGreating() {
-        let request = Main.LoadGreeting.Request(parameter: false)
-        interactor.loadGreeting(request)
-    }
-    
     private func start() {
         router.routeToSomewhere()
     }
@@ -69,18 +66,11 @@ class MainViewController: UIViewController {
 
 // MARK: - Display Logic
 extension MainViewController: MainDisplayLogic {
-    // MARK: - Load Greating
-    func displayLoadGreeting(_ viewModel: Main.LoadGreeting.ViewModel) {
+    // MARK: - Load Camera Authorization Status and Preview Layer
+    func displayRequestCameraAuthorization(_ viewModel: Main.RequestCameraAuthorization.ViewModel) {
         switch viewModel {
-        case .loading:
-            // TODO: Show loading indicator
-            ()
-        case let .error(error):
-            // TODO: Hide loading indicator
-            ()
-        case .greeting:
-            // TODO: Hide loading indicator
-            rootView.populate(viewModel)
+        case .status:
+            rootView.updateViewBasedOnCameraAuthorizationStatus(viewModel)
         }
     }
 }

@@ -42,6 +42,7 @@
 		C93795D927C1794200B737DD /* AVCaptureFailureReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795D827C1794200B737DD /* AVCaptureFailureReason.swift */; };
 		C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DD27C1973500B737DD /* MainViews+ResultView.swift */; };
 		C93795E027C1974C00B737DD /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DF27C1974C00B737DD /* AVCapture.swift */; };
+		C93795E327C1A26300B737DD /* ASLHandPoseClassifier16_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C93795E227C1A26300B737DD /* ASLHandPoseClassifier16_2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		C93795D827C1794200B737DD /* AVCaptureFailureReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureFailureReason.swift; sourceTree = "<group>"; };
 		C93795DD27C1973500B737DD /* MainViews+ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+ResultView.swift"; sourceTree = "<group>"; };
 		C93795DF27C1974C00B737DD /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
+		C93795E227C1A26300B737DD /* ASLHandPoseClassifier16_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLHandPoseClassifier16_2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		C937959227C1591600B737DD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C93795E127C1A24600B737DD /* MLModels */,
 				C93795CC27C168E200B737DD /* Theme */,
 				C937959427C1594600B737DD /* DependencyInjection */,
 				C937959627C1595700B737DD /* Common */,
@@ -293,6 +296,14 @@
 				C93795D827C1794200B737DD /* AVCaptureFailureReason.swift */,
 			);
 			path = Entries;
+			sourceTree = "<group>";
+		};
+		C93795E127C1A24600B737DD /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				C93795E227C1A26300B737DD /* ASLHandPoseClassifier16_2.mlmodel */,
+			);
+			path = MLModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,6 +465,7 @@
 				C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */,
 				C93795D027C1690A00B737DD /* ThemeColors.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
+				C93795E327C1A26300B737DD /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,
 				C93795AD27C15D9600B737DD /* MainViewController.swift in Sources */,
 				C93795D727C1775600B737DD /* CameraStatus.swift in Sources */,
