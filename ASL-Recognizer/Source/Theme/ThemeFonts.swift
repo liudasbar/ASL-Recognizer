@@ -7,14 +7,14 @@ public protocol ThemeFonts {
     /// Avenir, Medium, 18
     static var medium: UIFont { get }
     
-    /// Avenir, Medium, 22
-    static var mediumStatusLabel: UIFont { get }
+    /// Avenir, Medium, 24
+    static var resultLabel: UIFont { get }
 }
 
 public enum ThemeFont {
     case regular
     case medium
-    case mediumStatusLabel
+    case resultLabel
     
     public var uiFont: UIFont {
         switch self {
@@ -22,8 +22,8 @@ public enum ThemeFont {
             return DefaultThemeFonts.regular
         case .medium:
             return DefaultThemeFonts.medium
-        case .mediumStatusLabel:
-            return DefaultThemeFonts.mediumStatusLabel
+        case .resultLabel:
+            return DefaultThemeFonts.resultLabel
         }
     }
 }

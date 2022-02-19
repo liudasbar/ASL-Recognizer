@@ -22,5 +22,5 @@ public struct DefaultThemeColors: ThemeColors {
 public struct DefaultThemeFonts: ThemeFonts {
     public static let regular: UIFont = UIFont(name: "Avenir-Regular", size: 18) ?? .systemFont(ofSize: 18)
     public static let medium: UIFont = UIFont(name: "Avenir-Medium", size: 18) ?? .systemFont(ofSize: 18)
-    public static let mediumStatusLabel: UIFont = UIFont(name: "Avenir-Regular", size: 20) ?? .systemFont(ofSize: 20)
+    public static let resultLabel: UIFont = UIFont(name: "Avenir-Medium", size: 24) ?? .systemFont(ofSize: 24)
 }
