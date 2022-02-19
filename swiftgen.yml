@@ -1,0 +1,11 @@
+strings:
+  inputs: ASL-Recognizer/Resources/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: ASL-Recognizer/Resources/Generated/Strings.swift
+xcassets:
+  inputs:
+    - ASL-Recognizer/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: ASL-Recognizer/Resources/Generated/Assets.swift

@@ -1,0 +1,20 @@
+"Common.Button.continue" = "Continue";
+"Common.Button.start" = "Start";
+"Common.Button.back" = "Back";
+"Common.Button.okay" = "Okay";
+"Common.Button.cancel" = "Cancel";
+"Common.Button.close" = "Close";
+"Common.Button.reset" = "Reset";
+"Common.Button.help" = "Help";
+"Common.Button.next" = "Next";
+"Common.Button.confirm" = "Confirm";
+
+"Common.yes" = "Yes";
+"Common.no" = "No";
+"Common.dash" = "-";
+
+"Main.Status.CameraStatus.checking" = "Checking camera status...";
+"Main.Status.CameraStatus.shouldRequest" = "Please grant camera access for ASL signs recognition";
+"Main.Status.CameraStatus.notAllowed" = "Camera access is not allowed";
+"Main.Status.CameraStatus.unknownFailure" = "Camera is not available";
+"Main.Button.Settings.open" = "Open Settings";
