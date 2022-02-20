@@ -24,11 +24,6 @@ class DefaultMainInteractor: MainInteractor {
 extension DefaultMainInteractor {
     // MARK: - Request Camera Authorization
     func requestCameraAuthorization() {
-        presenter.presentRequestCameraAuthorization(
-            Main.RequestCameraAuthorization.Response(
-                cameraStatus: worker.requestCameraAuthorization().0,
-                previewLayer: worker.requestCameraAuthorization().1
-            )
-        )
+        
     }
 }

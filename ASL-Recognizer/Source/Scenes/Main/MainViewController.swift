@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         rootView.setupCamera()
-        interactor.requestCameraAuthorization()
+//        interactor.requestCameraAuthorization()
     }
     
     override func viewDidLoad() {
@@ -70,7 +70,8 @@ extension MainViewController: MainDisplayLogic {
     func displayRequestCameraAuthorization(_ viewModel: Main.RequestCameraAuthorization.ViewModel) {
         switch viewModel {
         case .status:
-            rootView.updateViewBasedOnCameraAuthorizationStatus(viewModel)
+            ()
+//            rootView.updateViewBasedOnCameraAuthorizationStatus(viewModel)
         }
     }
 }

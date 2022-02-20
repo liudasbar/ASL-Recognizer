@@ -35,6 +35,8 @@ extension MainViews {
         }()
         
         // MARK: - Variables
+        private let avCapture: AVCapture = AVCapture()
+        
         private var openSettingsActionHandler: (() -> Void)?
 
         // MARK: - Life Cycle
@@ -58,6 +60,7 @@ extension MainViews {
         func setupCamera() {
             setupCameraView()
             cameraView.layoutIfNeeded()
+            requestCameraAuthorization()
             sendSubviewToBack(cameraView)
         }
         
@@ -70,6 +73,11 @@ extension MainViews {
                 cameraView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 cameraView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
+        }
+        
+        func setupPreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
+            previewLayer.frame = cameraView.bounds
+            cameraView.layer.addSublayer(previewLayer)
         }
         
         private func setupStatusLabel() {
@@ -113,23 +121,36 @@ extension MainViews {
             openSettingsActionHandler?()
         }
         
-        // MARK: - Update View Based on Camera Authorization and Output
-        func updateViewBasedOnCameraAuthorizationStatus(_ viewModel: Main.RequestCameraAuthorization.ViewModel) {
-            guard case let .status(cameraStatus, previewLayer) = viewModel else {
-                return
-            }
-            updateViewLabelBasedOn(cameraStatus: cameraStatus)
-            if let previewLayer = previewLayer {
-                updatePreviewLayer(previewLayer)
+        public func requestCameraAuthorization() {
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized:
+                if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
+                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
+                    setupPreviewLayer(previewLayer)
+                } else {
+                    self.setCameraStatusLabelBasedOn(cameraStatus: .unknownFailure)
+                }
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    guard granted else {
+                        self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
+                        return
+                    }
+                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
+                    if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
+                        self.setupPreviewLayer(previewLayer)
+                    }
+                }
+            case .denied:
+                self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
+            case .restricted:
+                self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
+            @unknown default:
+                self.setCameraStatusLabelBasedOn(cameraStatus: .unknownFailure)
             }
         }
         
-        func updatePreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
-            previewLayer.frame = cameraView.bounds
-            cameraView.layer.addSublayer(previewLayer)
-        }
-        
-        private func updateViewLabelBasedOn(cameraStatus: CameraStatus) {
+        private func setCameraStatusLabelBasedOn(cameraStatus: CameraStatus) {
             mainAsync(execute: {
                 self.statusLabel.layer.opacity = 1
                 switch cameraStatus {

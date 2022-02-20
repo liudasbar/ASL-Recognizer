@@ -1,26 +1,34 @@
 import UIKit
 import AVFoundation
+import Vision
 
 class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     private let session = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
+    var deviceInput: AVCaptureDeviceInput!
+    let videoDataOutput = AVCaptureVideoDataOutput()
+    var bufferSize: CGSize = .zero
+    let videoDataOutputQueue = DispatchQueue(
+        label: "VideoDataOutput",
+        qos: .userInitiated,
+        attributes: [],
+        autoreleaseFrequency: .workItem
+    )
+    let videoDevice = AVCaptureDevice.DiscoverySession(
+        deviceTypes: [.builtInWideAngleCamera],
+        mediaType: .video,
+        position: .back
+    ).devices.first
+    private let handPoseRequest: VNDetectHumanHandPoseRequest = {
+      // 1
+      let request = VNDetectHumanHandPoseRequest()
+      
+      // 2
+      request.maximumHandCount = 2
+      return request
+    }()
     
     private func setupAVCapture(completion: @escaping (AVCaptureFailureReason?) -> Void) {
-        var deviceInput: AVCaptureDeviceInput
-        let videoDataOutput = AVCaptureVideoDataOutput()
-        var bufferSize: CGSize = .zero
-        let videoDataOutputQueue = DispatchQueue(
-            label: "VideoDataOutput",
-            qos: .userInitiated,
-            attributes: [],
-            autoreleaseFrequency: .workItem
-        )
-        let videoDevice = AVCaptureDevice.DiscoverySession(
-            deviceTypes: [.builtInWideAngleCamera],
-            mediaType: .video,
-            position: .back
-        ).devices.first
-        
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
         } catch {
@@ -112,7 +120,18 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 //
 //            // executes request
 //            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+        
+        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
+        do {
+            try handler.perform([handPoseRequest])
+            guard let results = handPoseRequest.results?.prefix(2), !results.isEmpty else {
+                return
+            }
+            print(results)
+        } catch {
+            stopAVCapture()
         }
+    }
     
     public func createAVSessionPreviewLayer() -> AVCaptureVideoPreviewLayer? {
         setupAVCapture(completion: { error in
