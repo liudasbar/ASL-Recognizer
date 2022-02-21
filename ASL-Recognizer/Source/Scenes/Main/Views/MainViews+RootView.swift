@@ -35,9 +35,12 @@ extension MainViews {
         }()
         
         // MARK: - Variables
-        private let avCapture: AVCapture = AVCapture()
+        private lazy var avCapture: AVCapture = AVCapture { [weak self] sampleBuffer in
+            self?.sampleBufferOutputHandler?(sampleBuffer)
+        }
         
         private var openSettingsActionHandler: (() -> Void)?
+        private var sampleBufferOutputHandler: ((CMSampleBuffer) -> Void)?
 
         // MARK: - Life Cycle
         init() {
@@ -50,6 +53,14 @@ extension MainViews {
         }
         
         // MARK: - Setup
+        func setupOpenSettingsActionHandler(_ handler: @escaping () -> Void) {
+            openSettingsActionHandler = handler
+        }
+        
+        func setupSampleBufferOutputHandler(_ handler: @escaping (CMSampleBuffer) -> Void) {
+            sampleBufferOutputHandler = handler
+        }
+        
         private func setupViews() {
             backgroundColor = activeTheme.colors.text
             setupStatusLabel()
@@ -110,10 +121,6 @@ extension MainViews {
                 openSettingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
                 openSettingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             ])
-        }
-        
-        func setupOpenSettingsActionHandler(_ handler: @escaping () -> Void) {
-            openSettingsActionHandler = handler
         }
 
         // MARK: - Actions

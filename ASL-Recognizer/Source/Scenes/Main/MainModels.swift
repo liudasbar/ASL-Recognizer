@@ -2,19 +2,15 @@ import UIKit
 import AVFoundation
 
 enum Main {
-    struct LoadGreeting {
+    struct LoadResult {
         struct Request {
-            let parameter: Bool
+            let sampleBuffer: CMSampleBuffer
         }
         struct Response {
-            let isLoading: Bool
-            let error: Error?
-            let name: String?
+            let resultValue: String
         }
         enum ViewModel {
-            case error(Error)
-            case loading
-            case greeting(String)
+            case result(_ resultValue: String)
         }
     }
     

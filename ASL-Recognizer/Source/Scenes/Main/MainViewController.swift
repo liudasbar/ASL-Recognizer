@@ -51,6 +51,10 @@ class MainViewController: UIViewController {
         rootView.setupOpenSettingsActionHandler { [weak self] in
             self?.openAppSettings()
         }
+        
+        rootView.setupSampleBufferOutputHandler { [weak self] sampleBuffer in
+            self?.interactor.loadResult(Main.LoadResult.Request(sampleBuffer: sampleBuffer))
+        }
     }
     
     // MARK: - Actions

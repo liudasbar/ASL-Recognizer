@@ -43,6 +43,7 @@
 		C93795D927C1794200B737DD /* AVCaptureFailureReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795D827C1794200B737DD /* AVCaptureFailureReason.swift */; };
 		C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DD27C1973500B737DD /* MainViews+ResultView.swift */; };
 		C93795E027C1974C00B737DD /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DF27C1974C00B737DD /* AVCapture.swift */; };
+		C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		C93795D827C1794200B737DD /* AVCaptureFailureReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureFailureReason.swift; sourceTree = "<group>"; };
 		C93795DD27C1973500B737DD /* MainViews+ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+ResultView.swift"; sourceTree = "<group>"; };
 		C93795DF27C1974C00B737DD /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
+		C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Shorthands.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				C93795C427C1665B00B737DD /* PreviewContainer.swift */,
 				C93795D327C1697100B737DD /* UIColor+Extensions.swift */,
 				C93795DF27C1974C00B737DD /* AVCapture.swift */,
+				C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				C93795BB27C1659700B737DD /* Assets.swift in Sources */,
 				C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */,
 				C93795D027C1690A00B737DD /* ThemeColors.swift in Sources */,
+				C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
 				C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,

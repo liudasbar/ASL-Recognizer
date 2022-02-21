@@ -20,7 +20,11 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         mediaType: .video,
         position: .back
     ).devices.first
+    var captureOutputHandler: ((CMSampleBuffer) -> Void)?
     
+    init(_ captureOutputHandler: @escaping (CMSampleBuffer) -> Void) {
+        self.captureOutputHandler = captureOutputHandler
+    }
     private func setupAVCapture(completion: @escaping (AVCaptureFailureReason?) -> Void) {
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
@@ -106,34 +110,6 @@ extension AVCapture {
 
 extension AVCapture {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        let model = ASLHandPoseClassifier16_2()
-        let multiarray: MLMultiArray
-        
-        let handPoseRequest: VNDetectHumanHandPoseRequest = {
-            let request = VNDetectHumanHandPoseRequest()
-            request.maximumHandCount = 1
-            return request
-        }()
-        
-        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .right, options: [:])
-        do {
-            try handler.perform([handPoseRequest])
-            guard let observation = handPoseRequest.results?.first else {
-                return
-            }
-            
-            multiarray = try observation.keypointsMultiArray()
-            let result = try? model.prediction(poses: multiarray)
-            
-            guard observation.confidence > 0.9 else {
-                return
-            }
-            
-            print(result!.label.uppercased())
-            
-        } catch {
-            print(error)
-        }
+        captureOutputHandler?(sampleBuffer)
     }
 }

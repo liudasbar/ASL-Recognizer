@@ -2,7 +2,7 @@ import Foundation
 
 enum CustomError: Error {
     case generic
-    case genericWith(_ localizedDescription: Error)
+    case genericWith(_ error: Error)
  }
 
 extension CustomError: LocalizedError {
@@ -12,8 +12,6 @@ extension CustomError: LocalizedError {
             return "Generic"
         case .genericWith(let error):
             return error.localizedDescription
-        default:
-            return "Unknown: \(self.localizedDescription)"
         }
     }
 }

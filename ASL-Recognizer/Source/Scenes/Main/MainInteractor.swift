@@ -3,7 +3,7 @@ import Foundation
 import AVFoundation
 
 protocol MainBusinessLogic {
-    func requestCameraAuthorization()
+    func loadResult(_ request: Main.LoadResult.Request)
 }
 
 protocol MainInteractor: MainBusinessLogic {
@@ -22,8 +22,19 @@ class DefaultMainInteractor: MainInteractor {
 }
 
 extension DefaultMainInteractor {
-    // MARK: - Request Camera Authorization
-    func requestCameraAuthorization() {
-        
+    // MARK: - Load Recognition Result
+    func loadResult(_ request: Main.LoadResult.Request) {
+        worker.loadResult(sampleBuffer: request.sampleBuffer)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    ()
+                case let .failure(error):
+                    ()
+                }
+            }, receiveValue: { resultValue in
+//                presenter.
+            })
+            .store(in: &cancelBag)
     }
 }
