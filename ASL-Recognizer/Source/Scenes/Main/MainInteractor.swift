@@ -30,9 +30,10 @@ extension DefaultMainInteractor {
                 case .finished:
                     ()
                 case let .failure(error):
-                    ()
+                    print(error)
                 }
             }, receiveValue: { resultValue in
+                print(resultValue)
 //                presenter.
             })
             .store(in: &cancelBag)

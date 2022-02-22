@@ -34,7 +34,7 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         }
 
         session.beginConfiguration()
-        session.sessionPreset = .vga640x480
+        session.sessionPreset = .high
         
         guard session.canAddInput(deviceInput) else {
             completion(.couldNotAddVideoDeviceInputToSession)
@@ -81,7 +81,7 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput,
                        didDrop didDropSampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
-        print("frame dropped")
+//        print("frame dropped")
     }
 }
 

@@ -20,33 +20,60 @@ class DefaultMainWorker: MainWorker {
     private let confidence: VNConfidence = 0.9
     private let orientatation: CGImagePropertyOrientation = .right
     
-    func loadResult(sampleBuffer: CMSampleBuffer) -> AnyPublisher<String, CustomError> {
-        
-        imageRequestHandler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: orientatation, options: [:])
-        
+    let outputResult = PassthroughSubject<CMSampleBuffer, CustomError>()
+    var cancelBag = Set<AnyCancellable>()
+    
+    init() {
         do {
             model = try ASLHandPoseClassifier16_2(configuration: .init())
-            try imageRequestHandler!.perform([handPoseRequest])
-            guard let observation = handPoseRequest.results?.first else {
-                // No hand pose results
-                return .empty()
-            }
-            multiarray = try observation.keypointsMultiArray()
-            result = try model?.prediction(poses: multiarray)
-            
-            guard observation.confidence > confidence else {
-                return .empty()
-            }
         } catch {
             print(error.localizedDescription)
-            return .fail(.genericWith(error))
         }
-        
-        if let result = result?.label {
-            print(result.uppercased()) // TODO: Remove
-            return .just(result.uppercased())
-        } else {
-            return .empty()
-        }
+        initializeResultOutput()
+    }
+    
+    func loadResult(sampleBuffer: CMSampleBuffer) -> AnyPublisher<String, CustomError> {
+        outputResult.send(sampleBuffer)
+        return .empty()
+    }
+    
+    func initializeResultOutput() {
+        outputResult
+            .throttle(for: .seconds(1), scheduler: DispatchQueue.main, latest: true)
+            .flatMap({ [self] sampleBuffer -> AnyPublisher<String, CustomError> in
+                
+                self.imageRequestHandler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .right, options: [:])
+                do {
+                    try imageRequestHandler!.perform([handPoseRequest])
+                    guard let observation = handPoseRequest.results?.first else {
+                        // No hand pose results
+                        return .empty()
+                    }
+                    multiarray = try observation.keypointsMultiArray()
+                    result = try model?.prediction(poses: multiarray)
+
+                    guard observation.confidence > confidence else {
+                        return .empty()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                    return .fail(.genericWith(error))
+                }
+
+                if let result = result?.label {
+                    return .just(result.uppercased())
+                } else {
+                    return .empty()
+                }
+            })
+            .sink(
+                receiveCompletion: { completion in
+                    print(completion)
+                },
+                receiveValue: { [weak self] resultValue in
+                    print(resultValue)
+                }
+            )
+            .store(in: &cancelBag)
     }
 }
