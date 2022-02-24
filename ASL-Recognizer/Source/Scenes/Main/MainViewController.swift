@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainDisplayLogic: AnyObject {
-    func displayRequestCameraAuthorization(_ viewModel: Main.RequestCameraAuthorization.ViewModel)
+    func displayLoadRecognitionResult(_ viewModel: Main.LoadRecognitionResult.ViewModel)
 }
 
 class MainViewController: UIViewController {
@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     // MARK: - Variables
     private let interactor: MainInteractor
     private let router: MainRouter
+    private var shouldDetect: Bool = false
 
     // MARK: - Life Cycle
     init(interactor: MainInteractor, router: MainRouter) {
@@ -26,7 +27,6 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         rootView.setupCamera()
-//        interactor.requestCameraAuthorization()
     }
     
     override func viewDidLoad() {
@@ -53,7 +53,15 @@ class MainViewController: UIViewController {
         }
         
         rootView.setupSampleBufferOutputHandler { [weak self] sampleBuffer in
-            self?.interactor.loadResult(Main.LoadResult.Request(sampleBuffer: sampleBuffer))
+            guard self?.shouldDetect ?? false else {
+                return
+            }
+            self?.interactor.loadResult(Main.LoadRecognitionResult.Request(sampleBuffer: sampleBuffer))
+            self?.shouldDetect = false
+        }
+        
+        rootView.detectStatusView.setupDetectActionHandler { [weak self] in
+            self?.shouldDetect = true
         }
     }
     
@@ -71,11 +79,12 @@ class MainViewController: UIViewController {
 // MARK: - Display Logic
 extension MainViewController: MainDisplayLogic {
     // MARK: - Load Camera Authorization Status and Preview Layer
-    func displayRequestCameraAuthorization(_ viewModel: Main.RequestCameraAuthorization.ViewModel) {
+    func displayLoadRecognitionResult(_ viewModel: Main.LoadRecognitionResult.ViewModel) {
         switch viewModel {
-        case .status:
-            ()
-//            rootView.updateViewBasedOnCameraAuthorizationStatus(viewModel)
+        case let .result(resultValue, confidence):
+            rootView.resultView.updateResult(resultValue: resultValue, confidence: confidence)
+        case let .error(error):
+            print("ERROR: \(error)")
         }
     }
 }

@@ -7,6 +7,7 @@ extension MainViews {
         private lazy var cameraView: UIView = {
             return makeDefaultView(config: Config(backgroundColor: activeTheme.colors.text))
         }()
+        
         private lazy var statusLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
                 title: "",
@@ -16,6 +17,7 @@ extension MainViews {
             ))
             return label
         }()
+        
         private lazy var openSettingsButton: UIButton = {
             let button = UIButton()
             button.setTitle(L10n.Main.Button.Settings.open, for: .normal)
@@ -26,7 +28,16 @@ extension MainViews {
             button.layer.opacity = 0
             return button
         }()
-        private lazy var resultView: ResultView = {
+        
+        lazy var detectStatusView: DetectStatusView = {
+            let view = DetectStatusView()
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 12
+            view.layer.opacity = 0
+            return view
+        }()
+        
+        lazy var resultView: ResultView = {
             let view = ResultView()
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 12
@@ -65,6 +76,7 @@ extension MainViews {
             backgroundColor = activeTheme.colors.text
             setupStatusLabel()
             setupResultView()
+            setupDetectStatusView()
             setupOpenSettingsButton()
         }
         
@@ -109,6 +121,17 @@ extension MainViews {
                 resultView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
                 resultView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
                 resultView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            ])
+        }
+        
+        private func setupDetectStatusView() {
+            addSubview(detectStatusView)
+            detectStatusView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                detectStatusView.bottomAnchor.constraint(equalTo: resultView.topAnchor, constant: -20),
+                detectStatusView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+                detectStatusView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                detectStatusView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
             ])
         }
         
@@ -168,6 +191,7 @@ extension MainViews {
                 case .allowed:
                     self.statusLabel.text = ""
                     self.statusLabel.layer.opacity = 0
+                    self.detectStatusView.layer.opacity = 1
                     self.resultView.layer.opacity = 1
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed

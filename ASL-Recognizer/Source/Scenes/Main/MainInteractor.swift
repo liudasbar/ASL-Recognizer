@@ -3,7 +3,7 @@ import Foundation
 import AVFoundation
 
 protocol MainBusinessLogic {
-    func loadResult(_ request: Main.LoadResult.Request)
+    func loadResult(_ request: Main.LoadRecognitionResult.Request)
 }
 
 protocol MainInteractor: MainBusinessLogic {
@@ -23,19 +23,10 @@ class DefaultMainInteractor: MainInteractor {
 
 extension DefaultMainInteractor {
     // MARK: - Load Recognition Result
-    func loadResult(_ request: Main.LoadResult.Request) {
+    func loadResult(_ request: Main.LoadRecognitionResult.Request) {
         worker.loadResult(sampleBuffer: request.sampleBuffer)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    ()
-                case let .failure(error):
-                    print(error)
-                }
-            }, receiveValue: { resultValue in
-                print(resultValue)
-//                presenter.
-            })
-            .store(in: &cancelBag)
+        worker.setupResultHandler { [weak self] value, confidence, error in
+            self?.presenter.presentLoadRecognitionResult(Main.LoadRecognitionResult.Response(resultValue: value, confidence: confidence, error: error))
+        }
     }
 }

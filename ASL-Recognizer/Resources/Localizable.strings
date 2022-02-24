@@ -18,3 +18,6 @@
 "Main.Status.CameraStatus.notAllowed" = "Camera access is not allowed";
 "Main.Status.CameraStatus.unknownFailure" = "Camera is not available";
 "Main.Button.Settings.open" = "Open Settings";
+
+"Main.Button.startDetection" = "Detect Hand Pose";
+"Main.Button.detecting" = "Detecting...";

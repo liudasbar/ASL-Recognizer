@@ -13,27 +13,36 @@ extension MainViews {
             view.addSubview(blurEffectView)
             return view
         }()
+        
         private lazy var resultLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
-                title: "HELLO HOW ARE YOU MOMMY HELLO HOW ARE YOU MOMMY",
+                title: "",
                 textColor: activeTheme.colors.blank,
                 textAlignment: .center,
                 font: activeTheme.fonts.resultLabel
             ))
             return label
         }()
+        
+        private lazy var backspaceResultButton: UIButton = {
+            let button = UIButton()
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "delete.backward", withConfiguration: imageConfig)
+            button.setImage(image, for: .normal)
+            button.tintColor = activeTheme.colors.blank
+            button.addTarget(self, action: #selector(backspaceResultAction), for: .touchUpInside)
+            return button
+        }()
+        
         private lazy var clearResultButton: UIButton = {
             let button = UIButton()
-            let imageConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .default)
-            let image = UIImage(systemName: "delete.backward", withConfiguration: imageConfig)
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "xmark.square", withConfiguration: imageConfig)
             button.setImage(image, for: .normal)
             button.tintColor = activeTheme.colors.blank
             button.addTarget(self, action: #selector(clearResultAction), for: .touchUpInside)
             return button
         }()
-        
-        // MARK: - Variables
-        private var clearResultButtonHandler: (() -> Void)?
 
         // MARK: - Life Cycle
         init() {
@@ -50,6 +59,7 @@ extension MainViews {
             backgroundColor = .clear
             setupBackgroundView()
             setupClearResultButton()
+            setupBackspaceResultButton()
             setupResultLabel()
         }
         
@@ -75,6 +85,17 @@ extension MainViews {
             ])
         }
         
+        private func setupBackspaceResultButton() {
+            addSubview(backspaceResultButton)
+            backspaceResultButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                backspaceResultButton.topAnchor.constraint(equalTo: self.topAnchor),
+                backspaceResultButton.widthAnchor.constraint(equalToConstant: 40),
+                backspaceResultButton.trailingAnchor.constraint(equalTo: clearResultButton.leadingAnchor),
+                backspaceResultButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
+        }
+        
         private func setupResultLabel() {
             addSubview(resultLabel)
             resultLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,14 +107,20 @@ extension MainViews {
             ])
         }
         
-        func setupClearResultButtonHandler(_ handler: @escaping () -> Void) {
-            clearResultButtonHandler = handler
+        // MARK: - Actions
+        @objc private func backspaceResultAction() {
+            guard !(resultLabel.text?.isEmpty ?? true) else {
+                return
+            }
+            resultLabel.text?.removeLast()
         }
         
-        // MARK: - Actions
         @objc private func clearResultAction() {
             resultLabel.text?.removeAll()
-            clearResultButtonHandler?()
+        }
+        
+        func updateResult(resultValue: String, confidence: Float) {
+            resultLabel.text?.append(resultValue)
         }
     }
 }

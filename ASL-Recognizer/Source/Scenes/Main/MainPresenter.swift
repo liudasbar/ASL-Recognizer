@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainPresentationLogic {
-    func presentRequestCameraAuthorization(_ response: Main.RequestCameraAuthorization.Response)
+    func presentLoadRecognitionResult(_ response: Main.LoadRecognitionResult.Response)
 }
 
 protocol MainPresenter: MainPresentationLogic {
@@ -14,12 +14,16 @@ class DefaultMainPresenter: MainPresenter {
 
 // MARK: - Presentation Logic
 extension DefaultMainPresenter {
-    // MARK: - Load Request Camera Authorization
-    func presentRequestCameraAuthorization(_ response: Main.RequestCameraAuthorization.Response) {
-        let viewModel: Main.RequestCameraAuthorization.ViewModel
-        viewModel = .status(response.cameraStatus, response.previewLayer)
-        mainAsync(execute: { [weak self] in
-            self?.displayLogic.displayRequestCameraAuthorization(viewModel)
-        })
+    // MARK: - Load Recognition Result
+    func presentLoadRecognitionResult(_ response: Main.LoadRecognitionResult.Response) {
+        let viewModel: Main.LoadRecognitionResult.ViewModel
+        if let error = response.error {
+            viewModel = .error(error)
+        } else {
+            viewModel = .result(resultValue: response.resultValue, confidence: response.confidence)
+        }
+        mainAsync { [weak self] in
+            self?.displayLogic.displayLoadRecognitionResult(viewModel)
+        }
     }
 }
