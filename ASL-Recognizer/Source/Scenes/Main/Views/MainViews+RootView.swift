@@ -5,7 +5,9 @@ extension MainViews {
     class RootView: UIView {
         // MARK: - Views
         private lazy var cameraView: UIView = {
-            return makeDefaultView(config: Config(backgroundColor: activeTheme.colors.text))
+            let view = makeDefaultView(config: Config(backgroundColor: activeTheme.colors.text))
+            view.layer.opacity = 0
+            return view
         }()
         
         private lazy var statusLabel: UILabel = {
@@ -102,6 +104,9 @@ extension MainViews {
             cameraView.layoutIfNeeded()
             requestCameraAuthorization()
             sendSubviewToBack(cameraView)
+            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                self.cameraView.layer.opacity = 1
+            }
         }
         
         private func setupCameraView() {
@@ -254,6 +259,18 @@ extension MainViews {
                 }
             })
             alertView.updateAlertView(image: image, title: title)
+        }
+        
+        func stopCameraCapture() {
+            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                
+            }
+            
+            UIView.animate(withDuration: Constants.defaultAnimationDuration, delay: 0, options: [], animations: {
+                self.cameraView.layer.opacity = 0
+            }, completion: { _ in
+                self.avCapture.stopAVCapture()
+            })
         }
     }
 }

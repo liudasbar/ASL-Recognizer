@@ -94,11 +94,11 @@ extension AVCapture {
             }
         })
         setupCaptureVideoPreviewLayer()
-        startCaptureSession()
+        startAVCapture()
         return previewLayer
     }
     
-    public func startCaptureSession() {
+    public func startAVCapture() {
         session.startRunning()
     }
     

@@ -80,6 +80,7 @@ class MainViewController: UIViewController {
     }
     
     private func openHandPoses() {
+        rootView.stopCameraCapture()
         router.routeToHandPoses()
     }
 }
