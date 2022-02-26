@@ -13,6 +13,10 @@
 "Common.no" = "No";
 "Common.dash" = "-";
 
+"Alert.generic" = "Error";
+"Alert.genericWithError" = "Error with reason: %@";
+"Alert.noHandPoseDetected" = "No hand pose detected";
+
 "Main.Status.CameraStatus.checking" = "Checking camera status...";
 "Main.Status.CameraStatus.shouldRequest" = "Please grant camera access for ASL signs recognition";
 "Main.Status.CameraStatus.notAllowed" = "Camera access is not allowed";

@@ -19,8 +19,10 @@ extension DefaultMainPresenter {
         let viewModel: Main.LoadRecognitionResult.ViewModel
         if let error = response.error {
             viewModel = .error(error)
+        } else if let resultValue = response.resultValue {
+            viewModel = .result(resultValue: resultValue, confidence: response.confidence ?? 0)
         } else {
-            viewModel = .result(resultValue: response.resultValue, confidence: response.confidence)
+            viewModel = .error(.generic)
         }
         mainAsync { [weak self] in
             self?.displayLogic.displayLoadRecognitionResult(viewModel)

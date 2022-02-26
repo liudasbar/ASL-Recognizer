@@ -44,6 +44,8 @@
 		C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DD27C1973500B737DD /* MainViews+ResultView.swift */; };
 		C93795E027C1974C00B737DD /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DF27C1974C00B737DD /* AVCapture.swift */; };
 		C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */; };
+		F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */; };
+		F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */; };
 		F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		C93795DD27C1973500B737DD /* MainViews+ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+ResultView.swift"; sourceTree = "<group>"; };
 		C93795DF27C1974C00B737DD /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
 		C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Shorthands.swift"; sourceTree = "<group>"; };
+		F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+AlertView.swift"; sourceTree = "<group>"; };
+		F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDefaultImageView.swift; sourceTree = "<group>"; };
 		F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+DetectStatusView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				C93795C627C1674A00B737DD /* MakeDefaultView.swift */,
+				F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */,
 				C93795CA27C1685900B737DD /* MakeDefaultLabel.swift */,
 				C93795C827C1683600B737DD /* MakeLottieAnimation.swift */,
 			);
@@ -272,6 +277,7 @@
 				C93795AB27C15D9600B737DD /* MainViews+RootView.swift */,
 				C93795DD27C1973500B737DD /* MainViews+ResultView.swift */,
 				F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */,
+				F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,7 +458,9 @@
 				C93795D927C1794200B737DD /* AVCaptureFailureReason.swift in Sources */,
 				C93795B427C15D9600B737DD /* MainViews+RootView.swift in Sources */,
 				C93795D427C1697100B737DD /* UIColor+Extensions.swift in Sources */,
+				F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */,
 				C93795BF27C165D400B737DD /* CustomError.swift in Sources */,
+				F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */,
 				F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */,
 				C93795CE27C168EC00B737DD /* DefaultTheme.swift in Sources */,
 				C937957E27C158A500B737DD /* AppDelegate.swift in Sources */,

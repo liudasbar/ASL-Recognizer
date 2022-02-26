@@ -5,8 +5,8 @@ import AVFoundation
 
 protocol MainWorker {
     func loadResult(sampleBuffer: CMSampleBuffer)
-    func setupResultHandler(_ handler: @escaping (_ value: String, _
-                                                  confidence: VNConfidence,
+    func setupResultHandler(_ handler: @escaping (_ value: String?, _
+                                                  confidence: VNConfidence?,
                                                   _ error: CustomError?) -> Void)
 }
 
@@ -27,22 +27,18 @@ class DefaultMainWorker: MainWorker {
     private let outputResult = PassthroughSubject<CMSampleBuffer, CustomError>()
     private var cancelBag = Set<AnyCancellable>()
     private var observationConfidence: VNConfidence = 0
-    private var resultHandler: ((_ value: String, _ confidence: VNConfidence, _ error: CustomError?) -> Void)?
+    private var resultHandler: ((_ value: String?, _ confidence: VNConfidence?, _ error: CustomError?) -> Void)?
     
     // MARK: - Setup
-    func setupResultHandler(_ handler: @escaping (_ value: String, _
-                                                  confidence: VNConfidence,
+    func setupResultHandler(_ handler: @escaping (_ value: String?, _
+                                                  confidence: VNConfidence?,
                                                   _ error: CustomError?) -> Void) {
         resultHandler = handler
     }
     
     // MARK: - Methods
     init() {
-        do {
-            model = try ASLHandPoseClassifier16_2(configuration: .init())
-        } catch {
-            print(error.localizedDescription)
-        }
+        model = try? ASLHandPoseClassifier16_2(configuration: .init())
         initializeResultOutput()
     }
     
@@ -52,7 +48,7 @@ class DefaultMainWorker: MainWorker {
     
     func initializeResultOutput() {
         outputResult
-            .flatMap({ [self] sampleBuffer -> AnyPublisher<String, CustomError> in
+            .flatMap({ [self] sampleBuffer -> AnyPublisher<String?, CustomError> in
                 self.imageRequestHandler = VNImageRequestHandler(
                     cmSampleBuffer: sampleBuffer,
                     orientation: .right,
@@ -62,7 +58,7 @@ class DefaultMainWorker: MainWorker {
                     try imageRequestHandler!.perform([handPoseRequest])
                     guard let observation = handPoseRequest.results?.first else {
                         // No hand pose results
-                        return .empty()
+                        return .fail(.foundNoHandPose)
                     }
                     multiarray = try observation.keypointsMultiArray()
                     result = try model?.prediction(poses: multiarray)
@@ -84,11 +80,19 @@ class DefaultMainWorker: MainWorker {
             })
             .throttle(for: .seconds(resultThrottleDuration), scheduler: DispatchQueue.main, latest: true)
             .sink(
-                receiveCompletion: { completion in
-                    print(completion)
+                receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        ()
+                    case let .failure(error):
+                        self?.resultHandler?(nil, nil, error)
+                        self?.initializeResultOutput()
+                    }
                 },
                 receiveValue: { [weak self] resultValue in
-                    self?.resultHandler?(resultValue, self?.confidence ?? 0, nil)
+                    if let resultValue = resultValue {
+                        self?.resultHandler?(resultValue, self?.confidence ?? 0, nil)
+                    }
                 }
             )
             .store(in: &cancelBag)

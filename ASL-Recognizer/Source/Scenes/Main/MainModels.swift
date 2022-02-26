@@ -8,8 +8,8 @@ enum Main {
             let sampleBuffer: CMSampleBuffer
         }
         struct Response {
-            let resultValue: String
-            let confidence: VNConfidence
+            let resultValue: String?
+            let confidence: VNConfidence?
             let error: CustomError?
         }
         enum ViewModel {

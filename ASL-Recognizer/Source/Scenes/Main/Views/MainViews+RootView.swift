@@ -45,6 +45,14 @@ extension MainViews {
             return view
         }()
         
+        lazy var alertView: AlertView = {
+            let view = AlertView()
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 12
+            view.layer.opacity = 0
+            return view
+        }()
+        
         // MARK: - Variables
         private lazy var avCapture: AVCapture = AVCapture { [weak self] sampleBuffer in
             self?.sampleBufferOutputHandler?(sampleBuffer)
@@ -77,6 +85,7 @@ extension MainViews {
             setupStatusLabel()
             setupResultView()
             setupDetectStatusView()
+            setupAlertView()
             setupOpenSettingsButton()
         }
         
@@ -117,7 +126,7 @@ extension MainViews {
             addSubview(resultView)
             resultView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                resultView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -60),
+                resultView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
                 resultView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
                 resultView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
                 resultView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
@@ -132,6 +141,17 @@ extension MainViews {
                 detectStatusView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
                 detectStatusView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
                 detectStatusView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
+            ])
+        }
+        
+        private func setupAlertView() {
+            addSubview(alertView)
+            alertView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                alertView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                alertView.centerYAnchor.constraint(equalTo: centerYAnchor),
+                alertView.widthAnchor.constraint(greaterThanOrEqualToConstant: 80),
+                alertView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100)
             ])
         }
         
@@ -201,6 +221,20 @@ extension MainViews {
                     self.openSettingsButton.layer.opacity = 1
                 }
             })
+        }
+        
+        func displayAlert(image: UIImage, title: String) {
+            mainAsync(execute: {
+                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                    self.alertView.layer.opacity = 1
+                }
+            })
+            mainAsyncAfter(deadline: .now() + 1, execute: {
+                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                    self.alertView.layer.opacity = 0
+                }
+            })
+            alertView.updateAlertView(image: image, title: title)
         }
     }
 }

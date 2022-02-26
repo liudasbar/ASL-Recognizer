@@ -84,7 +84,7 @@ extension MainViewController: MainDisplayLogic {
         case let .result(resultValue, confidence):
             rootView.resultView.updateResult(resultValue: resultValue, confidence: confidence)
         case let .error(error):
-            print("ERROR: \(error)")
+            rootView.displayAlert(image: error.image!, title: error.errorDescription!)
         }
     }
 }

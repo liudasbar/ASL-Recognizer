@@ -11,6 +11,17 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum Alert {
+    /// Error
+    internal static let generic = L10n.tr("Localizable", "Alert.generic")
+    /// Error with reason: %@
+    internal static func genericWithError(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "Alert.genericWithError", String(describing: p1))
+    }
+    /// No hand pose detected
+    internal static let noHandPoseDetected = L10n.tr("Localizable", "Alert.noHandPoseDetected")
+  }
+
   internal enum Common {
     /// -
     internal static let dash = L10n.tr("Localizable", "Common.dash")
