@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // TODO: - Bring back when don't want to show other screens
         let navViewController = UINavigationController(rootViewController: MainConfigurator.configure())
         
-        navViewController.navigationBar.prefersLargeTitles = false
+        navViewController.navigationBar.prefersLargeTitles = true
         
         // Fix iOS 13 navigation bar background - make it transparent
         navViewController.navigationBar.setBackgroundImage(UIImage(), for: .default)

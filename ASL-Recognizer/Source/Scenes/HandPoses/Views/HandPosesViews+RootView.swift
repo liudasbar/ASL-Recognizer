@@ -34,7 +34,7 @@ extension HandPosesViews {
         
         // MARK: - Setup
         private func setupViews() {
-            backgroundColor = .white
+            backgroundColor = activeTheme.colors.text
             setupTitleLabel()
             setupStartButton()
         }

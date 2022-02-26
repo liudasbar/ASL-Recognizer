@@ -25,12 +25,26 @@ class HandPosesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationController()
         setupViews()
         setupActions()
         loadGreating()
     }
 
     // MARK: - Setup
+    private func setupNavigationController() {
+        guard let navigationController = navigationController else {
+            return
+        }
+        navigationController.navigationBar.tintColor = activeTheme.colors.blank
+        navigationController.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: activeTheme.colors.blank
+        ]
+        navigationController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: activeTheme.colors.blank
+        ]
+    }
+    
     private func setupViews() {
         view.addSubview(rootView)
         rootView.translatesAutoresizingMaskIntoConstraints = false
