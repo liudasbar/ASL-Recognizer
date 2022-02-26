@@ -53,6 +53,13 @@ extension MainViews {
             return view
         }()
         
+        lazy var handPosesView: HandPosesView = {
+            let view = HandPosesView()
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 12
+            return view
+        }()
+        
         // MARK: - Variables
         private lazy var avCapture: AVCapture = AVCapture { [weak self] sampleBuffer in
             self?.sampleBufferOutputHandler?(sampleBuffer)
@@ -85,6 +92,7 @@ extension MainViews {
             setupStatusLabel()
             setupResultView()
             setupDetectStatusView()
+            setupHandPosesView()
             setupAlertView()
             setupOpenSettingsButton()
         }
@@ -141,6 +149,17 @@ extension MainViews {
                 detectStatusView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
                 detectStatusView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
                 detectStatusView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
+            ])
+        }
+        
+        private func setupHandPosesView() {
+            addSubview(handPosesView)
+            handPosesView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                handPosesView.bottomAnchor.constraint(equalTo: resultView.topAnchor, constant: -20),
+                handPosesView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+                handPosesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                handPosesView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
             ])
         }
         

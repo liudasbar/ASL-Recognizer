@@ -3,7 +3,7 @@ import UIKit
 protocol MainRoutingLogic {
     var viewController: UIViewController! { get set }
 
-    func routeToSomewhere()
+    func routeToHandPoses()
 }
 
 protocol MainRouter: MainRoutingLogic { }
@@ -14,14 +14,13 @@ class DefaultMainRouter: MainRouter {
 
 // MARK: - Routing Logic
 extension DefaultMainRouter: MainRoutingLogic {
-    // MARK: - Somewhere
-    func routeToSomewhere() {
+    // MARK: - Hand Poses
+    func routeToHandPoses() {
         guard let navigationController = viewController.navigationController else {
             return
         }
-        let targetViewController = UIViewController()
-        targetViewController.view.backgroundColor = .red
-        targetViewController.title = "Somewhere"
+        let targetViewController = HandPosesConfigurator.configure()
+        targetViewController.title = "Available Hand Poses"
         navigationController.pushViewController(targetViewController, animated: true)
     }
 }

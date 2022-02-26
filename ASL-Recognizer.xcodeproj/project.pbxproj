@@ -46,6 +46,16 @@
 		C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */; };
 		F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */; };
 		F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */; };
+		F4A2355527CA2B6400A2A8B7 /* HandPosesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */; };
+		F4A2355627CA2B6400A2A8B7 /* HandPosesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354C27CA2B6400A2A8B7 /* HandPosesPresenter.swift */; };
+		F4A2355727CA2B6400A2A8B7 /* HandPosesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354D27CA2B6400A2A8B7 /* HandPosesInteractor.swift */; };
+		F4A2355827CA2B6400A2A8B7 /* HandPosesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */; };
+		F4A2355927CA2B6400A2A8B7 /* HandPosesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354F27CA2B6400A2A8B7 /* HandPosesModels.swift */; };
+		F4A2355A27CA2B6400A2A8B7 /* HandPosesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355027CA2B6400A2A8B7 /* HandPosesRouter.swift */; };
+		F4A2355B27CA2B6400A2A8B7 /* HandPosesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */; };
+		F4A2355C27CA2B6400A2A8B7 /* HandPosesViews+RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */; };
+		F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */; };
+		F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */; };
 		F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +103,16 @@
 		C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Shorthands.swift"; sourceTree = "<group>"; };
 		F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+AlertView.swift"; sourceTree = "<group>"; };
 		F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDefaultImageView.swift; sourceTree = "<group>"; };
+		F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViewController.swift; sourceTree = "<group>"; };
+		F4A2354C27CA2B6400A2A8B7 /* HandPosesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesPresenter.swift; sourceTree = "<group>"; };
+		F4A2354D27CA2B6400A2A8B7 /* HandPosesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesInteractor.swift; sourceTree = "<group>"; };
+		F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesConfigurator.swift; sourceTree = "<group>"; };
+		F4A2354F27CA2B6400A2A8B7 /* HandPosesModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesModels.swift; sourceTree = "<group>"; };
+		F4A2355027CA2B6400A2A8B7 /* HandPosesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesRouter.swift; sourceTree = "<group>"; };
+		F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesWorker.swift; sourceTree = "<group>"; };
+		F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HandPosesViews+RootView.swift"; sourceTree = "<group>"; };
+		F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViews.swift; sourceTree = "<group>"; };
+		F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+HandPosesView.swift"; sourceTree = "<group>"; };
 		F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+DetectStatusView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +184,7 @@
 				C937959327C1592A00B737DD /* Animations */,
 				C93795B527C15E6100B737DD /* Localizable.strings */,
 				C93795B727C1659700B737DD /* Generated */,
+				C906586927C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -171,7 +192,6 @@
 		C937959227C1591600B737DD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C93795E127C1A24600B737DD /* MLModels */,
 				C93795CC27C168E200B737DD /* Theme */,
 				C937959427C1594600B737DD /* DependencyInjection */,
 				C937959627C1595700B737DD /* Common */,
@@ -250,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				C93795A127C15D9600B737DD /* Main */,
+				F4A2354A27CA2B6400A2A8B7 /* HandPoses */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -278,6 +299,7 @@
 				C93795DD27C1973500B737DD /* MainViews+ResultView.swift */,
 				F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */,
 				F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */,
+				F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,12 +332,28 @@
 			path = Entries;
 			sourceTree = "<group>";
 		};
-		C93795E127C1A24600B737DD /* MLModels */ = {
+		F4A2354A27CA2B6400A2A8B7 /* HandPoses */ = {
 			isa = PBXGroup;
 			children = (
-				C906586927C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel */,
+				F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */,
+				F4A2354C27CA2B6400A2A8B7 /* HandPosesPresenter.swift */,
+				F4A2354D27CA2B6400A2A8B7 /* HandPosesInteractor.swift */,
+				F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */,
+				F4A2354F27CA2B6400A2A8B7 /* HandPosesModels.swift */,
+				F4A2355027CA2B6400A2A8B7 /* HandPosesRouter.swift */,
+				F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */,
+				F4A2355227CA2B6400A2A8B7 /* Views */,
 			);
-			path = MLModels;
+			path = HandPoses;
+			sourceTree = "<group>";
+		};
+		F4A2355227CA2B6400A2A8B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */,
+				F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,33 +491,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A2355827CA2B6400A2A8B7 /* HandPosesConfigurator.swift in Sources */,
 				C93795C527C1665B00B737DD /* PreviewContainer.swift in Sources */,
+				F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */,
 				C93795D227C1690F00B737DD /* ThemeFonts.swift in Sources */,
 				C93795D927C1794200B737DD /* AVCaptureFailureReason.swift in Sources */,
 				C93795B427C15D9600B737DD /* MainViews+RootView.swift in Sources */,
 				C93795D427C1697100B737DD /* UIColor+Extensions.swift in Sources */,
 				F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */,
 				C93795BF27C165D400B737DD /* CustomError.swift in Sources */,
+				F4A2355C27CA2B6400A2A8B7 /* HandPosesViews+RootView.swift in Sources */,
 				F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */,
+				F4A2355727CA2B6400A2A8B7 /* HandPosesInteractor.swift in Sources */,
 				F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */,
 				C93795CE27C168EC00B737DD /* DefaultTheme.swift in Sources */,
 				C937957E27C158A500B737DD /* AppDelegate.swift in Sources */,
 				C93795B027C15D9600B737DD /* MainRouter.swift in Sources */,
 				C93795C927C1683600B737DD /* MakeLottieAnimation.swift in Sources */,
+				F4A2355627CA2B6400A2A8B7 /* HandPosesPresenter.swift in Sources */,
 				C93795C327C1662800B737DD /* SetupNavigationControllerItems.swift in Sources */,
 				C93795B227C15D9600B737DD /* MainModels.swift in Sources */,
 				C93795AC27C15D9600B737DD /* MainConfigurator.swift in Sources */,
 				C93795BD27C165BF00B737DD /* Constants.swift in Sources */,
 				C937959E27C15AC600B737DD /* RegisterServices.swift in Sources */,
 				C93795C727C1674A00B737DD /* MakeDefaultView.swift in Sources */,
+				F4A2355A27CA2B6400A2A8B7 /* HandPosesRouter.swift in Sources */,
 				C93795B127C15D9600B737DD /* MainWorker.swift in Sources */,
+				F4A2355527CA2B6400A2A8B7 /* HandPosesViewController.swift in Sources */,
 				C93795C127C1660D00B737DD /* DispatchQueue.swift in Sources */,
+				F4A2355927CA2B6400A2A8B7 /* HandPosesModels.swift in Sources */,
 				C93795BA27C1659700B737DD /* Strings.swift in Sources */,
 				C93795E027C1974C00B737DD /* AVCapture.swift in Sources */,
 				C93795BB27C1659700B737DD /* Assets.swift in Sources */,
 				C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */,
+				F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */,
 				C93795D027C1690A00B737DD /* ThemeColors.swift in Sources */,
 				C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */,
+				F4A2355B27CA2B6400A2A8B7 /* HandPosesWorker.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
 				C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,

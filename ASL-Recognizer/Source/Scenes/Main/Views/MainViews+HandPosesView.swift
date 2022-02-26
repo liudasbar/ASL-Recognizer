@@ -2,7 +2,7 @@ import UIKit
 import AVFoundation
 
 extension MainViews {
-    class DetectStatusView: UIView {
+    class HandPosesView: UIView {
         // MARK: - Views
         private lazy var backgroundView: UIView = {
             let view = UIView()
@@ -16,21 +16,17 @@ extension MainViews {
         
         private lazy var startDetectionButton: UIButton = {
             let button = UIButton()
-            updateStatusButton(
-                button: button,
-                imageName: "viewfinder.circle",
-                stringValue: L10n.Main.Button.startDetection,
-                interaction: true
-            )
+            button.setTitle("  " + L10n.HandPoses.Button.handPoses, for: .normal)
+            button.setImage(UIImage(systemName: "hand.point.up.left.fill"), for: .normal)
             button.tintColor = UIColor.systemOrange
             button.setTitleColor(.systemOrange, for: .normal)
-            button.addTarget(self, action: #selector(startDetectionAction), for: .touchUpInside)
+            button.addTarget(self, action: #selector(openHandPosesAction), for: .touchUpInside)
             return button
         }()
         
         // MARK: - Variables
         private let imageConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .light, scale: .default)
-        private var detectActionHandler: (() -> Void)?
+        private var openHandPosesActionHandler: (() -> Void)?
 
         // MARK: - Life Cycle
         init() {
@@ -43,8 +39,8 @@ extension MainViews {
         }
         
         // MARK: - Setup
-        func setupDetectActionHandler(_ handler: @escaping () -> Void) {
-            detectActionHandler = handler
+        func setupOpenHandPosesActionHandler(_ handler: @escaping () -> Void) {
+            openHandPosesActionHandler = handler
         }
         
         private func setupViews() {
@@ -76,29 +72,8 @@ extension MainViews {
         }
         
         // MARK: - Actions
-        @objc func startDetectionAction() {
-            updateStatusButton(
-                button: startDetectionButton,
-                imageName: "viewfinder.circle.fill",
-                stringValue: L10n.Main.Button.detecting,
-                interaction: false
-            )
-            mainAsyncAfter(deadline: .now() + 0.2, execute: {
-                self.detectActionHandler?()
-                self.updateStatusButton(
-                    button: self.startDetectionButton,
-                    imageName: "viewfinder.circle",
-                    stringValue: L10n.Main.Button.startDetection,
-                    interaction: true
-                )
-            })
-        }
-        
-        private func updateStatusButton(button: UIButton, imageName: String, stringValue: String, interaction: Bool) {
-            let image = UIImage(systemName: imageName, withConfiguration: imageConfig)
-            button.setTitle("  " + stringValue, for: .normal)
-            button.setImage(image, for: .normal)
-            button.isUserInteractionEnabled = interaction
+        @objc func openHandPosesAction() {
+            openHandPosesActionHandler?()
         }
     }
 }

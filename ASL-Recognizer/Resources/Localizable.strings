@@ -23,5 +23,7 @@
 "Main.Status.CameraStatus.unknownFailure" = "Camera is not available";
 "Main.Button.Settings.open" = "Open Settings";
 
-"Main.Button.startDetection" = "Detect Hand Pose";
+"Main.Button.startDetection" = "Detect";
 "Main.Button.detecting" = "Detecting...";
+
+"HandPoses.Button.handPoses" = "Hand Poses";

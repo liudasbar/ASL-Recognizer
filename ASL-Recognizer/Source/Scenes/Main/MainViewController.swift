@@ -63,16 +63,24 @@ class MainViewController: UIViewController {
         rootView.detectStatusView.setupDetectActionHandler { [weak self] in
             self?.shouldDetect = true
         }
+        
+        rootView.handPosesView.setupOpenHandPosesActionHandler({ [weak self] in
+            self?.openHandPoses()
+        })
     }
     
     // MARK: - Actions
     private func start() {
-        router.routeToSomewhere()
+        router.routeToHandPoses()
     }
     
     private func openAppSettings() {
         let settingsUrl = URL(string: UIApplication.openSettingsURLString)!
         UIApplication.shared.open(settingsUrl)
+    }
+    
+    private func openHandPoses() {
+        router.routeToHandPoses()
     }
 }
 
