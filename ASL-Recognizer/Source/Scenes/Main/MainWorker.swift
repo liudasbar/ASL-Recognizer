@@ -23,7 +23,7 @@ class DefaultMainWorker: MainWorker {
     private var multiarray: MLMultiArray = MLMultiArray()
     private let confidence: VNConfidence = 0.9
     private let orientatation: CGImagePropertyOrientation = .right
-    private let resultThrottleDuration: CGFloat = 0.2
+    private let resultThrottleDuration: CGFloat = Constants.resultDuration
     private let outputResult = PassthroughSubject<CMSampleBuffer, CustomError>()
     private var cancelBag = Set<AnyCancellable>()
     private var observationConfidence: VNConfidence = 0

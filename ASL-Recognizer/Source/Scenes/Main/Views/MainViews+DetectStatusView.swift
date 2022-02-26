@@ -83,7 +83,7 @@ extension MainViews {
                 stringValue: L10n.Main.Button.detecting,
                 interaction: false
             )
-            mainAsyncAfter(deadline: .now() + 0.2, execute: {
+            mainAsyncAfter(deadline: .now() + Constants.resultDuration, execute: {
                 self.detectActionHandler?()
                 self.updateStatusButton(
                     button: self.startDetectionButton,

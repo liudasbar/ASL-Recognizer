@@ -1,31 +1,36 @@
 import UIKit
+import AVFoundation
 
 extension HandPosesViews {
     class RootView: UIView {
         // MARK: - Views
-        private lazy var titleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Hello World!"
-            label.textColor = .red
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        private lazy var startButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("START", for: .normal)
-            button.setTitleColor(.red, for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(startButtonAction), for: .touchUpInside)
-            return button
+        private lazy var handPosesCollectionView: UICollectionView = {
+            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 4), height: 150)
+            
+            let collectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+            collectionView.register(
+                HandPoseCollectionViewCell.self,
+                forCellWithReuseIdentifier: cellReuseIdentifier
+            )
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.showsVerticalScrollIndicator = true
+            collectionView.backgroundColor = activeTheme.colors.text
+            collectionView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+            return collectionView
         }()
         
         // MARK: - Variables
-        private var startButtonHandler: (() -> Void)?
-
+        private let cellReuseIdentifier: String = "handPoseCell"
+        private let handPosesData: [(title: String, image: UIImage)] = HandPosesData.data
+        
         // MARK: - Life Cycle
         init() {
             super.init(frame: .zero)
             setupViews()
+            setupHandPosesCollectionView()
         }
         
         required init?(coder: NSCoder) {
@@ -34,44 +39,42 @@ extension HandPosesViews {
         
         // MARK: - Setup
         private func setupViews() {
-            backgroundColor = activeTheme.colors.text
-            setupTitleLabel()
-            setupStartButton()
+            backgroundColor = .clear
         }
         
-        private func setupTitleLabel() {
-            addSubview(titleLabel)
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        private func setupHandPosesCollectionView() {
+            addSubview(handPosesCollectionView)
+            handPosesCollectionView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+                handPosesCollectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                handPosesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                handPosesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                handPosesCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
         
-        private func setupStartButton() {
-            addSubview(startButton)
-            NSLayoutConstraint.activate([
-                startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-                startButton.centerXAnchor.constraint(equalTo: centerXAnchor)
-            ])
+        func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
+            let totalWidth = cellWidth * numberOfItems
+            let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
+            let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
+            let rightInset = leftInset
+            return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
         }
-        
-        func setupStartButtonHandler(_ handler: @escaping () -> Void) {
-            startButtonHandler = handler
-        }
+    }
+}
 
-        // MARK: - Populate
-        func populate(_ viewModel: HandPoses.LoadGreeting.ViewModel) {
-            guard case let .greeting(text) = viewModel else {
-                return
-            }
-            titleLabel.text = text
-        }
-        
-        // MARK: - Actions
-        @objc private func startButtonAction() {
-            startButtonHandler?()
-        }
-        
+extension HandPosesViews.RootView: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        handPosesData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: cellReuseIdentifier,
+            for: indexPath
+        ) as! HandPoseCollectionViewCell
+        cell.handPoseImageView.image = handPosesData[indexPath.row].image
+        cell.titleLabel.text = handPosesData[indexPath.row].title.uppercased()
+        return cell
     }
 }

@@ -59,6 +59,7 @@ extension MainViews {
             let view = HandPosesView()
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 12
+            view.layer.opacity = 0
             return view
         }()
         
@@ -104,7 +105,7 @@ extension MainViews {
             cameraView.layoutIfNeeded()
             requestCameraAuthorization()
             sendSubviewToBack(cameraView)
-            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+            UIView.animate(withDuration: Constants.longerAnimationDuration) {
                 self.cameraView.layer.opacity = 1
             }
         }
@@ -237,6 +238,7 @@ extension MainViews {
                     self.statusLabel.layer.opacity = 0
                     self.detectStatusView.layer.opacity = 1
                     self.resultView.layer.opacity = 1
+                    self.handPosesView.layer.opacity = 1
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed
                     self.openSettingsButton.layer.opacity = 1
@@ -253,7 +255,7 @@ extension MainViews {
                     self.alertView.layer.opacity = 1
                 }
             })
-            mainAsyncAfter(deadline: .now() + 1, execute: {
+            mainAsyncAfter(deadline: .now() + Constants.noHandPoseDetectedViewAppearDuration, execute: {
                 UIView.animate(withDuration: Constants.defaultAnimationDuration) {
                     self.alertView.layer.opacity = 0
                 }
@@ -262,12 +264,15 @@ extension MainViews {
         }
         
         func stopCameraCapture() {
-            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
-                
-            }
-            
-            UIView.animate(withDuration: Constants.defaultAnimationDuration, delay: 0, options: [], animations: {
+            UIView.animate(withDuration: Constants.shorterAnimationDuration) {
                 self.cameraView.layer.opacity = 0
+                self.alertView.layer.opacity = 0
+            }
+            UIView.animate(withDuration: Constants.defaultAnimationDuration, delay: 0, options: [], animations: {
+                self.statusLabel.layer.opacity = 0
+                self.detectStatusView.layer.opacity = 0
+                self.resultView.layer.opacity = 0
+                self.handPosesView.layer.opacity = 0
             }, completion: { _ in
                 self.avCapture.stopAVCapture()
             })

@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navViewController = UINavigationController(rootViewController: MainConfigurator.configure())
         
         navViewController.navigationBar.prefersLargeTitles = true
+        navViewController.navigationBar.isTranslucent = false
+        navViewController.interactivePopGestureRecognizer?.isEnabled = false
         
         // Fix iOS 13 navigation bar background - make it transparent
         navViewController.navigationBar.setBackgroundImage(UIImage(), for: .default)

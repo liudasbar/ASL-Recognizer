@@ -19,8 +19,8 @@ extension DefaultMainRouter: MainRoutingLogic {
         guard let navigationController = viewController.navigationController else {
             return
         }
-        let targetViewController = HandPosesConfigurator.configure()
-        targetViewController.title = "Available Hand Poses"
-        navigationController.pushViewController(targetViewController, animated: true)
+        let handPosesViewController = HandPosesConfigurator.configure()
+        handPosesViewController.title = "Available Hand Poses"
+        navigationController.pushViewController(handPosesViewController, animated: true)
     }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import CoreMedia
 
 protocol MainDisplayLogic: AnyObject {
     func displayLoadRecognitionResult(_ viewModel: Main.LoadRecognitionResult.ViewModel)
@@ -24,8 +25,8 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         rootView.setupCamera()
     }
     
@@ -53,11 +54,7 @@ class MainViewController: UIViewController {
         }
         
         rootView.setupSampleBufferOutputHandler { [weak self] sampleBuffer in
-            guard self?.shouldDetect ?? false else {
-                return
-            }
-            self?.interactor.loadResult(Main.LoadRecognitionResult.Request(sampleBuffer: sampleBuffer))
-            self?.shouldDetect = false
+            self?.startDetection(with: sampleBuffer)
         }
         
         rootView.detectStatusView.setupDetectActionHandler { [weak self] in
@@ -70,8 +67,12 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-    private func start() {
-        router.routeToHandPoses()
+    private func startDetection(with sampleBuffer: CMSampleBuffer) {
+        guard shouldDetect else {
+            return
+        }
+        interactor.loadResult(Main.LoadRecognitionResult.Request(sampleBuffer: sampleBuffer))
+        shouldDetect = false
     }
     
     private func openAppSettings() {

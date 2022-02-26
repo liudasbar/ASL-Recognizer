@@ -14,7 +14,7 @@ extension MainViews {
             return view
         }()
         
-        private lazy var startDetectionButton: UIButton = {
+        private lazy var handPosesButton: UIButton = {
             let button = UIButton()
             button.setTitle("  " + L10n.HandPoses.Button.handPoses, for: .normal)
             button.setImage(UIImage(systemName: "hand.point.up.left.fill"), for: .normal)
@@ -46,7 +46,7 @@ extension MainViews {
         private func setupViews() {
             backgroundColor = .clear
             setupBackgroundView()
-            setupStartDetectionButton()
+            setupHandPosesButton()
         }
         
         private func setupBackgroundView() {
@@ -60,14 +60,14 @@ extension MainViews {
             ])
         }
         
-        private func setupStartDetectionButton() {
-            addSubview(startDetectionButton)
-            startDetectionButton.translatesAutoresizingMaskIntoConstraints = false
+        private func setupHandPosesButton() {
+            addSubview(handPosesButton)
+            handPosesButton.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                startDetectionButton.topAnchor.constraint(equalTo: self.topAnchor),
-                startDetectionButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-                startDetectionButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-                startDetectionButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+                handPosesButton.topAnchor.constraint(equalTo: self.topAnchor),
+                handPosesButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+                handPosesButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+                handPosesButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
         }
         

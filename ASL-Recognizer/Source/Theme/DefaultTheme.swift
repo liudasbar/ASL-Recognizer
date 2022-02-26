@@ -25,4 +25,5 @@ public struct DefaultThemeFonts: ThemeFonts {
     public static let medium: UIFont = UIFont(name: "Avenir-Medium", size: 18) ?? .systemFont(ofSize: 18)
     public static let resultLabel: UIFont = UIFont(name: "Avenir-Medium", size: 24) ?? .systemFont(ofSize: 24)
     public static let buttonLabel: UIFont = UIFont(name: "Avenir", size: 22) ?? .systemFont(ofSize: 22)
+    public static let handPoseLabel: UIFont = UIFont(name: "Avenir-Bold", size: 28) ?? .systemFont(ofSize: 28)
 }

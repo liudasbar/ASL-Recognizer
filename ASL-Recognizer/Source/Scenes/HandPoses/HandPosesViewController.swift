@@ -27,8 +27,6 @@ class HandPosesViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationController()
         setupViews()
-        setupActions()
-        loadGreating()
     }
 
     // MARK: - Setup
@@ -56,16 +54,7 @@ class HandPosesViewController: UIViewController {
         ])
     }
     
-    private func setupActions() {
-        rootView.setupStartButtonHandler { [weak self] in self?.start() }
-    }
-    
     // MARK: - Actions
-    private func loadGreating() {
-        let request = HandPoses.LoadGreeting.Request(parameter: false)
-        interactor.loadGreeting(request)
-    }
-    
     private func start() {
         router.routeToSomewhere()
     }
@@ -84,7 +73,7 @@ extension HandPosesViewController: HandPosesDisplayLogic {
             ()
         case .greeting:
             // TODO: Hide loading indicator
-            rootView.populate(viewModel)
+            ()
         }
     }
 }

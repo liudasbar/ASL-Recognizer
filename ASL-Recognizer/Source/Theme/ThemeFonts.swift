@@ -12,6 +12,9 @@ public protocol ThemeFonts {
     
     /// Avenir, Regular, 22
     static var buttonLabel: UIFont { get }
+    
+    /// Avenir, Bold, 28
+    static var handPoseLabel: UIFont { get }
 }
 
 public enum ThemeFont {
@@ -19,6 +22,7 @@ public enum ThemeFont {
     case medium
     case resultLabel
     case buttonLabel
+    case handPoseLabel
     
     public var uiFont: UIFont {
         switch self {
@@ -30,6 +34,8 @@ public enum ThemeFont {
             return DefaultThemeFonts.resultLabel
         case .buttonLabel:
             return DefaultThemeFonts.buttonLabel
+        case .handPoseLabel:
+            return DefaultThemeFonts.handPoseLabel
         }
     }
 }
