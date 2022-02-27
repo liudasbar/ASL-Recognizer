@@ -64,7 +64,7 @@ cd project/directory
 ```
 pod install
 ```
-3. Open __ASL-Recognizer.xcworkspace__ file
+3. Open __ASL-Recognizer.xcworkspace__ file.
 
 ## License
 
