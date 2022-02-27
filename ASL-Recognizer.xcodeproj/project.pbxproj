@@ -59,6 +59,8 @@
 		F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */; };
 		F4D002A527CA42120023D438 /* HandPosesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A427CA42120023D438 /* HandPosesData.swift */; };
 		F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */; };
+		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
+		F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AA27CAE55B0023D438 /* App-Icon-180.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+DetectStatusView.swift"; sourceTree = "<group>"; };
 		F4D002A427CA42120023D438 /* HandPosesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPosesData.swift; sourceTree = "<group>"; };
 		F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		F4D002AA27CAE55B0023D438 /* App-Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-180.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			children = (
 				C937957D27C158A500B737DD /* AppDelegate.swift */,
 				C937957F27C158A500B737DD /* SceneDelegate.swift */,
+				F4D002A827CAE1390023D438 /* README.md */,
 				C937959127C1591100B737DD /* Resources */,
 				C937959227C1591600B737DD /* Source */,
 				C937958B27C158AA00B737DD /* Info.plist */,
@@ -182,6 +187,7 @@
 		C937959127C1591100B737DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4D002AA27CAE55B0023D438 /* App-Icon-180.png */,
 				C937958627C158AA00B737DD /* Assets.xcassets */,
 				C937958327C158A500B737DD /* Main.storyboard */,
 				C937958827C158AA00B737DD /* LaunchScreen.storyboard */,
@@ -433,7 +439,9 @@
 			files = (
 				C937958A27C158AA00B737DD /* LaunchScreen.storyboard in Resources */,
 				C93795B627C15E6100B737DD /* Localizable.strings in Resources */,
+				F4D002A927CAE1390023D438 /* README.md in Resources */,
 				C937958727C158AA00B737DD /* Assets.xcassets in Resources */,
+				F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */,
 				C937958527C158A500B737DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,7 +713,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ASL-Recognizer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "ASL Recognizer";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used for detecting and recognizing hand poses";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -738,7 +746,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ASL-Recognizer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "ASL Recognizer";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used for detecting and recognizing hand poses";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

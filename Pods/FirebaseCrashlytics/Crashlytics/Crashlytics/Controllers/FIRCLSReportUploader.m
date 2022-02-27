@@ -40,7 +40,6 @@
 }
 
 @property(nonatomic, strong) GDTCORTransport *googleTransport;
-@property(nonatomic, strong) FIRCLSInstallIdentifierModel *installIDModel;
 
 @property(nonatomic, readonly) NSString *googleAppID;
 
@@ -57,7 +56,6 @@
   _operationQueue = managerData.operationQueue;
   _googleAppID = managerData.googleAppID;
   _googleTransport = managerData.googleTransport;
-  _installIDModel = managerData.installIDModel;
   _fileManager = managerData.fileManager;
   _analytics = managerData.analytics;
 
@@ -67,7 +65,7 @@
 #pragma mark - Packaging and Submission
 
 /*
- * For a crash report, this is the initial code path for uploading. A report
+ * For a crash report, this is the inital code path for uploading. A report
  * will not repeat this code path after it's happened because this code path
  * will move the report from the "active" folder into "processing" and then
  * "prepared". Once in prepared, the report can be re-uploaded any number of times
@@ -86,16 +84,6 @@
   // symbolication operation may be computationally intensive.
   FIRCLSApplicationActivity(
       FIRCLSApplicationActivityDefault, @"Crashlytics Crash Report Processing", ^{
-        // Run this only once because it can be run multiple times in succession,
-        // and if it's slow it could delay crash upload too much without providing
-        // user benefit.
-        static dispatch_once_t regenerateOnceToken;
-        dispatch_once(&regenerateOnceToken, ^{
-          // Check to see if the FID has rotated before we construct the payload
-          // so that the payload has an updated value.
-          [self.installIDModel regenerateInstallIDIfNeeded];
-        });
-
         // Run on-device symbolication before packaging if we should process
         if (shouldProcess) {
           if (![self.fileManager moveItemAtPath:report.path
@@ -175,8 +163,7 @@
   }
 
   FIRCLSReportAdapter *adapter = [[FIRCLSReportAdapter alloc] initWithPath:path
-                                                               googleAppId:self.googleAppID
-                                                            installIDModel:self.installIDModel];
+                                                               googleAppId:self.googleAppID];
 
   GDTCOREvent *event = [self.googleTransport eventForTransport];
   event.dataObject = adapter;

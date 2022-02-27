@@ -34,10 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * To support end-users rotating Install IDs, this will check and rotate the Install ID,
- * which can be a slow operation. This should be run in an Activity or
- * background thread.
+ * which is a costly operation performance-wise. To keep the startup time impact down, call this in
+ * a background thread.
+ *
+ * The block will be called on a background thread.
  */
-- (BOOL)regenerateInstallIDIfNeeded;
+- (void)regenerateInstallIDIfNeededWithBlock:(void (^)(BOOL didRotate))callback;
 
 @end
 

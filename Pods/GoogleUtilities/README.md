@@ -16,13 +16,8 @@ These instructions apply to minor and patch version updates. Major versions need
 a customized adaptation.
 
 After the CI is green:
-* Determine the next version for release by checking the
-  [tagged releases](https://github.com/google/GoogleUtilities/tags).
-  Ensure that the next release version keeps the Swift PM and CocoaPods versions in sync.
-* Verify that the releasing version is the latest entry in the [CHANGELOG.md](CHANGELOG.md),
-  updating it if necessary.
 * Update the version in the podspec to match the latest entry in the [CHANGELOG.md](CHANGELOG.md)
-* Checkout the `main` branch and ensure it is up to date
+* Checkout the `main` branch and ensure it is up to date.
   ```console
   git checkout main
   git pull
@@ -60,69 +55,17 @@ After the CI is green:
     ```
     </details>
 * Run Firebase CI by waiting until next nightly or adding a PR that touches `Gemfile`.
-* On google3, run copybara using the command below. Then, start a global TAP on the generated CL. Deflake as needed.
+* On google3, create a workspace. Then copybara and run a global TAP.
   ```console
   third_party/firebase/ios/Releases/run_copy_bara.py --directory GoogleUtilities --branch main
   ```
 
 ## Publishing
-The release process is as follows:
-1. [Tag and release for Swift PM](#swift-package-manager)
-2. [Publish to CocoaPods](#cocoapods)
-3. [Create GitHub Release](#create-github-release)
-4. [Perform post release cleanup](#post-release-cleanup)
-
-### Swift Package Manager
-  By creating and [pushing a tag](https://github.com/google/GoogleUtilities/tags)
-  for Swift PM, the newly tagged version will be immediately released for public use.
-  Given this, please verify the intended time of release for Swift PM.
   * Add a version tag for Swift PM
-  ```console
-  git tag {version}
-  git push origin {version}
-  ```
-  *Note: Ensure that any inflight PRs that depend on the new `GoogleUtilities` version are updated to point to the
-  newly tagged version rather than a checksum.*
-
-### CocoaPods
-* Publish the newly versioned pod to CocoaPods
-
-  It's recommended to point to the `GoogleUtilities.podspec` in `staging` to make sure the correct spec is being published.
-  ```console
-  pod trunk push ~/.cocoapods/repos/staging/GoogleUtilities/{version}/GoogleUtilities.podspec
-  ```
-  *Note: In some cases, it may be acceptable to `pod trunk push` with the `--skip-tests` flag. Please double check with
-  the maintainers before doing so.*
-
-  The pod push was successful if the above command logs: `🚀  GoogleUtilities ({version}) successfully published`.
-  In addition, a new commit that publishes the new version (co-authored by [CocoaPodsAtGoogle](https://github.com/CocoaPodsAtGoogle))
-  should appear in the [CocoaPods specs repo](https://github.com/CocoaPods/Specs). Last, the latest version should be displayed
-  on [GoogleUtilities's CocoaPods page](https://cocoapods.org/pods/GoogleUtilities).
-
-### [Create GitHub Release](https://github.com/google/GoogleUtilities/releases/new/)
-  Update the [release template](https://github.com/google/GoogleUtilities/releases/new/)'s **Tag version** and **Release title**
-  fields with the latest version. In addition, reference the [Release Notes](./CHANGELOG.md) in the release's description.
-
-  See [this release](https://github.com/google/GoogleUtilities/releases/edit/9.0.1) for an example.
-
-  *Don't forget to perform the [post release cleanup](#post-release-cleanup)!*
-
-### Post Release Cleanup
-  <details>
-  <summary>Clean up <b>SpecsStaging</b></summary>
-
-  ```console
-  pwd=$(pwd)
-  mkdir -p /tmp/release-cleanup && cd $_
-  git clone git@github.com:firebase/SpecsStaging.git
-  cd SpecsStaging/
-  git rm -rf GoogleUtilities/
-  git commit -m "Post publish cleanup"
-  git push origin master
-  rm -rf /tmp/release-cleanup
-  cd $pwd
-  ```
-  </details>
+    * `git tag {version}`
+    * `git push origin {version}`
+  * `pod trunk push GoogleUtilities.podspec`
+  * Clean up SpecsStaging
 
 ## Development
 
@@ -168,7 +111,7 @@ GitHub Actions will verify that any code changes are done in a style compliant
 way. Install `clang-format` and `mint`:
 
 ```console
-brew install clang-format@13
+brew install clang-format@12
 brew install mint
 ```
 

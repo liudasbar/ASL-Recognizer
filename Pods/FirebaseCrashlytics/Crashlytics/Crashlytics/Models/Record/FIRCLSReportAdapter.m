@@ -26,22 +26,13 @@
 #import <nanopb/pb_decode.h>
 #import <nanopb/pb_encode.h>
 
-@interface FIRCLSReportAdapter ()
-
-@property(nonatomic, strong) FIRCLSInstallIdentifierModel *installIDModel;
-
-@end
-
 @implementation FIRCLSReportAdapter
 
-- (instancetype)initWithPath:(NSString *)folderPath
-                 googleAppId:(NSString *)googleAppID
-              installIDModel:(FIRCLSInstallIdentifierModel *)installIDModel {
+- (instancetype)initWithPath:(NSString *)folderPath googleAppId:(NSString *)googleAppID {
   self = [super init];
   if (self) {
     _folderPath = folderPath;
     _googleAppID = googleAppID;
-    _installIDModel = installIDModel;
 
     [self loadMetaDataFile];
 
@@ -150,7 +141,7 @@
   report.sdk_version = FIRCLSEncodeString(self.identity.build_version);
   report.gmp_app_id = FIRCLSEncodeString(self.googleAppID);
   report.platform = [self protoPlatformFromString:self.host.platform];
-  report.installation_uuid = FIRCLSEncodeString(self.installIDModel.installID);
+  report.installation_uuid = FIRCLSEncodeString(self.identity.install_id);
   report.build_version = FIRCLSEncodeString(self.application.build_version);
   report.display_version = FIRCLSEncodeString(self.application.display_version);
   report.apple_payload = [self protoFilesPayload];

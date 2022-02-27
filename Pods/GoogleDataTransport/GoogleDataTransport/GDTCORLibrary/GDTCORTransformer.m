@@ -78,16 +78,16 @@
   dispatch_async(_eventWritingQueue, ^{
     GDTCOREvent *transformedEvent = event;
     for (id<GDTCOREventTransformer> transformer in transformers) {
-      if ([transformer respondsToSelector:@selector(transformGDTEvent:)]) {
+      if ([transformer respondsToSelector:@selector(transform:)]) {
         GDTCORLogDebug(@"Applying a transformer to event %@", event);
-        transformedEvent = [transformer transformGDTEvent:event];
+        transformedEvent = [transformer transform:transformedEvent];
         if (!transformedEvent) {
           completionWrapper(NO, nil);
           return;
         }
       } else {
         GDTCORLogError(GDTCORMCETransformerDoesntImplementTransform,
-                       @"Transformer doesn't implement transformGDTEvent: %@", transformer);
+                       @"Transformer doesn't implement transform: %@", transformer);
         completionWrapper(NO, nil);
         return;
       }
