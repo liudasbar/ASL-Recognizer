@@ -60,8 +60,9 @@
 		F4D002A527CA42120023D438 /* HandPosesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A427CA42120023D438 /* HandPosesData.swift */; };
 		F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */; };
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
-		F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AA27CAE55B0023D438 /* App-Icon-180.png */; };
-		F4D002AE27CB82DA0023D438 /* Main.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AD27CB82DA0023D438 /* Main.PNG */; };
+		F4D002B027CB83920023D438 /* IMG_0124_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AF27CB83920023D438 /* IMG_0124_700.PNG */; };
+		F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */; };
+		F4D002B427CB83C30023D438 /* App-Icon-150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B327CB83C30023D438 /* App-Icon-150.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,8 +123,9 @@
 		F4D002A427CA42120023D438 /* HandPosesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPosesData.swift; sourceTree = "<group>"; };
 		F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		F4D002AA27CAE55B0023D438 /* App-Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-180.png"; sourceTree = "<group>"; };
-		F4D002AD27CB82DA0023D438 /* Main.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main.PNG; sourceTree = "<group>"; };
+		F4D002AF27CB83920023D438 /* IMG_0124_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124_700.PNG; sourceTree = "<group>"; };
+		F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0123_700.PNG; sourceTree = "<group>"; };
+		F4D002B327CB83C30023D438 /* App-Icon-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-150.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				F4D002AC27CB82C60023D438 /* ForReadMe */,
-				F4D002AA27CAE55B0023D438 /* App-Icon-180.png */,
 				C937958627C158AA00B737DD /* Assets.xcassets */,
 				C937958327C158A500B737DD /* Main.storyboard */,
 				C937958827C158AA00B737DD /* LaunchScreen.storyboard */,
@@ -382,7 +383,9 @@
 		F4D002AC27CB82C60023D438 /* ForReadMe */ = {
 			isa = PBXGroup;
 			children = (
-				F4D002AD27CB82DA0023D438 /* Main.PNG */,
+				F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */,
+				F4D002AF27CB83920023D438 /* IMG_0124_700.PNG */,
+				F4D002B327CB83C30023D438 /* App-Icon-150.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -451,10 +454,11 @@
 				C937958A27C158AA00B737DD /* LaunchScreen.storyboard in Resources */,
 				C93795B627C15E6100B737DD /* Localizable.strings in Resources */,
 				F4D002A927CAE1390023D438 /* README.md in Resources */,
+				F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */,
 				C937958727C158AA00B737DD /* Assets.xcassets in Resources */,
-				F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */,
+				F4D002B027CB83920023D438 /* IMG_0124_700.PNG in Resources */,
+				F4D002B427CB83C30023D438 /* App-Icon-150.png in Resources */,
 				C937958527C158A500B737DD /* Main.storyboard in Resources */,
-				F4D002AE27CB82DA0023D438 /* Main.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
