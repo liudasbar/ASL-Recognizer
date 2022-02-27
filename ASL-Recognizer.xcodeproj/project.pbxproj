@@ -62,7 +62,7 @@
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
 		F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */; };
 		F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */; };
-		F4D002BA27CC21130023D438 /* App-Icon-150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B927CC21130023D438 /* App-Icon-150.png */; };
+		F4D002BC27CC21660023D438 /* App-Icon-150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App-Icon-150.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +125,7 @@
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0123_700.PNG; sourceTree = "<group>"; };
 		F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124_700.PNG; sourceTree = "<group>"; };
-		F4D002B927CC21130023D438 /* App-Icon-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-150.png"; sourceTree = "<group>"; };
+		F4D002BB27CC21660023D438 /* App-Icon-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-150.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,7 +385,7 @@
 			children = (
 				F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */,
 				F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */,
-				F4D002B927CC21130023D438 /* App-Icon-150.png */,
+				F4D002BB27CC21660023D438 /* App-Icon-150.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -456,7 +456,7 @@
 				F4D002A927CAE1390023D438 /* README.md in Resources */,
 				F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */,
 				F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */,
-				F4D002BA27CC21130023D438 /* App-Icon-150.png in Resources */,
+				F4D002BC27CC21660023D438 /* App-Icon-150.png in Resources */,
 				C937958727C158AA00B737DD /* Assets.xcassets in Resources */,
 				C937958527C158A500B737DD /* Main.storyboard in Resources */,
 			);
