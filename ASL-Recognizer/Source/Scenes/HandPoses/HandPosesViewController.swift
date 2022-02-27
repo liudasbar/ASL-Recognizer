@@ -34,13 +34,7 @@ class HandPosesViewController: UIViewController {
         guard let navigationController = navigationController else {
             return
         }
-        navigationController.navigationBar.tintColor = activeTheme.colors.blank
-        navigationController.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: activeTheme.colors.blank
-        ]
-        navigationController.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: activeTheme.colors.blank
-        ]
+        navigationController.navigationBar.tintColor = activeTheme.colors.buttonDefault
     }
     
     private func setupViews() {

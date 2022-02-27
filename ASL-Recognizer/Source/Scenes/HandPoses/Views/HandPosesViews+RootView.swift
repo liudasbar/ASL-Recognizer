@@ -17,7 +17,7 @@ extension HandPosesViews {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.showsVerticalScrollIndicator = true
-            collectionView.backgroundColor = activeTheme.colors.text
+            collectionView.backgroundColor = .systemBackground
             collectionView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
             return collectionView
         }()
@@ -39,7 +39,7 @@ extension HandPosesViews {
         
         // MARK: - Setup
         private func setupViews() {
-            backgroundColor = .clear
+            backgroundColor = .systemBackground
         }
         
         private func setupHandPosesCollectionView() {

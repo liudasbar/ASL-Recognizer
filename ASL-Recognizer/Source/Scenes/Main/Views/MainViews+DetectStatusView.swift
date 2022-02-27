@@ -22,8 +22,8 @@ extension MainViews {
                 stringValue: L10n.Main.Button.startDetection,
                 interaction: true
             )
-            button.tintColor = UIColor.systemOrange
-            button.setTitleColor(.systemOrange, for: .normal)
+            button.tintColor = activeTheme.colors.buttonDefault
+            button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)
             button.addTarget(self, action: #selector(startDetectionAction), for: .touchUpInside)
             return button
         }()

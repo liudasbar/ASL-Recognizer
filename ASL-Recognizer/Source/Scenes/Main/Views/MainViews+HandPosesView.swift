@@ -18,8 +18,8 @@ extension MainViews {
             let button = UIButton()
             button.setTitle("  " + L10n.HandPoses.Button.handPoses, for: .normal)
             button.setImage(UIImage(systemName: "hand.point.up.left.fill"), for: .normal)
-            button.tintColor = UIColor.systemOrange
-            button.setTitleColor(.systemOrange, for: .normal)
+            button.tintColor = activeTheme.colors.buttonDefault
+            button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)
             button.addTarget(self, action: #selector(openHandPosesAction), for: .touchUpInside)
             return button
         }()

@@ -11,7 +11,6 @@ class HandPoseCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel.defaultLabel(config: UILabel.Config(
             title: "",
-            textColor: activeTheme.colors.blank,
             textAlignment: .center,
             font: activeTheme.fonts.handPoseLabel
         ))
