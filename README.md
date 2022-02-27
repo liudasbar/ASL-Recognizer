@@ -1,11 +1,13 @@
-![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/App-Icon-180.png)
+![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App-Icon-150.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
 ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
 
 [![Download on the App Store](https://raw.githubusercontent.com/liudasbar/Authentity/master/App_Store_Badge_180px.jpg)](https://apps.apple.com/us/app/authentity/id1511791665)
 
-![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9686.PNG)
+![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0123_700.png)
+
+![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0124_700.png)
 
 ## Features and Datasets
 
@@ -14,24 +16,6 @@ The application uses American Sign Language (ASL) ML recognition model that is w
 ## What can be recognized?
 
 ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9. Hand pose detection output is shown within the main application interface. Each detected symbol (letter or number) is added to the current value with previously detected symbols.
-
-With ASL Recognizer you get:
-
-••• Security:
-- Authentity uses biometric authentication so only you have access to your 2FA/MFA authentication tokens.
-- While using Authentity, tokens are hidden when the application is in the background state.
-- Authentity does not use any password or PIN authentication so the biometric security (if enabled) is used all the time.
-- There is no other way anyone can access your generated tokens.
-
-••• Ease of use:
-- A minimalistic interface provides you with the best experience while using Authentity token generator.
-
-••• Offline use:
-- Tokens are temporarily generated safely on your local device storage without any Internet connection requirement.
-
-••• Open-source project:
-- It is an open-source project documented on GitHub. Source code can be verified at any time by anyone.
-- See on GitHub: https://github.com/liudasbar/Authentity
 
 ## Abbreviations
 
@@ -67,7 +51,7 @@ If you have questions regarding this application or its support, please contact 
 
 ## Updates
 
-See: [Change Log](https://github.com/liudasbar/Authentity/blob/master/Authentity/CHANGELOG.md)
+See: [Change Log - NOT AVAILABLE YET](https://github.com/liudasbar/Authentity/blob/master/ASL-Recognizer/CHANGELOG.md)
 
 ## License
 
