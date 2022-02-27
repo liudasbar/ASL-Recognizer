@@ -3,15 +3,15 @@
 
 ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
 
-[![Download on the App Store](https://raw.githubusercontent.com/liudasbar/Authentity/master/App_Store_Badge_180px.jpg)](https://apps.apple.com/us/app/authentity/id1511791665)
-
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0123_700.PNG)
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0124_700.PNG)
 
 ## Features and Datasets
 
-The application uses American Sign Language (ASL) ML recognition model that is was organized, trained, and tested via Xcode Create ML tools. While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific application consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
+The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML tools.
+
+While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific application consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
 
 ## What can be recognized?
 
@@ -19,9 +19,9 @@ ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9. Hand pose
 
 ## Abbreviations
 
-ASL - American Sign Language.
+ASL - American Sign Language
 
-ML - Machine Learning.
+ML - Machine Learning
 
 ## Availability
 
@@ -48,11 +48,11 @@ ASL Recognizer is fully offline. Thus, no data is being sent or received to and 
 
 ## Privacy Policy and support
 
-If you have questions regarding this application or its support, please contact us: liudasbar2@gmail.com
+If you have questions regarding this application or its support, please [contact](mailto:liudasbar2@gmail.com) the developer.
 
 ## Updates
 
-See: [Change Log - NOT AVAILABLE YET](https://github.com/liudasbar/Authentity/blob/master/ASL-Recognizer/CHANGELOG.md)
+Change Log is not available yet.
 
 ## License
 
