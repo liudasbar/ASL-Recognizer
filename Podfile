@@ -9,7 +9,6 @@ target 'ASL-Recognizer' do
   pod 'SwiftGen', '~> 6.0'
   pod 'Resolver', '~> 1.5.0'
   #pod 'Firebase/AnalyticsWithoutAdIdSupport'
-  pod 'Firebase/Crashlytics'
-  pod 'lottie-ios'
+  #pod 'Firebase/Crashlytics'
 
 end
