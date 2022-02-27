@@ -61,6 +61,7 @@
 		F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */; };
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
 		F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AA27CAE55B0023D438 /* App-Icon-180.png */; };
+		F4D002AE27CB82DA0023D438 /* Main.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002AD27CB82DA0023D438 /* Main.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4D002AA27CAE55B0023D438 /* App-Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-180.png"; sourceTree = "<group>"; };
+		F4D002AD27CB82DA0023D438 /* Main.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		C937959127C1591100B737DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4D002AC27CB82C60023D438 /* ForReadMe */,
 				F4D002AA27CAE55B0023D438 /* App-Icon-180.png */,
 				C937958627C158AA00B737DD /* Assets.xcassets */,
 				C937958327C158A500B737DD /* Main.storyboard */,
@@ -376,6 +379,14 @@
 			path = Entries;
 			sourceTree = "<group>";
 		};
+		F4D002AC27CB82C60023D438 /* ForReadMe */ = {
+			isa = PBXGroup;
+			children = (
+				F4D002AD27CB82DA0023D438 /* Main.PNG */,
+			);
+			path = ForReadMe;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,6 +454,7 @@
 				C937958727C158AA00B737DD /* Assets.xcassets in Resources */,
 				F4D002AB27CAE55B0023D438 /* App-Icon-180.png in Resources */,
 				C937958527C158A500B737DD /* Main.storyboard in Resources */,
+				F4D002AE27CB82DA0023D438 /* Main.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
