@@ -58,7 +58,7 @@ Change Log is not available yet.
 
 MIT License
 
-Copyright © 2022 Liudas Baronas.
+__Copyright © 2022 Liudas Baronas.__
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
