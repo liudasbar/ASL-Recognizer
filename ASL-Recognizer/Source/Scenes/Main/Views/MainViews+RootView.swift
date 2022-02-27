@@ -10,7 +10,6 @@ extension MainViews {
             return view
         }()
         
-        
         private lazy var statusLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
                 title: "",
