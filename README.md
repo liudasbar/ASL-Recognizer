@@ -5,9 +5,9 @@ ASL Recognizer project is an open-source project designed to showcase hand pose 
 
 [![Download on the App Store](https://raw.githubusercontent.com/liudasbar/Authentity/master/App_Store_Badge_180px.jpg)](https://apps.apple.com/us/app/authentity/id1511791665)
 
-![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0123_700.png)
+![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0123_700.PNG)
 
-![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0124_700.png)
+![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0124_700.PNG)
 
 ## Features and Datasets
 
