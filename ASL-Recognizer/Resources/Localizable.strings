@@ -27,3 +27,9 @@
 "Main.Button.detecting" = "Detecting...";
 
 "HandPoses.Button.handPoses" = "Hand Poses";
+
+"AVCaptureFailure.noCameraDeviceFound" = "No camera device found.\n\nPlease ensure your device camera is working correctly.";
+"AVCaptureFailure.couldNotCreateVideoDeviceInput" = "Could not create video device input.\n\nPlease restart your device.";
+"AVCaptureFailure.couldNotAddVideoDeviceInputToSession" = "Could not add video device input to capture session\n\nPlease restart your device.n";
+"AVCaptureFailure.couldNotAddVideoDataOutputToSession" = "Could not add video data output to capture session\n\nPlease restart your device.";
+"AVCaptureFailure.failedVideoCaptureLockForConfiguration" = "Failed to lock video capture for configuration\n\nPlease restart your device.";

@@ -4,6 +4,7 @@ import Vision
 import Combine
 
 class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    // MARK: - Variables
     private let session = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
     var deviceInput: AVCaptureDeviceInput!
@@ -21,15 +22,24 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         position: .back
     ).devices.first
     var captureOutputHandler: ((CMSampleBuffer) -> Void)?
+    var avCaptureSetupFailureHandler: ((AVCaptureFailureReason) -> Void)?
     
-    init(_ captureOutputHandler: @escaping (CMSampleBuffer) -> Void) {
+    // MARK: - Methods
+    init(captureOutputHandler: @escaping (CMSampleBuffer) -> Void,
+         avCaptureSetupFailureHandler: @escaping (AVCaptureFailureReason) -> Void) {
         self.captureOutputHandler = captureOutputHandler
+        self.avCaptureSetupFailureHandler = avCaptureSetupFailureHandler
     }
+    
     private func setupAVCapture(completion: @escaping (AVCaptureFailureReason?) -> Void) {
+        guard let videoDevice = videoDevice else {
+            completion(.noCameraDeviceFound)
+            return
+        }
         do {
-            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+            deviceInput = try AVCaptureDeviceInput(device: videoDevice)
         } catch {
-            completion(.couldNotCreateVideoDeviceInput(error))
+            completion(.couldNotCreateVideoDeviceInput)
             return
         }
 
@@ -59,13 +69,13 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         captureConnection?.isEnabled = true
         
         do {
-            try videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            try videoDevice.lockForConfiguration()
+            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice.activeFormat.formatDescription))
             bufferSize.width = CGFloat(dimensions.width)
             bufferSize.height = CGFloat(dimensions.height)
-            videoDevice!.unlockForConfiguration()
+            videoDevice.unlockForConfiguration()
         } catch {
-            completion(.failedVideoCaptureLockForConfiguration(error))
+            completion(.failedVideoCaptureLockForConfiguration)
             return
         }
         
@@ -88,10 +98,11 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 // MARK: - Public Methods
 extension AVCapture {
     public func createAVSessionPreviewLayer() -> AVCaptureVideoPreviewLayer? {
-        setupAVCapture(completion: { error in
-            guard error != nil else {
+        setupAVCapture(completion: { [weak self] error in
+            guard let error = error else {
                 return
             }
+            self?.avCaptureSetupFailureHandler?(error)
         })
         setupCaptureVideoPreviewLayer()
         startAVCapture()

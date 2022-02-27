@@ -4,4 +4,5 @@ enum CameraStatus {
     case allowed
     case notAllowed
     case unknownFailure
+    case knownFailure
 }

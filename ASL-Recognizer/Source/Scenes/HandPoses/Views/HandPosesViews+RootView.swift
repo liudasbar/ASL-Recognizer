@@ -47,18 +47,10 @@ extension HandPosesViews {
             handPosesCollectionView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 handPosesCollectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                handPosesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                handPosesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                handPosesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+                handPosesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
                 handPosesCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
             ])
-        }
-        
-        func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
-            let totalWidth = cellWidth * numberOfItems
-            let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
-            let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
-            let rightInset = leftInset
-            return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
         }
     }
 }

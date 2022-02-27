@@ -10,6 +10,7 @@ extension MainViews {
             return view
         }()
         
+        
         private lazy var statusLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
                 title: "",
@@ -19,6 +20,10 @@ extension MainViews {
             ))
             return label
         }()
+        
+        private lazy var statusImageView: UIImageView = UIImageView.defaultImageView(
+            config: UIImageView.Config(image: UIImage(systemName: "video.slash") ?? UIImage())
+        )
         
         private lazy var openSettingsButton: UIButton = {
             let button = UIButton()
@@ -64,9 +69,18 @@ extension MainViews {
         }()
         
         // MARK: - Variables
-        private lazy var avCapture: AVCapture = AVCapture { [weak self] sampleBuffer in
-            self?.sampleBufferOutputHandler?(sampleBuffer)
-        }
+        private lazy var avCapture: AVCapture = AVCapture(
+            captureOutputHandler: { sampleBuffer in
+                self.sampleBufferOutputHandler?(sampleBuffer)
+            },
+            avCaptureSetupFailureHandler: { setupFailureReason in
+                self.setCameraStatusLabelBasedOn(
+                    cameraStatus: .knownFailure,
+                    errorValue: setupFailureReason.localizedError
+                )
+            }
+        )
+        private var captureAvailable: Bool = true
         
         private var openSettingsActionHandler: (() -> Void)?
         private var sampleBufferOutputHandler: ((CMSampleBuffer) -> Void)?
@@ -93,6 +107,7 @@ extension MainViews {
         private func setupViews() {
             backgroundColor = activeTheme.colors.text
             setupStatusLabel()
+            setupStatusImageView()
             setupResultView()
             setupDetectStatusView()
             setupHandPosesView()
@@ -130,9 +145,20 @@ extension MainViews {
             addSubview(statusLabel)
             statusLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
+                statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
                 statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
                 statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            ])
+        }
+        
+        private func setupStatusImageView() {
+            addSubview(statusImageView)
+            statusImageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                statusImageView.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -10),
+                statusImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                statusImageView.widthAnchor.constraint(equalToConstant: 50),
+                statusImageView.heightAnchor.constraint(equalToConstant: 50)
             ])
         }
         
@@ -225,8 +251,12 @@ extension MainViews {
             }
         }
         
-        private func setCameraStatusLabelBasedOn(cameraStatus: CameraStatus) {
+        private func setCameraStatusLabelBasedOn(cameraStatus: CameraStatus, errorValue: String? = nil) {
+            guard captureAvailable else {
+                return
+            }
             mainAsync(execute: {
+                self.statusImageView.layer.opacity = 1
                 self.statusLabel.layer.opacity = 1
                 switch cameraStatus {
                 case .shouldRequest:
@@ -235,6 +265,7 @@ extension MainViews {
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.checking
                 case .allowed:
                     self.statusLabel.text = ""
+                    self.statusImageView.layer.opacity = 0
                     self.statusLabel.layer.opacity = 0
                     self.detectStatusView.layer.opacity = 1
                     self.resultView.layer.opacity = 1
@@ -242,9 +273,16 @@ extension MainViews {
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed
                     self.openSettingsButton.layer.opacity = 1
+                case .knownFailure:
+                    self.statusLabel.text = errorValue
+                    self.detectStatusView.layer.opacity = 0
+                    self.resultView.layer.opacity = 0
+                    self.handPosesView.layer.opacity = 0
+                    self.captureAvailable = false
                 case .unknownFailure:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.unknownFailure
                     self.openSettingsButton.layer.opacity = 1
+                    self.captureAvailable = false
                 }
             })
         }
@@ -269,6 +307,7 @@ extension MainViews {
                 self.alertView.layer.opacity = 0
             }
             UIView.animate(withDuration: Constants.defaultAnimationDuration, delay: 0, options: [], animations: {
+                self.statusImageView.layer.opacity = 0
                 self.statusLabel.layer.opacity = 0
                 self.detectStatusView.layer.opacity = 0
                 self.resultView.layer.opacity = 0
