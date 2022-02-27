@@ -16,7 +16,7 @@ extension MainViews {
         
         private lazy var handPosesButton: UIButton = {
             let button = UIButton()
-            button.setTitle("  " + L10n.HandPoses.Button.handPoses, for: .normal)
+            button.setTitle("  " + L10n.Main.Button.handPoses, for: .normal)
             button.setImage(UIImage(systemName: "hand.point.up.left.fill"), for: .normal)
             button.tintColor = activeTheme.colors.buttonDefault
             button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)

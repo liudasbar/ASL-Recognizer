@@ -365,9 +365,9 @@
 		F4A2355227CA2B6400A2A8B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */,
 				F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */,
 				F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */,
-				F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

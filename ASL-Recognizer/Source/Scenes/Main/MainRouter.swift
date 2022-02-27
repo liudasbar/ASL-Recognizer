@@ -20,7 +20,7 @@ extension DefaultMainRouter: MainRoutingLogic {
             return
         }
         let handPosesViewController = HandPosesConfigurator.configure()
-        handPosesViewController.title = "Available Hand Poses"
+        handPosesViewController.title = L10n.HandPoses.title
         navigationController.pushViewController(handPosesViewController, animated: true)
     }
 }

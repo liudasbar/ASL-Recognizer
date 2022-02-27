@@ -77,16 +77,16 @@ internal enum L10n {
   }
 
   internal enum HandPoses {
-    internal enum Button {
-      /// Hand Poses
-      internal static let handPoses = L10n.tr("Localizable", "HandPoses.Button.handPoses")
-    }
+    /// Alphabet hand poses
+    internal static let title = L10n.tr("Localizable", "HandPoses.title")
   }
 
   internal enum Main {
     internal enum Button {
       /// Detecting...
       internal static let detecting = L10n.tr("Localizable", "Main.Button.detecting")
+      /// Alphabet
+      internal static let handPoses = L10n.tr("Localizable", "Main.Button.handPoses")
       /// Detect
       internal static let startDetection = L10n.tr("Localizable", "Main.Button.startDetection")
       internal enum Settings {

@@ -21,9 +21,13 @@ extension MainViews {
             return label
         }()
         
-        private lazy var statusImageView: UIImageView = UIImageView.defaultImageView(
-            config: UIImageView.Config(image: UIImage(systemName: "video.slash") ?? UIImage())
-        )
+        private lazy var statusImageView: UIImageView = {
+            let imageView = UIImageView.defaultImageView(
+                config: UIImageView.Config(image: UIImage(systemName: "video.slash") ?? UIImage())
+            )
+            imageView.layer.opacity = 0
+            return imageView
+        }()
         
         private lazy var openSettingsButton: UIButton = {
             let button = UIButton()
@@ -256,13 +260,15 @@ extension MainViews {
                 return
             }
             mainAsync(execute: {
-                self.statusImageView.layer.opacity = 1
-                self.statusLabel.layer.opacity = 1
                 switch cameraStatus {
                 case .shouldRequest:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.shouldRequest
+                    self.statusLabel.layer.opacity = 1
+                    self.statusImageView.layer.opacity = 1
                 case .loading:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.checking
+                    self.statusLabel.layer.opacity = 1
+                    self.statusImageView.layer.opacity = 1
                 case .allowed:
                     self.statusLabel.text = ""
                     self.statusImageView.layer.opacity = 0
@@ -272,15 +278,21 @@ extension MainViews {
                     self.handPosesView.layer.opacity = 1
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed
+                    self.statusLabel.layer.opacity = 1
+                    self.statusImageView.layer.opacity = 1
                     self.openSettingsButton.layer.opacity = 1
                 case .knownFailure:
                     self.statusLabel.text = errorValue
+                    self.statusLabel.layer.opacity = 1
+                    self.statusImageView.layer.opacity = 1
                     self.detectStatusView.layer.opacity = 0
                     self.resultView.layer.opacity = 0
                     self.handPosesView.layer.opacity = 0
                     self.captureAvailable = false
                 case .unknownFailure:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.unknownFailure
+                    self.statusLabel.layer.opacity = 1
+                    self.statusImageView.layer.opacity = 1
                     self.openSettingsButton.layer.opacity = 1
                     self.captureAvailable = false
                 }
@@ -306,15 +318,7 @@ extension MainViews {
                 self.cameraView.layer.opacity = 0
                 self.alertView.layer.opacity = 0
             }
-            UIView.animate(withDuration: Constants.defaultAnimationDuration, delay: 0, options: [], animations: {
-                self.statusImageView.layer.opacity = 0
-                self.statusLabel.layer.opacity = 0
-                self.detectStatusView.layer.opacity = 0
-                self.resultView.layer.opacity = 0
-                self.handPosesView.layer.opacity = 0
-            }, completion: { _ in
-                self.avCapture.stopAVCapture()
-            })
+            avCapture.stopAVCapture()
         }
     }
 }
