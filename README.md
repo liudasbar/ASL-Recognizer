@@ -54,6 +54,18 @@ If you have questions regarding this application or its support, please [contact
 
 Change Log is not available yet.
 
+## Setting up the project
+
+1. Open project directory via Terminal:
+```
+cd project/directory
+```
+2. Install pods:
+```
+pod install
+```
+3. Open __ASL-Recognizer.xcworkspace__ file
+
 ## License
 
 MIT License
