@@ -20,6 +20,7 @@ ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9. Hand pose
 ## Abbreviations
 
 ASL - American Sign Language.
+
 ML - Machine Learning.
 
 ## Availability
