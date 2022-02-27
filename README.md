@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/liudasbar/Authentity/master/logo.png)
+![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/App-Icon-180.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
 ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
