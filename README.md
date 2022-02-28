@@ -7,7 +7,7 @@ ASL Recognizer project is an open-source project designed to showcase hand pose 
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/IMG_0124_700.PNG)
 
-## Features and Datasets
+## Features and Data Sets
 
 The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML tools.
 
