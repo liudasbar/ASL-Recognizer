@@ -9,7 +9,7 @@ ASL Recognizer project is an open-source project designed to showcase hand pose 
 
 ## Features and Data Sets
 
-The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML tools.
+The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML (__Core ML__) tools.
 
 While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific ML model that application uses consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
 
@@ -37,7 +37,7 @@ Training data:
 
 The application uses __Apple Vision__ framework to perform the hand pose recognition with each camera output frame (__CMSampleBuffer__). Vision has hand pose visual detection request class that is used for hand pose and fingers recognition. Vision data parsing goes through __VNImageRequestHandler__.
 
-Hand Pose ML model to predict a hand pose uses __MLMultiArray__ as input. What is amazing here is that multi-dimensional array (__MLMultiArray__) can be extracted from Vision image request handler (__VNImageRequestHandler__) output directly, which then is passed to model prediction methods (they were generated directly in Xcode's __Create ML__ before).
+Hand Pose ML model to predict a hand pose uses __MLMultiArray__ as input. What is amazing here is that multi-dimensional array (__MLMultiArray__) can be extracted from Vision image request handler (__VNImageRequestHandler__) output directly, which then is passed to model prediction methods (they were generated directly in Xcode's Create ML application (__Core ML__) before).
 
 Finally, after model finishes with prediction, the following can be extracted: prediction confidence, predicted result (label), and many more!
 
