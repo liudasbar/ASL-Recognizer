@@ -261,8 +261,6 @@
 			children = (
 				C93795CC27C168E200B737DD /* Theme */,
 				C937959627C1595700B737DD /* Common */,
-				C937959727C1595D00B737DD /* Entries */,
-				C937959827C1596700B737DD /* Extensions */,
 				C937959927C1596F00B737DD /* Utilities */,
 				C937959A27C1597500B737DD /* Views */,
 				C937959B27C1597B00B737DD /* Scenes */,
@@ -284,20 +282,6 @@
 				C93795BE27C165D400B737DD /* CustomError.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		C937959727C1595D00B737DD /* Entries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entries;
-			sourceTree = "<group>";
-		};
-		C937959827C1596700B737DD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C937959927C1596F00B737DD /* Utilities */ = {

@@ -36,4 +36,4 @@
 "AVCaptureFailure.couldNotAddVideoDataOutputToSession" = "Could not add video data output to capture session\n\nPlease restart your device.";
 "AVCaptureFailure.failedVideoCaptureLockForConfiguration" = "Failed to lock video capture for configuration\n\nPlease restart your device.";
 
-"Main.info" = "Application developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";
+"Main.info" = "Developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";

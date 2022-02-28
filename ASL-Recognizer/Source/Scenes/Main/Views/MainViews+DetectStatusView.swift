@@ -24,6 +24,7 @@ extension MainViews {
             )
             button.tintColor = activeTheme.colors.buttonDefault
             button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)
+            button.setTitleColor(activeTheme.colors.buttonDefault.withAlphaComponent(0.4), for: .highlighted)
             button.addTarget(self, action: #selector(startDetectionAction), for: .touchUpInside)
             return button
         }()

@@ -10,10 +10,9 @@ enum Constants {
     /// 0.3
     static var defaultAnimationDuration = 0.3
     
-    /// 0.6
-    static var longerAnimationDuration = 0.6
+    /// 0.8
+    static var longerAnimationDuration = 0.8
     
     /// 1
     static var noHandPoseDetectedViewAppearDuration: Double = 1
-    
 }

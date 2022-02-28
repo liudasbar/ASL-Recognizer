@@ -20,6 +20,7 @@ extension MainViews {
             button.setImage(UIImage(systemName: "hand.point.up.left.fill"), for: .normal)
             button.tintColor = activeTheme.colors.buttonDefault
             button.setTitleColor(activeTheme.colors.buttonDefault, for: .normal)
+            button.setTitleColor(activeTheme.colors.buttonDefault.withAlphaComponent(0.4), for: .highlighted)
             button.addTarget(self, action: #selector(openHandPosesAction), for: .touchUpInside)
             return button
         }()
