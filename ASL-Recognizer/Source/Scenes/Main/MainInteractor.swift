@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 import AVFoundation
 
@@ -11,7 +10,6 @@ protocol MainInteractor: MainBusinessLogic {
 }
 
 class DefaultMainInteractor: MainInteractor {
-    private var cancelBag = Set<AnyCancellable>()
     private let worker: MainWorker
     var presenter: MainPresentationLogic!
 

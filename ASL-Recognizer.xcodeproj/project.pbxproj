@@ -71,11 +71,11 @@
 		F4931ECB27CD306D00E65A43 /* letter-o.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931EB027CD306D00E65A43 /* letter-o.png */; };
 		F4931ECD27CD33D800E65A43 /* MainViews+InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4931ECC27CD33D800E65A43 /* MainViews+InfoView.swift */; };
 		F4931ECF27CD3D9600E65A43 /* ASL_Alphabet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4931ECE27CD3D9600E65A43 /* ASL_Alphabet.jpg */; };
+		F4931ED127CD69CF00E65A43 /* VIP_Swift_Architecture.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */; };
 		F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */; };
 		F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */; };
 		F4A2355527CA2B6400A2A8B7 /* HandPosesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */; };
 		F4A2355827CA2B6400A2A8B7 /* HandPosesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */; };
-		F4A2355B27CA2B6400A2A8B7 /* HandPosesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */; };
 		F4A2355C27CA2B6400A2A8B7 /* HandPosesViews+RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */; };
 		F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */; };
 		F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */; };
@@ -85,7 +85,7 @@
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
 		F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */; };
 		F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */; };
-		F4D002BC27CC21660023D438 /* App-Icon-150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App-Icon-150.png */; };
+		F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App_Icon_150.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,11 +157,11 @@
 		F4931EB027CD306D00E65A43 /* letter-o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-o.png"; sourceTree = "<group>"; };
 		F4931ECC27CD33D800E65A43 /* MainViews+InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+InfoView.swift"; sourceTree = "<group>"; };
 		F4931ECE27CD3D9600E65A43 /* ASL_Alphabet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ASL_Alphabet.jpg; sourceTree = "<group>"; };
+		F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VIP_Swift_Architecture.png; sourceTree = "<group>"; };
 		F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+AlertView.swift"; sourceTree = "<group>"; };
 		F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDefaultImageView.swift; sourceTree = "<group>"; };
 		F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViewController.swift; sourceTree = "<group>"; };
 		F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesConfigurator.swift; sourceTree = "<group>"; };
-		F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesWorker.swift; sourceTree = "<group>"; };
 		F4A2355327CA2B6400A2A8B7 /* HandPosesViews+RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HandPosesViews+RootView.swift"; sourceTree = "<group>"; };
 		F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViews.swift; sourceTree = "<group>"; };
 		F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+HandPosesView.swift"; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0123_700.PNG; sourceTree = "<group>"; };
 		F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124_700.PNG; sourceTree = "<group>"; };
-		F4D002BB27CC21660023D438 /* App-Icon-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-150.png"; sourceTree = "<group>"; };
+		F4D002BB27CC21660023D438 /* App_Icon_150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_150.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,7 +408,6 @@
 			children = (
 				F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */,
 				F4A2354E27CA2B6400A2A8B7 /* HandPosesConfigurator.swift */,
-				F4A2355127CA2B6400A2A8B7 /* HandPosesWorker.swift */,
 				F4D002A327CA42020023D438 /* Entries */,
 				F4A2355227CA2B6400A2A8B7 /* Views */,
 			);
@@ -438,7 +437,8 @@
 			children = (
 				F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */,
 				F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */,
-				F4D002BB27CC21660023D438 /* App-Icon-150.png */,
+				F4D002BB27CC21660023D438 /* App_Icon_150.png */,
+				F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -511,7 +511,7 @@
 				F4931EC527CD306D00E65A43 /* letter-z.png in Resources */,
 				F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */,
 				F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */,
-				F4D002BC27CC21660023D438 /* App-Icon-150.png in Resources */,
+				F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */,
 				F4931ECA27CD306D00E65A43 /* letter-x.png in Resources */,
 				F4931EB627CD306D00E65A43 /* letter-v.png in Resources */,
 				F4931EB927CD306D00E65A43 /* letter-d.png in Resources */,
@@ -535,6 +535,7 @@
 				F4931ECB27CD306D00E65A43 /* letter-o.png in Resources */,
 				F4931EB327CD306D00E65A43 /* letter-t.png in Resources */,
 				F4931EBD27CD306D00E65A43 /* letter-g.png in Resources */,
+				F4931ED127CD69CF00E65A43 /* VIP_Swift_Architecture.png in Resources */,
 				F4931EB427CD306D00E65A43 /* letter-c.png in Resources */,
 				F4931EC927CD306D00E65A43 /* letter-y.png in Resources */,
 				F4931EB827CD306D00E65A43 /* letter-s.png in Resources */,
@@ -643,7 +644,6 @@
 				F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */,
 				C93795D027C1690A00B737DD /* ThemeColors.swift in Sources */,
 				C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */,
-				F4A2355B27CA2B6400A2A8B7 /* HandPosesWorker.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
 				C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,

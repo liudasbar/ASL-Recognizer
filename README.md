@@ -1,4 +1,4 @@
-![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App-Icon-150.png)
+![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App_Icon_150.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
 ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
@@ -11,23 +11,17 @@ ASL Recognizer project is an open-source project designed to showcase hand pose 
 
 The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML tools.
 
-While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific application consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
+While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific ML model that application uses consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
 
 ## What can be recognized?
 
-ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9. Hand pose detection output is shown within the main application interface. Each detected symbol (letter or number) is added to the current value with previously detected symbols.
-
-## Abbreviations
-
-ASL - American Sign Language
-
-ML - Machine Learning
+__ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9__. Hand pose detection output is shown within the main application interface. Each detected symbol (letter or number) is added to the current value with previously detected symbols.
 
 ## Availability
 
-The project is written on Xcode 13 for iOS/iPadOS devices from iOS 14.
+The project is written on Xcode 13 __for iOS/iPadOS devices from iOS 14__.
 
-## Recognition model
+## ML model
 
 Accuracy:
 * Training - 96 %
@@ -37,6 +31,26 @@ Training data:
 * 36 classes
 * 11 128 items
 
+⚠️ __It should be noted that detection of some letters is not ideal and can lead to letters being recognized as not the right ones. The ML model is set to be improved.__
+
+## Prediction based on ML model from technical perspective
+
+The application uses __Apple Vision__ framework to perform the hand pose recognition with each camera output frame (__CMSampleBuffer__). Vision has hand pose visual detection request class that is used for hand pose and fingers recognition. Vision data parsing goes through __VNImageRequestHandler__.
+
+Hand Pose ML model to predict a hand pose uses __MLMultiArray__ as input. What is amazing here is that multi-dimensional array (__MLMultiArray__) can be extracted from Vision image request handler (__VNImageRequestHandler__) output directly, which then is passed to model prediction methods (they were generated directly in Xcode's __Create ML__ before).
+
+Finally, after model finishes with prediction, the following can be extracted: prediction confidence, predicted result (label), and many more!
+
+## Project architecture
+
+Project relies on __Clean VIP architecture__ (with own project modifications). Please find VIP architecture example scheme below:
+
+![Image](https://user-images.githubusercontent.com/5277297/60242511-716cfc00-98d3-11e9-8e1f-709230093433.png)
+
+More about this specific architecture __[here](https://github.com/bhardwajpankaj/VIP)__.
+
+Additionally, the project uses a little bit of Combine framework to simplify some of the asynchronous actions.
+
 ## Privacy permissions
 
 User needs to grant these privacy permissions:
@@ -45,6 +59,12 @@ User needs to grant these privacy permissions:
 ## Offline
 
 ASL Recognizer is fully offline. Thus, no data is being sent or received to and from any server. Data collection is not implemented in any way.
+
+## Abbreviations
+
+__ASL__ - American Sign Language
+
+__ML__ - Machine Learning
 
 ## Privacy Policy and support
 

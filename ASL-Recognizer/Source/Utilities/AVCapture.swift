@@ -1,7 +1,6 @@
 import UIKit
 import AVFoundation
 import Vision
-import Combine
 
 class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     // MARK: - Variables

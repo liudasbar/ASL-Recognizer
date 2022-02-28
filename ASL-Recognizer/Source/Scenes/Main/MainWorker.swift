@@ -54,24 +54,23 @@ class DefaultMainWorker: MainWorker {
                     orientation: .right,
                     options: [:]
                 )
+                
                 do {
                     try imageRequestHandler!.perform([handPoseRequest])
                     guard let observation = handPoseRequest.results?.first else {
-                        // No hand pose results
                         return .fail(.foundNoHandPose)
                     }
                     multiarray = try observation.keypointsMultiArray()
                     result = try model?.prediction(poses: multiarray)
-
+                    
                     observationConfidence = observation.confidence
                     guard observation.confidence > confidence else {
                         return .empty()
                     }
                 } catch {
-                    print(error.localizedDescription)
                     return .fail(.genericWith(error))
                 }
-
+                
                 if let result = result?.label {
                     return .just(result.uppercased())
                 } else {
