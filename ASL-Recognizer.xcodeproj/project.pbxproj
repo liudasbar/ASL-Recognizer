@@ -14,7 +14,6 @@
 		C937958527C158A500B737DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C937958327C158A500B737DD /* Main.storyboard */; };
 		C937958727C158AA00B737DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C937958627C158AA00B737DD /* Assets.xcassets */; };
 		C937958A27C158AA00B737DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C937958827C158AA00B737DD /* LaunchScreen.storyboard */; };
-		C937959E27C15AC600B737DD /* RegisterServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937959D27C15AC600B737DD /* RegisterServices.swift */; };
 		C93795AC27C15D9600B737DD /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795A227C15D9600B737DD /* MainConfigurator.swift */; };
 		C93795AD27C15D9600B737DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795A327C15D9600B737DD /* MainViewController.swift */; };
 		C93795AE27C15D9600B737DD /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795A427C15D9600B737DD /* MainInteractor.swift */; };
@@ -104,7 +103,6 @@
 		C937958627C158AA00B737DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C937958927C158AA00B737DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C937958B27C158AA00B737DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C937959D27C15AC600B737DD /* RegisterServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServices.swift; sourceTree = "<group>"; };
 		C93795A227C15D9600B737DD /* MainConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		C93795A327C15D9600B737DD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C93795A427C15D9600B737DD /* MainInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				C93795CC27C168E200B737DD /* Theme */,
-				C937959427C1594600B737DD /* DependencyInjection */,
 				C937959627C1595700B737DD /* Common */,
 				C937959727C1595D00B737DD /* Entries */,
 				C937959827C1596700B737DD /* Extensions */,
@@ -278,14 +275,6 @@
 			children = (
 			);
 			path = Animations;
-			sourceTree = "<group>";
-		};
-		C937959427C1594600B737DD /* DependencyInjection */ = {
-			isa = PBXGroup;
-			children = (
-				C937959D27C15AC600B737DD /* RegisterServices.swift */,
-			);
-			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
 		C937959627C1595700B737DD /* Common */ = {
@@ -668,7 +657,6 @@
 				C93795B227C15D9600B737DD /* MainModels.swift in Sources */,
 				C93795AC27C15D9600B737DD /* MainConfigurator.swift in Sources */,
 				C93795BD27C165BF00B737DD /* Constants.swift in Sources */,
-				C937959E27C15AC600B737DD /* RegisterServices.swift in Sources */,
 				C93795C727C1674A00B737DD /* MakeDefaultView.swift in Sources */,
 				F4A2355A27CA2B6400A2A8B7 /* HandPosesRouter.swift in Sources */,
 				C93795B127C15D9600B737DD /* MainWorker.swift in Sources */,
