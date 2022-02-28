@@ -35,6 +35,7 @@ class HandPosesViewController: UIViewController {
             return
         }
         navigationController.navigationBar.tintColor = activeTheme.colors.buttonDefault
+        navigationController.navigationBar.isHidden = false
     }
     
     private func setupViews() {

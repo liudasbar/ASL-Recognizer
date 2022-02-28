@@ -19,7 +19,11 @@ extension MainViews {
         )
         
         private lazy var alertTitleLabel: UILabel = UILabel.defaultLabel(
-            config: UILabel.Config(title: "Havent found anyhthing", textColor: activeTheme.colors.blank)
+            config: UILabel.Config(
+                title: "Havent found anyhthing",
+                textColor: activeTheme.colors.blank,
+                textAlignment: .center
+            )
         )
         
         // MARK: - Variables
@@ -65,7 +69,7 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 alertTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
                 alertTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-                alertTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                alertTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
                 alertTitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 40)
             ])
         }

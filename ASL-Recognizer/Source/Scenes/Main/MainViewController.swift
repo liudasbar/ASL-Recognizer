@@ -28,15 +28,23 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         rootView.setupCamera()
+        setupNavigationController()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationController()
         setupViews()
         setupActions()
     }
 
     // MARK: - Setup
+    private func setupNavigationController() {
+        if let navigationController = navigationController {
+            navigationController.navigationBar.isHidden = true
+        }
+    }
+    
     private func setupViews() {
         view.addSubview(rootView)
         rootView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +72,10 @@ class MainViewController: UIViewController {
         rootView.handPosesView.setupOpenHandPosesActionHandler({ [weak self] in
             self?.openHandPoses()
         })
+        
+        rootView.infoView.setupInfoActionHandler { [weak self] in
+            self?.displayInfoAlert()
+        }
     }
     
     // MARK: - Actions
@@ -83,6 +95,22 @@ class MainViewController: UIViewController {
     private func openHandPoses() {
         rootView.stopCameraCapture()
         router.routeToHandPoses()
+    }
+    
+    private func displayInfoAlert() {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        if let appVersion = appVersion, let buildNumber = buildNumber {
+            rootView.displayAlert(
+                image: UIImage(systemName: "info.circle") ?? UIImage(),
+                title: L10n.Main.info(appVersion, buildNumber)
+            )
+        } else {
+            rootView.displayAlert(
+                image: UIImage(systemName: "info.circle") ?? UIImage(),
+                title: L10n.Main.info(L10n.Common.notAvailable, L10n.Common.notAvailable)
+            )
+        }
     }
 }
 

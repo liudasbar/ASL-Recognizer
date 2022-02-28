@@ -50,6 +50,8 @@ internal enum L10n {
     internal static let dash = L10n.tr("Localizable", "Common.dash")
     /// No
     internal static let no = L10n.tr("Localizable", "Common.no")
+    /// NA
+    internal static let notAvailable = L10n.tr("Localizable", "Common.notAvailable")
     /// Yes
     internal static let yes = L10n.tr("Localizable", "Common.yes")
     internal enum Button {
@@ -82,6 +84,12 @@ internal enum L10n {
   }
 
   internal enum Main {
+    /// Application developed by Liudas Baronas.
+    /// Source code is available on GitHub.
+    /// Application version: %@ (%@)
+    internal static func info(_ p1: Any, _ p2: Any) -> String {
+      return L10n.tr("Localizable", "Main.info", String(describing: p1), String(describing: p2))
+    }
     internal enum Button {
       /// Detecting
       internal static let detecting = L10n.tr("Localizable", "Main.Button.detecting")

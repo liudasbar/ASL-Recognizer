@@ -70,6 +70,7 @@
 		F4931EC927CD306D00E65A43 /* letter-y.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931EAE27CD306D00E65A43 /* letter-y.png */; };
 		F4931ECA27CD306D00E65A43 /* letter-x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931EAF27CD306D00E65A43 /* letter-x.png */; };
 		F4931ECB27CD306D00E65A43 /* letter-o.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931EB027CD306D00E65A43 /* letter-o.png */; };
+		F4931ECD27CD33D800E65A43 /* MainViews+InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4931ECC27CD33D800E65A43 /* MainViews+InfoView.swift */; };
 		F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */; };
 		F4A2354327CA081A00A2A8B7 /* MakeDefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */; };
 		F4A2355527CA2B6400A2A8B7 /* HandPosesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */; };
@@ -159,6 +160,7 @@
 		F4931EAE27CD306D00E65A43 /* letter-y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-y.png"; sourceTree = "<group>"; };
 		F4931EAF27CD306D00E65A43 /* letter-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-x.png"; sourceTree = "<group>"; };
 		F4931EB027CD306D00E65A43 /* letter-o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-o.png"; sourceTree = "<group>"; };
+		F4931ECC27CD33D800E65A43 /* MainViews+InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+InfoView.swift"; sourceTree = "<group>"; };
 		F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+AlertView.swift"; sourceTree = "<group>"; };
 		F4A2354227CA081A00A2A8B7 /* MakeDefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeDefaultImageView.swift; sourceTree = "<group>"; };
 		F4A2354B27CA2B6400A2A8B7 /* HandPosesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				C93795AB27C15D9600B737DD /* MainViews+RootView.swift */,
 				C93795DD27C1973500B737DD /* MainViews+ResultView.swift */,
 				F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */,
+				F4931ECC27CD33D800E65A43 /* MainViews+InfoView.swift */,
 				F4A2354027CA05FD00A2A8B7 /* MainViews+AlertView.swift */,
 				F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */,
 			);
@@ -647,6 +650,7 @@
 				F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */,
 				C93795D227C1690F00B737DD /* ThemeFonts.swift in Sources */,
 				C93795D927C1794200B737DD /* AVCaptureFailureReason.swift in Sources */,
+				F4931ECD27CD33D800E65A43 /* MainViews+InfoView.swift in Sources */,
 				C93795B427C15D9600B737DD /* MainViews+RootView.swift in Sources */,
 				C93795D427C1697100B737DD /* UIColor+Extensions.swift in Sources */,
 				F4A2354127CA05FD00A2A8B7 /* MainViews+AlertView.swift in Sources */,

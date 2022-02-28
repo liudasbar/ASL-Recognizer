@@ -47,6 +47,13 @@ extension MainViews {
             return view
         }()
         
+        lazy var infoView: InfoView = {
+            let view = InfoView()
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 12
+            return view
+        }()
+        
         lazy var resultView: ResultView = {
             let view = ResultView()
             view.layer.masksToBounds = true
@@ -113,6 +120,7 @@ extension MainViews {
             setupStatusImageView()
             setupResultView()
             setupDetectStatusView()
+            setupInfoView()
             setupHandPosesView()
             setupAlertView()
             setupOpenSettingsButton()
@@ -187,6 +195,17 @@ extension MainViews {
             ])
         }
         
+        private func setupInfoView() {
+            addSubview(infoView)
+            infoView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                infoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+                infoView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+                infoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                infoView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
+            ])
+        }
+        
         private func setupHandPosesView() {
             addSubview(handPosesView)
             handPosesView.translatesAutoresizingMaskIntoConstraints = false
@@ -205,7 +224,7 @@ extension MainViews {
                 alertView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 alertView.centerYAnchor.constraint(equalTo: centerYAnchor),
                 alertView.widthAnchor.constraint(greaterThanOrEqualToConstant: 80),
-                alertView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100)
+                alertView.heightAnchor.constraint(equalToConstant: 120)
             ])
         }
         

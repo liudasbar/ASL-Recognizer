@@ -12,6 +12,7 @@
 "Common.yes" = "Yes";
 "Common.no" = "No";
 "Common.dash" = "-";
+"Common.notAvailable" = "NA";
 
 "Alert.generic" = "Error";
 "Alert.genericWithError" = "Error with reason: %@";
@@ -34,3 +35,5 @@
 "AVCaptureFailure.couldNotAddVideoDeviceInputToSession" = "Could not add video device input to capture session\n\nPlease restart your device.n";
 "AVCaptureFailure.couldNotAddVideoDataOutputToSession" = "Could not add video data output to capture session\n\nPlease restart your device.";
 "AVCaptureFailure.failedVideoCaptureLockForConfiguration" = "Failed to lock video capture for configuration\n\nPlease restart your device.";
+
+"Main.info" = "Application developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";
