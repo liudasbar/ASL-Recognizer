@@ -84,7 +84,7 @@ internal enum L10n {
   }
 
   internal enum Main {
-    /// Application developed by Liudas Baronas.
+    /// Developed by Liudas Baronas.
     /// Source code is available on GitHub.
     /// Application version: %@ (%@)
     internal static func info(_ p1: Any, _ p2: Any) -> String {

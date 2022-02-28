@@ -101,8 +101,8 @@ extension MainViews {
             resultLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 resultLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-                resultLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                resultLabel.trailingAnchor.constraint(equalTo: clearResultButton.leadingAnchor),
+                resultLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                resultLabel.trailingAnchor.constraint(equalTo: backspaceResultButton.leadingAnchor, constant: -8),
                 resultLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             ])
         }
