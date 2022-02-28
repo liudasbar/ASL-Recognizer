@@ -24,7 +24,7 @@
 "Main.Button.Settings.open" = "Open Settings";
 
 "Main.Button.startDetection" = "Detect";
-"Main.Button.detecting" = "Detecting...";
+"Main.Button.detecting" = "Detecting";
 "Main.Button.handPoses" = "Alphabet";
 
 "HandPoses.title" = "Alphabet hand poses";

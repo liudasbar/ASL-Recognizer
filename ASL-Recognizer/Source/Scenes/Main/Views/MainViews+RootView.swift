@@ -5,7 +5,7 @@ extension MainViews {
     class RootView: UIView {
         // MARK: - Views
         private lazy var cameraView: UIView = {
-            let view = makeDefaultView(config: Config(backgroundColor: activeTheme.colors.text))
+            let view = makeDefaultView(config: Config(backgroundColor: activeTheme.colors.systemBackground))
             view.layer.opacity = 0
             return view
         }()
@@ -13,7 +13,7 @@ extension MainViews {
         private lazy var statusLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
                 title: "",
-                textColor: activeTheme.colors.blank,
+                textColor: activeTheme.colors.textDynamic,
                 textAlignment: .center,
                 font: activeTheme.fonts.regular
             ))
@@ -108,7 +108,7 @@ extension MainViews {
         }
         
         private func setupViews() {
-            backgroundColor = activeTheme.colors.text
+            backgroundColor = activeTheme.colors.systemBackground
             setupStatusLabel()
             setupStatusImageView()
             setupResultView()
@@ -313,11 +313,15 @@ extension MainViews {
         }
         
         func stopCameraCapture() {
-            UIView.animate(withDuration: Constants.shorterAnimationDuration) {
-                self.cameraView.layer.opacity = 0
-                self.alertView.layer.opacity = 0
-            }
-            avCapture.stopAVCapture()
+            UIView.animate(
+                withDuration: Constants.defaultAnimationDuration,
+                animations: {
+                    self.cameraView.layer.opacity = 0
+                    self.alertView.layer.opacity = 0
+                }, completion: { [weak self] _ in
+                    self?.avCapture.stopAVCapture()
+                }
+            )
         }
     }
 }

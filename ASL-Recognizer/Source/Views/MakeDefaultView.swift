@@ -2,7 +2,7 @@ import UIKit
 
 extension UIView {
     struct Config {
-        var backgroundColor: UIColor = activeTheme.colors.blank
+        var backgroundColor: UIColor = activeTheme.colors.systemBackground
         var masksToBounds: Bool = false
         var cornerRadius: CGFloat = 0
         var borderWidth: CGFloat = 0

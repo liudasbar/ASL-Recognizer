@@ -17,7 +17,9 @@ public struct DefaultTheme: Theme {
 public struct DefaultThemeColors: ThemeColors {
     public static let blank: UIColor = UIColor(rgb: 0xffffff)
     public static let text: UIColor = UIColor(rgb: 0x000000)
+    public static let textDynamic: UIColor = .label
     public static let buttonDefault: UIColor = .systemOrange
+    public static let systemBackground: UIColor = .systemBackground
 }
 
 public struct DefaultThemeFonts: ThemeFonts {
