@@ -8,6 +8,6 @@ target 'ASL-Recognizer' do
   # Pods for ASL-Recognizer
   pod 'SwiftGen', '~> 6.0'
   #pod 'Firebase/AnalyticsWithoutAdIdSupport'
-  pod 'Firebase/Crashlytics'
+  #pod 'Firebase/Crashlytics'
 
 end
