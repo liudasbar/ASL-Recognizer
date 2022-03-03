@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     private let interactor: MainInteractor
     private let router: MainRouter
     private var shouldDetect: Bool = false
+    private var firstCameraInit: Bool = true
 
     // MARK: - Life Cycle
     init(interactor: MainInteractor, router: MainRouter) {
@@ -27,8 +28,14 @@ class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        rootView.setupCamera()
+        
         setupNavigationController()
+        guard firstCameraInit else {
+            rootView.setupCamera(cameraAuthorizationNeeded: false)
+            return
+        }
+        rootView.setupCamera(cameraAuthorizationNeeded: true)
+        firstCameraInit = false
     }
     
     override func viewDidLoad() {

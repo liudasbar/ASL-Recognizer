@@ -12,19 +12,19 @@ import Foundation
 internal enum L10n {
 
   internal enum AVCaptureFailure {
-    /// Could not add video data output to capture session
+    /// Could not add video data output to capture session.
     /// 
     /// Please restart your device.
     internal static let couldNotAddVideoDataOutputToSession = L10n.tr("Localizable", "AVCaptureFailure.couldNotAddVideoDataOutputToSession")
-    /// Could not add video device input to capture session
+    /// Could not add video device input to capture session.
     /// 
-    /// Please restart your device.n
+    /// Please restart your device.
     internal static let couldNotAddVideoDeviceInputToSession = L10n.tr("Localizable", "AVCaptureFailure.couldNotAddVideoDeviceInputToSession")
     /// Could not create video device input.
     /// 
     /// Please restart your device.
     internal static let couldNotCreateVideoDeviceInput = L10n.tr("Localizable", "AVCaptureFailure.couldNotCreateVideoDeviceInput")
-    /// Failed to lock video capture for configuration
+    /// Failed to lock video capture for configuration.
     /// 
     /// Please restart your device.
     internal static let failedVideoCaptureLockForConfiguration = L10n.tr("Localizable", "AVCaptureFailure.failedVideoCaptureLockForConfiguration")
@@ -32,6 +32,10 @@ internal enum L10n {
     /// 
     /// Please ensure your device camera is working correctly.
     internal static let noCameraDeviceFound = L10n.tr("Localizable", "AVCaptureFailure.noCameraDeviceFound")
+    /// No camera preview layer available.
+    /// 
+    /// Please restart your device.
+    internal static let noPreviewLayerAvailable = L10n.tr("Localizable", "AVCaptureFailure.noPreviewLayerAvailable")
   }
 
   internal enum Alert {

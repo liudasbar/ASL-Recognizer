@@ -79,17 +79,9 @@ extension MainViews {
         }()
         
         // MARK: - Variables
-        private lazy var avCapture: AVCapture = AVCapture(
-            captureOutputHandler: { sampleBuffer in
-                self.sampleBufferOutputHandler?(sampleBuffer)
-            },
-            avCaptureSetupFailureHandler: { setupFailureReason in
-                self.setCameraStatusLabelBasedOn(
-                    cameraStatus: .knownFailure,
-                    errorValue: setupFailureReason.localizedError
-                )
-            }
-        )
+        private lazy var avCapture: AVCapture = AVCaptureManager { [weak self] sampleBuffer in
+            self?.sampleBufferOutputHandler?(sampleBuffer)
+        }
         private var captureAvailable: Bool = true
         
         private var openSettingsActionHandler: (() -> Void)?
@@ -126,14 +118,15 @@ extension MainViews {
             setupOpenSettingsButton()
         }
         
-        func setupCamera() {
+        func setupCamera(cameraAuthorizationNeeded: Bool) {
             setupCameraView()
             cameraView.layoutIfNeeded()
-            requestCameraAuthorization()
             sendSubviewToBack(cameraView)
-            UIView.animate(withDuration: Constants.longerAnimationDuration) {
-                self.cameraView.layer.opacity = 1
+            guard cameraAuthorizationNeeded else {
+                requestCameraAuthorization(shouldAddDeviceInput: false)
+                return
             }
+            requestCameraAuthorization(shouldAddDeviceInput: true)
         }
         
         private func setupCameraView() {
@@ -150,6 +143,9 @@ extension MainViews {
         func setupPreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
             previewLayer.frame = cameraView.bounds
             cameraView.layer.addSublayer(previewLayer)
+            UIView.animate(withDuration: Constants.longerAnimationDuration) {
+                self.cameraView.layer.opacity = 1
+            }
         }
         
         private func setupStatusLabel() {
@@ -244,25 +240,37 @@ extension MainViews {
             openSettingsActionHandler?()
         }
         
-        public func requestCameraAuthorization() {
+        public func requestCameraAuthorization(shouldAddDeviceInput: Bool) {
             switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .authorized:
-                if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
-                    setupPreviewLayer(previewLayer)
-                } else {
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .unknownFailure)
-                }
+                avCapture.createAVSessionPreviewLayer(
+                    shouldAddDeviceInput: shouldAddDeviceInput, setupFailureReason: { failureReason in
+                        self.setCameraStatusLabelBasedOn(
+                            cameraStatus: .knownFailure,
+                            errorValue: failureReason.localizedError
+                        )
+                    }, previewLayerValue: { previewLayer in
+                        self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
+                        self.setupPreviewLayer(previewLayer)
+                    }
+                )
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video) { granted in
                     guard granted else {
                         self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
                         return
                     }
-                    self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
-                    if let previewLayer = self.avCapture.createAVSessionPreviewLayer() {
-                        self.setupPreviewLayer(previewLayer)
-                    }
+                    self.avCapture.createAVSessionPreviewLayer(
+                        shouldAddDeviceInput: shouldAddDeviceInput, setupFailureReason: { failureReason in
+                            self.setCameraStatusLabelBasedOn(
+                                cameraStatus: .knownFailure,
+                                errorValue: failureReason.localizedError
+                            )
+                        }, previewLayerValue: { previewLayer in
+                            self.setCameraStatusLabelBasedOn(cameraStatus: .allowed)
+                            self.setupPreviewLayer(previewLayer)
+                        }
+                    )
                 }
             case .denied:
                 self.setCameraStatusLabelBasedOn(cameraStatus: .notAllowed)
@@ -337,8 +345,6 @@ extension MainViews {
                 animations: {
                     self.cameraView.layer.opacity = 0
                     self.alertView.layer.opacity = 0
-                }, completion: { [weak self] _ in
-                    self?.avCapture.stopAVCapture()
                 }
             )
         }

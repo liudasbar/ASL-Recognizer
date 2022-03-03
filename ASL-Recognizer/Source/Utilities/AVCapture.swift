@@ -2,7 +2,13 @@ import UIKit
 import AVFoundation
 import Vision
 
-class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+protocol AVCapture {
+    func createAVSessionPreviewLayer(shouldAddDeviceInput: Bool,
+                                     setupFailureReason: @escaping(AVCaptureFailureReason) -> Void,
+                                     previewLayerValue: @escaping(AVCaptureVideoPreviewLayer) -> Void)
+}
+
+class AVCaptureManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapture {
     // MARK: - Variables
     private let session = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
@@ -21,20 +27,23 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         position: .back
     ).devices.first
     var captureOutputHandler: ((CMSampleBuffer) -> Void)?
-    var avCaptureSetupFailureHandler: ((AVCaptureFailureReason) -> Void)?
     
     // MARK: - Methods
-    init(captureOutputHandler: @escaping (CMSampleBuffer) -> Void,
-         avCaptureSetupFailureHandler: @escaping (AVCaptureFailureReason) -> Void) {
+    init(captureOutputHandler: @escaping (CMSampleBuffer) -> Void) {
         self.captureOutputHandler = captureOutputHandler
-        self.avCaptureSetupFailureHandler = avCaptureSetupFailureHandler
     }
     
-    private func setupAVCapture(completion: @escaping (AVCaptureFailureReason?) -> Void) {
+    private func setupAVCapture(shouldAddDeviceInput: Bool, completion: @escaping (AVCaptureFailureReason?) -> Void) {
         guard let videoDevice = videoDevice else {
             completion(.noCameraDeviceFound)
             return
         }
+        
+        guard shouldAddDeviceInput else {
+            completion(nil)
+            return
+        }
+        
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice)
         } catch {
@@ -94,32 +103,34 @@ class AVCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-// MARK: - Public Methods
-extension AVCapture {
-    public func createAVSessionPreviewLayer() -> AVCaptureVideoPreviewLayer? {
-        setupAVCapture(completion: { [weak self] error in
-            guard let error = error else {
+extension AVCaptureManager {
+    func createAVSessionPreviewLayer(shouldAddDeviceInput: Bool,
+                                     setupFailureReason: @escaping(AVCaptureFailureReason) -> Void,
+                                     previewLayerValue: @escaping(AVCaptureVideoPreviewLayer) -> Void) {
+        setupAVCapture(shouldAddDeviceInput: shouldAddDeviceInput, completion: { error in
+            guard shouldAddDeviceInput else {
+                previewLayerValue(self.previewLayer)
                 return
             }
-            self?.avCaptureSetupFailureHandler?(error)
+            if let error = error {
+                setupFailureReason(error)
+                return
+            }
+            self.setupCaptureVideoPreviewLayer()
+            guard let previewLayer = self.previewLayer else {
+                setupFailureReason(.noPreviewLayerAvailable)
+                return
+            }
+            previewLayerValue(previewLayer)
+            self.session.startRunning()
         })
-        setupCaptureVideoPreviewLayer()
-        startAVCapture()
-        return previewLayer
-    }
-    
-    public func startAVCapture() {
-        session.startRunning()
-    }
-    
-    public func stopAVCapture() {
-        previewLayer.removeFromSuperlayer()
-        previewLayer = nil
     }
 }
 
-extension AVCapture {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+extension AVCaptureManager {
+    func captureOutput(_ output: AVCaptureOutput,
+                       didOutput sampleBuffer: CMSampleBuffer,
+                       from connection: AVCaptureConnection) {
         captureOutputHandler?(sampleBuffer)
     }
 }

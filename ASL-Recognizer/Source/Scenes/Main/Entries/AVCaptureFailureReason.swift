@@ -4,6 +4,7 @@ enum AVCaptureFailureReason {
     case couldNotAddVideoDeviceInputToSession
     case couldNotAddVideoDataOutputToSession
     case failedVideoCaptureLockForConfiguration
+    case noPreviewLayerAvailable
     
     var localizedError: String {
         switch self {
@@ -17,6 +18,8 @@ enum AVCaptureFailureReason {
             return L10n.AVCaptureFailure.couldNotAddVideoDataOutputToSession
         case .failedVideoCaptureLockForConfiguration:
             return L10n.AVCaptureFailure.failedVideoCaptureLockForConfiguration
+        case .noPreviewLayerAvailable:
+            return L10n.AVCaptureFailure.noPreviewLayerAvailable
         }
     }
 }
