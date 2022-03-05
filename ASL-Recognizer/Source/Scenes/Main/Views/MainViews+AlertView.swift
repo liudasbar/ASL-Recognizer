@@ -20,7 +20,7 @@ extension MainViews {
         
         private lazy var alertTitleLabel: UILabel = UILabel.defaultLabel(
             config: UILabel.Config(
-                title: "Havent found anyhthing",
+                title: "",
                 textColor: activeTheme.colors.blank,
                 textAlignment: .center
             )
@@ -67,10 +67,16 @@ extension MainViews {
             addSubview(alertTitleLabel)
             alertTitleLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                alertTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-                alertTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-                alertTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-                alertTitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 40)
+                alertTitleLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 5),
+                alertTitleLabel.leadingAnchor.constraint(
+                    equalTo: leadingAnchor,
+                    constant: 40
+                ),
+                alertTitleLabel.trailingAnchor.constraint(
+                    equalTo: trailingAnchor,
+                    constant: -40
+                ),
+                alertTitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
             ])
         }
         
@@ -78,10 +84,10 @@ extension MainViews {
             addSubview(alertImageView)
             alertImageView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                alertImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-                alertImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                alertImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                alertImageView.bottomAnchor.constraint(equalTo: self.alertTitleLabel.topAnchor)
+                alertImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -5),
+                alertImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                alertImageView.widthAnchor.constraint(equalToConstant: 50),
+                alertImageView.heightAnchor.constraint(equalToConstant: 50)
             ])
         }
         

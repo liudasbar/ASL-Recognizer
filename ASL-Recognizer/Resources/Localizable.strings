@@ -17,6 +17,8 @@
 "Alert.generic" = "Error";
 "Alert.genericWithError" = "Error with reason: %@";
 "Alert.noHandPoseDetected" = "No hand pose detected";
+"Alert.failedToPredictHandPose" = "Failed to process hand pose";
+"Alert.thermalCanNotContinue" = "Device is too hot.\n\nPlease close the app or restart the device and try again later.";
 
 "Main.Status.CameraStatus.checking" = "Checking camera status...";
 "Main.Status.CameraStatus.shouldRequest" = "Please grant camera access for ASL signs recognition";
@@ -36,5 +38,7 @@
 "AVCaptureFailure.couldNotAddVideoDataOutputToSession" = "Could not add video data output to capture session.\n\nPlease restart your device.";
 "AVCaptureFailure.failedVideoCaptureLockForConfiguration" = "Failed to lock video capture for configuration.\n\nPlease restart your device.";
 "AVCaptureFailure.noPreviewLayerAvailable" = "No camera preview layer available.\n\nPlease restart your device.";
+
+"ThermalState.warning" = "Thermal state is in serious condition.\nCamera is disabled until the device cools down.";
 
 "Main.info" = "Developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";

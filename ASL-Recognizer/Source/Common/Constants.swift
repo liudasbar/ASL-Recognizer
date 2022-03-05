@@ -15,4 +15,7 @@ enum Constants {
     
     /// 1
     static var noHandPoseDetectedViewAppearDuration: Double = 1
+    
+    /// 20
+    static var defaultPadding: Double = 20
 }

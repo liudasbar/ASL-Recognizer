@@ -1,6 +1,6 @@
 import UIKit
 
-enum HandPosesData {
+struct HandPosesData {
     static let data: [(title: String, image: UIImage)] = [
         ("a", Asset.HandPoses.letterA.image),
         ("b", Asset.HandPoses.letterB.image),

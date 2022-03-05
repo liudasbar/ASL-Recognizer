@@ -42,6 +42,7 @@ class DefaultMainWorker: MainWorker {
         initializeResultOutput()
     }
     
+    // MARK: - Predict Result
     func loadResult(sampleBuffer: CMSampleBuffer) {
         outputResult.send(sampleBuffer)
     }
@@ -74,7 +75,7 @@ class DefaultMainWorker: MainWorker {
                 if let result = result?.label {
                     return .just(result.uppercased())
                 } else {
-                    return .empty()
+                    return .fail(.failedToPredictHandPose)
                 }
             })
             .throttle(for: .seconds(resultThrottleDuration), scheduler: DispatchQueue.main, latest: true)
@@ -91,6 +92,8 @@ class DefaultMainWorker: MainWorker {
                 receiveValue: { [weak self] resultValue in
                     if let resultValue = resultValue {
                         self?.resultHandler?(resultValue, self?.confidence ?? 0, nil)
+                    } else {
+                        self?.resultHandler?(nil, nil, .failedToPredictHandPose)
                     }
                 }
             )

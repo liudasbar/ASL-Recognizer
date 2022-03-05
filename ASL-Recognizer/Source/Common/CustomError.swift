@@ -5,6 +5,7 @@ enum CustomError: Error {
     case generic
     case genericWith(_ error: Error)
     case foundNoHandPose
+    case failedToPredictHandPose
  }
 
 extension CustomError: LocalizedError {
@@ -16,6 +17,8 @@ extension CustomError: LocalizedError {
             return L10n.Alert.genericWithError(error.localizedDescription)
         case .foundNoHandPose:
             return L10n.Alert.noHandPoseDetected
+        case .failedToPredictHandPose:
+            return ""
         }
     }
     
@@ -24,7 +27,8 @@ extension CustomError: LocalizedError {
         case .generic,
              .genericWith:
             return nil
-        case .foundNoHandPose:
+        case .foundNoHandPose,
+             .failedToPredictHandPose:
             return UIImage(systemName: "exclamationmark.octagon")
         }
     }

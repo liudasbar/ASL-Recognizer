@@ -153,8 +153,8 @@ extension MainViews {
             statusLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-                statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+                statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.defaultPadding),
+                statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.defaultPadding)
             ])
         }
         
@@ -175,8 +175,8 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 resultView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
                 resultView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
-                resultView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                resultView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+                resultView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.defaultPadding),
+                resultView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.defaultPadding)
             ])
         }
         
@@ -186,7 +186,10 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 detectStatusView.bottomAnchor.constraint(equalTo: resultView.topAnchor, constant: -20),
                 detectStatusView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
-                detectStatusView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                detectStatusView.trailingAnchor.constraint(
+                    equalTo: trailingAnchor,
+                    constant: -Constants.defaultPadding
+                ),
                 detectStatusView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
             ])
         }
@@ -197,7 +200,7 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 infoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
                 infoView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
-                infoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                infoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.defaultPadding),
                 infoView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
             ])
         }
@@ -208,7 +211,7 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 handPosesView.bottomAnchor.constraint(equalTo: resultView.topAnchor, constant: -20),
                 handPosesView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
-                handPosesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                handPosesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.defaultPadding),
                 handPosesView.widthAnchor.constraint(greaterThanOrEqualToConstant: 60)
             ])
         }
@@ -217,10 +220,10 @@ extension MainViews {
             addSubview(alertView)
             alertView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                alertView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                alertView.centerYAnchor.constraint(equalTo: centerYAnchor),
-                alertView.widthAnchor.constraint(greaterThanOrEqualToConstant: 80),
-                alertView.heightAnchor.constraint(equalToConstant: 120)
+                alertView.topAnchor.constraint(equalTo: topAnchor),
+                alertView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                alertView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                alertView.trailingAnchor.constraint(equalTo: trailingAnchor)
             ])
         }
         
@@ -230,8 +233,14 @@ extension MainViews {
             NSLayoutConstraint.activate([
                 openSettingsButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
                 openSettingsButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
-                openSettingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                openSettingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+                openSettingsButton.leadingAnchor.constraint(
+                    equalTo: leadingAnchor,
+                    constant: Constants.defaultPadding
+                ),
+                openSettingsButton.trailingAnchor.constraint(
+                    equalTo: trailingAnchor,
+                    constant: -Constants.defaultPadding
+                )
             ])
         }
 
@@ -325,28 +334,53 @@ extension MainViews {
             })
         }
         
-        func displayAlert(image: UIImage, title: String) {
-            mainAsync(execute: {
-                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
-                    self.alertView.layer.opacity = 1
-                }
-            })
-            mainAsyncAfter(deadline: .now() + Constants.noHandPoseDetectedViewAppearDuration, execute: {
-                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
-                    self.alertView.layer.opacity = 0
-                }
-            })
-            alertView.updateAlertView(image: image, title: title)
-        }
-        
-        func stopCameraCapture() {
+        func hideCameraView(stopAVCapture: Bool) {
             UIView.animate(
                 withDuration: Constants.defaultAnimationDuration,
                 animations: {
                     self.cameraView.layer.opacity = 0
                     self.alertView.layer.opacity = 0
+                }, completion: { [weak self] _ in
+                    guard stopAVCapture else {
+                        return
+                    }
+                    self?.avCapture.stopAVCapture()
                 }
             )
+        }
+        
+        func displayAlert(image: UIImage,
+                          title: String,
+                          dismissAfter timeInterval: TimeInterval?,
+                          shouldStopAVSession: Bool = false) {
+            if shouldStopAVSession {
+                avCapture.stopAVCapture()
+            }
+            mainAsync(execute: {
+                self.alertView.updateAlertView(image: image, title: title)
+                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                    self.alertView.layer.opacity = 1
+                }
+            })
+            if let timeInterval = timeInterval {
+                mainAsyncAfter(deadline: .now() + timeInterval, execute: {
+                    UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                        self.alertView.layer.opacity = 0
+                    }
+                })
+            }
+        }
+        
+        func dismissAlert(shouldStartAVCapture: Bool) {
+            mainAsync(execute: { [weak self] in
+                UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+                    self?.alertView.layer.opacity = 0
+                }
+                guard shouldStartAVCapture else {
+                    return
+                }
+                self?.avCapture.startAVCapture()
+            })
         }
     }
 }

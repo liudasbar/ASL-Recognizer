@@ -80,12 +80,14 @@
 		F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */; };
 		F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */; };
 		F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */; };
+		F4C01E1D27D0469600C32425 /* ThermalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C01E1C27D0469600C32425 /* ThermalState.swift */; };
 		F4D002A527CA42120023D438 /* HandPosesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A427CA42120023D438 /* HandPosesData.swift */; };
 		F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */; };
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
 		F4D002B227CB839F0023D438 /* IMG_0123_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */; };
 		F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */; };
 		F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App_Icon_150.png */; };
+		F4DFA8A627D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,12 +168,14 @@
 		F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViews.swift; sourceTree = "<group>"; };
 		F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+HandPosesView.swift"; sourceTree = "<group>"; };
 		F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+DetectStatusView.swift"; sourceTree = "<group>"; };
+		F4C01E1C27D0469600C32425 /* ThermalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermalState.swift; sourceTree = "<group>"; };
 		F4D002A427CA42120023D438 /* HandPosesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPosesData.swift; sourceTree = "<group>"; };
 		F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4D002B127CB839F0023D438 /* IMG_0123_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0123_700.PNG; sourceTree = "<group>"; };
 		F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124_700.PNG; sourceTree = "<group>"; };
 		F4D002BB27CC21660023D438 /* App_Icon_150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_150.png; sourceTree = "<group>"; };
+		F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +290,9 @@
 				C93795C427C1665B00B737DD /* PreviewContainer.swift */,
 				C93795D327C1697100B737DD /* UIColor+Extensions.swift */,
 				C93795DF27C1974C00B737DD /* AVCapture.swift */,
+				F4C01E1C27D0469600C32425 /* ThermalState.swift */,
 				C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */,
+				F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 				C93795C127C1660D00B737DD /* DispatchQueue.swift in Sources */,
 				F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */,
 				C93795BA27C1659700B737DD /* Strings.swift in Sources */,
+				F4DFA8A627D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C93795E027C1974C00B737DD /* AVCapture.swift in Sources */,
 				C93795BB27C1659700B737DD /* Assets.swift in Sources */,
 				C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */,
@@ -628,6 +635,7 @@
 				C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
 				C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
+				F4C01E1D27D0469600C32425 /* ThermalState.swift in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,
 				C93795AD27C15D9600B737DD /* MainViewController.swift in Sources */,
 				C93795D727C1775600B737DD /* CameraStatus.swift in Sources */,

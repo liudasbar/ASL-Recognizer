@@ -6,6 +6,8 @@ protocol AVCapture {
     func createAVSessionPreviewLayer(shouldAddDeviceInput: Bool,
                                      setupFailureReason: @escaping(AVCaptureFailureReason) -> Void,
                                      previewLayerValue: @escaping(AVCaptureVideoPreviewLayer) -> Void)
+    func startAVCapture()
+    func stopAVCapture()
 }
 
 class AVCaptureManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapture {
@@ -107,23 +109,35 @@ extension AVCaptureManager {
     func createAVSessionPreviewLayer(shouldAddDeviceInput: Bool,
                                      setupFailureReason: @escaping(AVCaptureFailureReason) -> Void,
                                      previewLayerValue: @escaping(AVCaptureVideoPreviewLayer) -> Void) {
-        setupAVCapture(shouldAddDeviceInput: shouldAddDeviceInput, completion: { error in
+        setupAVCapture(shouldAddDeviceInput: shouldAddDeviceInput, completion: { [weak self] error in
             guard shouldAddDeviceInput else {
-                previewLayerValue(self.previewLayer)
+                if let previewLayer = self?.previewLayer {
+                    previewLayerValue(previewLayer)
+                } else {
+                    setupFailureReason(.noPreviewLayerAvailable)
+                }
                 return
             }
             if let error = error {
                 setupFailureReason(error)
                 return
             }
-            self.setupCaptureVideoPreviewLayer()
-            guard let previewLayer = self.previewLayer else {
+            self?.setupCaptureVideoPreviewLayer()
+            guard let previewLayer = self?.previewLayer else {
                 setupFailureReason(.noPreviewLayerAvailable)
                 return
             }
             previewLayerValue(previewLayer)
-            self.session.startRunning()
+            self?.session.startRunning()
         })
+    }
+    
+    public func startAVCapture() {
+        session.startRunning()
+    }
+    
+    public func stopAVCapture() {
+        session.stopRunning()
     }
 }
 

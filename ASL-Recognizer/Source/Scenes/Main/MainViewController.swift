@@ -1,5 +1,6 @@
 import UIKit
 import CoreMedia
+import Combine
 
 protocol MainDisplayLogic: AnyObject {
     func displayLoadRecognitionResult(_ viewModel: Main.LoadRecognitionResult.ViewModel)
@@ -12,6 +13,8 @@ class MainViewController: UIViewController {
     // MARK: - Variables
     private let interactor: MainInteractor
     private let router: MainRouter
+    private let thermalState: ThermalState = ThermalStateManager()
+    private var cancelBag = Set<AnyCancellable>()
     private var shouldDetect: Bool = false
     private var firstCameraInit: Bool = true
 
@@ -43,6 +46,7 @@ class MainViewController: UIViewController {
         setupNavigationController()
         setupViews()
         setupActions()
+        setupThermalState()
     }
 
     // MARK: - Setup
@@ -85,6 +89,24 @@ class MainViewController: UIViewController {
         }
     }
     
+    func setupThermalState() {
+        thermalState.registerForThermalNotifications()
+            .sink { thermalState in
+                switch thermalState {
+                case .canContinue:
+                    self.rootView.dismissAlert(shouldStartAVCapture: true)
+                case .canNotContinue:
+                    self.rootView.displayAlert(
+                        image: UIImage(systemName: "thermometer") ?? UIImage(),
+                        title: L10n.Alert.thermalCanNotContinue,
+                        dismissAfter: nil,
+                        shouldStopAVSession: true
+                    )
+                }
+            }
+            .store(in: &cancelBag)
+    }
+    
     // MARK: - Actions
     private func startDetection(with sampleBuffer: CMSampleBuffer) {
         guard shouldDetect else {
@@ -100,7 +122,7 @@ class MainViewController: UIViewController {
     }
     
     private func openHandPoses() {
-        rootView.stopCameraCapture()
+        rootView.hideCameraView(stopAVCapture: false)
         router.routeToHandPoses()
     }
     
@@ -110,13 +132,29 @@ class MainViewController: UIViewController {
         if let appVersion = appVersion, let buildNumber = buildNumber {
             rootView.displayAlert(
                 image: UIImage(systemName: "info.circle") ?? UIImage(),
-                title: L10n.Main.info(appVersion, buildNumber)
+                title: L10n.Main.info(appVersion, buildNumber),
+                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
             )
         } else {
             rootView.displayAlert(
                 image: UIImage(systemName: "info.circle") ?? UIImage(),
-                title: L10n.Main.info(L10n.Common.notAvailable, L10n.Common.notAvailable)
+                title: L10n.Main.info(L10n.Common.notAvailable, L10n.Common.notAvailable),
+                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
             )
+        }
+    }
+    
+    private func handleAbnormalThermalState(for condition: ThermalStateCondition) {
+        switch condition {
+        case .canContinue:
+            rootView.requestCameraAuthorization(shouldAddDeviceInput: true)
+        case .canNotContinue:
+            rootView.displayAlert(
+                image: UIImage(systemName: "exclamationmark.octagon") ?? UIImage(),
+                title: L10n.ThermalState.warning,
+                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
+            )
+            rootView.hideCameraView(stopAVCapture: true)
         }
     }
 }
@@ -129,7 +167,11 @@ extension MainViewController: MainDisplayLogic {
         case let .result(resultValue, confidence):
             rootView.resultView.updateResult(resultValue: resultValue, confidence: confidence)
         case let .error(error):
-            rootView.displayAlert(image: error.image!, title: error.errorDescription!)
+            rootView.displayAlert(
+                image: error.image!,
+                title: error.errorDescription!,
+                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
+            )
         }
     }
 }

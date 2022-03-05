@@ -39,6 +39,8 @@ internal enum L10n {
   }
 
   internal enum Alert {
+    /// Failed to process hand pose
+    internal static let failedToPredictHandPose = L10n.tr("Localizable", "Alert.failedToPredictHandPose")
     /// Error
     internal static let generic = L10n.tr("Localizable", "Alert.generic")
     /// Error with reason: %@
@@ -47,6 +49,10 @@ internal enum L10n {
     }
     /// No hand pose detected
     internal static let noHandPoseDetected = L10n.tr("Localizable", "Alert.noHandPoseDetected")
+    /// Device is too hot.
+    /// 
+    /// Please close the app or restart the device and try again later.
+    internal static let thermalCanNotContinue = L10n.tr("Localizable", "Alert.thermalCanNotContinue")
   }
 
   internal enum Common {
@@ -118,6 +124,12 @@ internal enum L10n {
         internal static let unknownFailure = L10n.tr("Localizable", "Main.Status.CameraStatus.unknownFailure")
       }
     }
+  }
+
+  internal enum ThermalState {
+    /// Thermal state is in serious condition.
+    /// Camera is disabled until the device cools down.
+    internal static let warning = L10n.tr("Localizable", "ThermalState.warning")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
