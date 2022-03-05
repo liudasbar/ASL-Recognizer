@@ -3,7 +3,7 @@
 
 ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
 
-![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase.png)
+![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
 ## Features and Data Sets
 
