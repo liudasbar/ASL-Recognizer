@@ -45,8 +45,8 @@ Finally, after model finishes with prediction, the following can be extracted: p
 
 The following errors/issues are handled (if occur - may provide an error message visually):
 * No hand pose found.
-* Failed to predict hand pose.
-* Camera setup errors.
+* Hand pose prediction failure.
+* Various camera input, output, preview layer setup errors.
 * Critical thermal state condition.
 
 ## Project architecture
