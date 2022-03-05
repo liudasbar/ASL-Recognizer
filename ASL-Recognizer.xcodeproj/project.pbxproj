@@ -88,6 +88,7 @@
 		F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */; };
 		F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App_Icon_150.png */; };
 		F4DFA8A627D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */; };
+		F4DFA8A827D42F8200CD3A3B /* ASLRecognizerAppShowcase.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124_700.PNG; sourceTree = "<group>"; };
 		F4D002BB27CC21660023D438 /* App_Icon_150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_150.png; sourceTree = "<group>"; };
 		F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
+		F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASLRecognizerAppShowcase.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +243,7 @@
 		C937959127C1591100B737DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4931E9527CD306D00E65A43 /* Hand Poses */,
+				F4931E9527CD306D00E65A43 /* HandPoses */,
 				F4D002AC27CB82C60023D438 /* ForReadMe */,
 				C937958627C158AA00B737DD /* Assets.xcassets */,
 				C937958327C158A500B737DD /* Main.storyboard */,
@@ -374,7 +376,7 @@
 			path = Entries;
 			sourceTree = "<group>";
 		};
-		F4931E9527CD306D00E65A43 /* Hand Poses */ = {
+		F4931E9527CD306D00E65A43 /* HandPoses */ = {
 			isa = PBXGroup;
 			children = (
 				F4931ECE27CD3D9600E65A43 /* ASL_Alphabet.jpg */,
@@ -406,7 +408,7 @@
 				F4931EAF27CD306D00E65A43 /* letter-x.png */,
 				F4931EB027CD306D00E65A43 /* letter-o.png */,
 			);
-			path = "Hand Poses";
+			path = HandPoses;
 			sourceTree = "<group>";
 		};
 		F4A2354A27CA2B6400A2A8B7 /* HandPoses */ = {
@@ -445,6 +447,7 @@
 				F4D002B727CC20E10023D438 /* IMG_0124_700.PNG */,
 				F4D002BB27CC21660023D438 /* App_Icon_150.png */,
 				F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */,
+				F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				F4D002B827CC20E10023D438 /* IMG_0124_700.PNG in Resources */,
 				F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */,
 				F4931ECA27CD306D00E65A43 /* letter-x.png in Resources */,
+				F4DFA8A827D42F8200CD3A3B /* ASLRecognizerAppShowcase.png in Resources */,
 				F4931EB627CD306D00E65A43 /* letter-v.png in Resources */,
 				F4931EB927CD306D00E65A43 /* letter-d.png in Resources */,
 				F4931EC827CD306D00E65A43 /* letter-n.png in Resources */,
