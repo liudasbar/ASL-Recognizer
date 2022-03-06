@@ -5,19 +5,19 @@ __Easily identify Sign Language alphabet letter (A-Z) or number (0-9) hand poses
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
-#### SMART RECOGNITION
+### SMART RECOGNITION
 ASL Recognizer uses machine learning model that is trained for high accuracy hand pose detection in any environment.
 
-#### UNIVERSAL
+### UNIVERSAL
 Identify world’s most recognizable sign language basic hand poses.
 
-#### MAKE WORDS
+### MAKE WORDS
 By recognizing each hand pose, you can put whole words to understand what is being said in sign language.
 
-#### LEARN SIGN LANGUAGE BASICS
+### LEARN SIGN LANGUAGE BASICS
 Find all basic alphabet American Sign Language hand poses in one place for easier identification and learning.
 
-#### FOR DEVELOPERS
+### FOR DEVELOPERS
 The project uses Combine, AVFoundation and Apple Vision frameworks and is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
 
 ## Features and Data Sets
