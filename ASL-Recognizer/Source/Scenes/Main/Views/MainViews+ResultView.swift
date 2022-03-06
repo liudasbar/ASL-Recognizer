@@ -43,6 +43,16 @@ extension MainViews {
             button.addTarget(self, action: #selector(clearResultAction), for: .touchUpInside)
             return button
         }()
+        
+        private lazy var addSpaceButton: UIButton = {
+            let button = UIButton()
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "dock.rectangle", withConfiguration: imageConfig)
+            button.setImage(image, for: .normal)
+            button.tintColor = activeTheme.colors.blank
+            button.addTarget(self, action: #selector(addSpaceAction), for: .touchUpInside)
+            return button
+        }()
 
         // MARK: - Life Cycle
         init() {
@@ -58,6 +68,7 @@ extension MainViews {
         private func setupViews() {
             backgroundColor = .clear
             setupBackgroundView()
+            setupAddSpaceButton()
             setupClearResultButton()
             setupBackspaceResultButton()
             setupResultLabel()
@@ -71,6 +82,17 @@ extension MainViews {
                 backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
+        }
+        
+        private func setupAddSpaceButton() {
+            addSubview(addSpaceButton)
+            addSpaceButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                addSpaceButton.topAnchor.constraint(equalTo: self.topAnchor),
+                addSpaceButton.widthAnchor.constraint(equalToConstant: 60),
+                addSpaceButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3),
+                addSpaceButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
         }
         
@@ -101,7 +123,7 @@ extension MainViews {
             resultLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 resultLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-                resultLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                resultLabel.leadingAnchor.constraint(equalTo: addSpaceButton.trailingAnchor, constant: 8),
                 resultLabel.trailingAnchor.constraint(equalTo: backspaceResultButton.leadingAnchor, constant: -8),
                 resultLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             ])
@@ -117,6 +139,10 @@ extension MainViews {
         
         @objc private func clearResultAction() {
             resultLabel.text?.removeAll()
+        }
+        
+        @objc func addSpaceAction() {
+            resultLabel.text?.append(" ")
         }
         
         func updateResult(resultValue: String, confidence: Float) {
