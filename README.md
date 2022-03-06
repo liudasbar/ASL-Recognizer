@@ -6,7 +6,7 @@ __Easily identify Sign Language alphabet letter (A-Z) or number (0-9) hand poses
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
 ### SMART RECOGNITION
-ASL Recognizer uses machine learning model that is trained for high accuracy hand pose detection in any environment.
+ASL Recognizer uses machine learning based model that is trained for high accuracy hand pose detection in any environment.
 
 ### UNIVERSAL
 Identify world’s most recognizable sign language basic hand poses.
@@ -18,11 +18,11 @@ By recognizing each hand pose, you can put whole words to understand what is bei
 Find all basic alphabet American Sign Language hand poses in one place for easier identification and learning.
 
 ### FOR DEVELOPERS
-The project uses Combine, AVFoundation and Apple Vision frameworks and is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
+The project uses Combine, AVFoundation and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
 
 ## Features and Data Sets
 
-The application uses __American Sign Language (ASL)__ ML recognition model that is organized, trained, and tested via Xcode Create ML tools.
+The application uses __American Sign Language (ASL)__ machine learning based recognition model that is organized, trained, and tested via Xcode Create ML tools.
 
 While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific ML model that application uses consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
 
