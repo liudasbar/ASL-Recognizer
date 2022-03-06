@@ -86,8 +86,8 @@
 		F4D002A927CAE1390023D438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D002A827CAE1390023D438 /* README.md */; };
 		F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D002BB27CC21660023D438 /* App_Icon_150.png */; };
 		F4DFA8A627D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */; };
-		F4DFA8A827D42F8200CD3A3B /* ASLRecognizerAppShowcase.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */; };
-		F4DFA8AA27D430BC00CD3A3B /* ASLRecognizerAppShowcase_2048.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DFA8A927D430BC00CD3A3B /* ASLRecognizerAppShowcase_2048.png */; };
+		F4DFA8AD27D4368500CD3A3B /* ASLRecognizerAppShowcase_2048.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DFA8AB27D4368400CD3A3B /* ASLRecognizerAppShowcase_2048.png */; };
+		F4DFA8AE27D4368500CD3A3B /* ASLRecognizerAppShowcase.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DFA8AC27D4368500CD3A3B /* ASLRecognizerAppShowcase.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,8 +174,8 @@
 		F4D002A827CAE1390023D438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4D002BB27CC21660023D438 /* App_Icon_150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_150.png; sourceTree = "<group>"; };
 		F4DFA8A527D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
-		F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASLRecognizerAppShowcase.png; sourceTree = "<group>"; };
-		F4DFA8A927D430BC00CD3A3B /* ASLRecognizerAppShowcase_2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASLRecognizerAppShowcase_2048.png; sourceTree = "<group>"; };
+		F4DFA8AB27D4368400CD3A3B /* ASLRecognizerAppShowcase_2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASLRecognizerAppShowcase_2048.png; sourceTree = "<group>"; };
+		F4DFA8AC27D4368500CD3A3B /* ASLRecognizerAppShowcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASLRecognizerAppShowcase.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,8 +443,8 @@
 			children = (
 				F4D002BB27CC21660023D438 /* App_Icon_150.png */,
 				F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */,
-				F4DFA8A727D42F8200CD3A3B /* ASLRecognizerAppShowcase.png */,
-				F4DFA8A927D430BC00CD3A3B /* ASLRecognizerAppShowcase_2048.png */,
+				F4DFA8AB27D4368400CD3A3B /* ASLRecognizerAppShowcase_2048.png */,
+				F4DFA8AC27D4368500CD3A3B /* ASLRecognizerAppShowcase.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -514,10 +514,8 @@
 				F4931EB727CD306D00E65A43 /* letter-w.png in Resources */,
 				F4D002A927CAE1390023D438 /* README.md in Resources */,
 				F4931EC527CD306D00E65A43 /* letter-z.png in Resources */,
-				F4DFA8AA27D430BC00CD3A3B /* ASLRecognizerAppShowcase_2048.png in Resources */,
 				F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */,
 				F4931ECA27CD306D00E65A43 /* letter-x.png in Resources */,
-				F4DFA8A827D42F8200CD3A3B /* ASLRecognizerAppShowcase.png in Resources */,
 				F4931EB627CD306D00E65A43 /* letter-v.png in Resources */,
 				F4931EB927CD306D00E65A43 /* letter-d.png in Resources */,
 				F4931EC827CD306D00E65A43 /* letter-n.png in Resources */,
@@ -528,6 +526,7 @@
 				F4931EBC27CD306D00E65A43 /* letter-p.png in Resources */,
 				F4931EC227CD306D00E65A43 /* letter-h.png in Resources */,
 				F4931EBB27CD306D00E65A43 /* letter-r.png in Resources */,
+				F4DFA8AD27D4368500CD3A3B /* ASLRecognizerAppShowcase_2048.png in Resources */,
 				F4931EBE27CD306D00E65A43 /* letter-f.png in Resources */,
 				F4931EC327CD306D00E65A43 /* letter-i.png in Resources */,
 				C937958527C158A500B737DD /* Main.storyboard in Resources */,
@@ -537,6 +536,7 @@
 				F4931EC627CD306D00E65A43 /* hello.png in Resources */,
 				F4931EC427CD306D00E65A43 /* letter-m.png in Resources */,
 				F4931ECF27CD3D9600E65A43 /* ASL_Alphabet.jpg in Resources */,
+				F4DFA8AE27D4368500CD3A3B /* ASLRecognizerAppShowcase.png in Resources */,
 				F4931ECB27CD306D00E65A43 /* letter-o.png in Resources */,
 				F4931EB327CD306D00E65A43 /* letter-t.png in Resources */,
 				F4931EBD27CD306D00E65A43 /* letter-g.png in Resources */,
