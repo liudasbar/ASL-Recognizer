@@ -1,13 +1,28 @@
 ![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App_Icon_150.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
-ASL Recognizer project is an open-source project designed to showcase hand pose detection by using iOS device camera. The project is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub, and can be accessed by anyone.
+__Easily identify Sign Language alphabet letter (A-Z) or number (0-9) hand poses with the use of your device camera!__
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
+#### SMART RECOGNITION
+ASL Recognizer uses machine learning model that is trained for high accuracy hand pose detection in any environment.
+
+#### UNIVERSAL
+Identify world’s most recognizable sign language basic hand poses.
+
+#### MAKE WORDS
+By recognizing each hand pose, you can put whole words to understand what is being said in sign language.
+
+#### LEARN SIGN LANGUAGE BASICS
+Find all basic alphabet American Sign Language hand poses in one place for easier identification and learning.
+
+#### FOR DEVELOPERS
+The project uses Combine, AVFoundation and Apple Vision frameworks and is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
+
 ## Features and Data Sets
 
-The application uses __American Sign Language (ASL)__ ML recognition model that is was organized, trained, and tested via Xcode Create ML tools.
+The application uses __American Sign Language (ASL)__ ML recognition model that is organized, trained, and tested via Xcode Create ML tools.
 
 While the developer does not provide any related data sets, it is worth mentioning that the data set for this specific ML model that application uses consists of images (that were used for training and validation of an aforementioned ML model) gathered from various sources found on the internet varying from ASL learning YouTube videos to publicly available ASL hand poses images data sets.
 
