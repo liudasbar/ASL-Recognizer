@@ -41,6 +41,7 @@
 		C93795DE27C1973500B737DD /* MainViews+ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DD27C1973500B737DD /* MainViews+ResultView.swift */; };
 		C93795E027C1974C00B737DD /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93795DF27C1974C00B737DD /* AVCapture.swift */; };
 		C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */; };
+		F46FA8C127DA44AA00D7C141 /* Download_on_the_App_Store_Badge_US_180px.png in Resources */ = {isa = PBXBuildFile; fileRef = F46FA8C027DA44A900D7C141 /* Download_on_the_App_Store_Badge_US_180px.png */; };
 		F4931EB127CD306D00E65A43 /* letter-b.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931E9627CD306D00E65A43 /* letter-b.png */; };
 		F4931EB227CD306D00E65A43 /* letter-u.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931E9727CD306D00E65A43 /* letter-u.png */; };
 		F4931EB327CD306D00E65A43 /* letter-t.png in Resources */ = {isa = PBXBuildFile; fileRef = F4931E9827CD306D00E65A43 /* letter-t.png */; };
@@ -129,6 +130,7 @@
 		C93795DD27C1973500B737DD /* MainViews+ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+ResultView.swift"; sourceTree = "<group>"; };
 		C93795DF27C1974C00B737DD /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
 		C9E4879227C44B640079FC40 /* AnyPublisher+Shorthands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Shorthands.swift"; sourceTree = "<group>"; };
+		F46FA8C027DA44A900D7C141 /* Download_on_the_App_Store_Badge_US_180px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Download_on_the_App_Store_Badge_US_180px.png; sourceTree = "<group>"; };
 		F4931E9627CD306D00E65A43 /* letter-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-b.png"; sourceTree = "<group>"; };
 		F4931E9727CD306D00E65A43 /* letter-u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-u.png"; sourceTree = "<group>"; };
 		F4931E9827CD306D00E65A43 /* letter-t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-t.png"; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				F4931ED027CD69CF00E65A43 /* VIP_Swift_Architecture.png */,
 				F4DFA8AB27D4368400CD3A3B /* ASLRecognizerAppShowcase_2048.png */,
 				F4DFA8AC27D4368500CD3A3B /* ASLRecognizerAppShowcase.png */,
+				F46FA8C027DA44A900D7C141 /* Download_on_the_App_Store_Badge_US_180px.png */,
 			);
 			path = ForReadMe;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				F4D002A927CAE1390023D438 /* README.md in Resources */,
 				F4931EC527CD306D00E65A43 /* letter-z.png in Resources */,
 				F4D002BC27CC21660023D438 /* App_Icon_150.png in Resources */,
+				F46FA8C127DA44AA00D7C141 /* Download_on_the_App_Store_Badge_US_180px.png in Resources */,
 				F4931ECA27CD306D00E65A43 /* letter-x.png in Resources */,
 				F4931EB627CD306D00E65A43 /* letter-v.png in Resources */,
 				F4931EB927CD306D00E65A43 /* letter-d.png in Resources */,
