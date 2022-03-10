@@ -107,6 +107,10 @@ pod install
 ```
 3. Open __ASL-Recognizer.xcworkspace__ file.
 
+## App icon
+
+App icon has been designed using resources from [Flaticon.com](https://www.flaticon.com/premium-icon/peace_3211565?related_id=3211565).
+
 ## License
 
 MIT License
