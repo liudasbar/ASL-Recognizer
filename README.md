@@ -28,7 +28,7 @@ While the developer does not provide any related data sets, it is worth mentioni
 
 ## What can be recognized?
 
-__ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9__. Hand pose detection output is shown within the main application interface. Each detected symbol (letter or number) is added to the current value with previously detected symbols.
+__ASL Recognizer detects only alphabet letters A-Z and numbers from 0-9__. Hand gesture detection output is shown within the main application interface. Each detected symbol (letter or number) is added to the current value with previously detected symbols.
 
 ## Availability
 
@@ -48,17 +48,17 @@ Training data:
 
 ## Prediction based on ML model from technical perspective
 
-The application uses __Apple Vision__ framework to perform the hand pose recognition with each camera output frame (__CMSampleBuffer__). Vision has hand pose visual detection request class that is used for hand pose and fingers recognition. Vision data parsing goes through __VNImageRequestHandler__.
+The application uses __Apple Vision__ framework to perform the hand gesture recognition with each camera output frame (__CMSampleBuffer__). Vision has hand pose visual detection request class that is used for hand pose and fingers recognition. Vision data parsing goes through __VNImageRequestHandler__.
 
-Hand Pose ML model to predict a hand pose uses __MLMultiArray__ as input. What is amazing here is that multi-dimensional array (__MLMultiArray__) can be extracted from Vision image request handler (__VNImageRequestHandler__) output directly, which then is passed to model prediction methods (they were generated directly in Xcode's Create ML application before).
+Hand Pose ML model to predict a hand gesture uses __MLMultiArray__ as input. What is amazing here is that multi-dimensional array (__MLMultiArray__) can be extracted from Vision image request handler (__VNImageRequestHandler__) output directly, which then is passed to model prediction methods (they were generated directly in Xcode's Create ML application before).
 
 Finally, after model finishes with prediction, the following can be extracted: prediction confidence, predicted result (label), and many more!
 
 ## Error handling
 
 The following errors/issues are handled (if occur - may provide an error message visually):
-* No hand pose found.
-* Hand pose prediction failure.
+* No hand gesture found.
+* Hand gesture prediction failure.
 * Various camera input, output, preview layer setup errors.
 * Critical thermal state condition.
 
