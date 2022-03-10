@@ -51,6 +51,7 @@ extension MainViews {
             let view = InfoView()
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 12
+            view.layer.opacity = 0
             return view
         }()
         
@@ -311,6 +312,7 @@ extension MainViews {
                     self.detectStatusView.layer.opacity = 1
                     self.resultView.layer.opacity = 1
                     self.handPosesView.layer.opacity = 1
+                    self.infoView.layer.opacity = 1
                 case .notAllowed:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.notAllowed
                     self.statusLabel.layer.opacity = 1
@@ -323,6 +325,7 @@ extension MainViews {
                     self.detectStatusView.layer.opacity = 0
                     self.resultView.layer.opacity = 0
                     self.handPosesView.layer.opacity = 0
+                    self.infoView.layer.opacity = 0
                     self.captureAvailable = false
                 case .unknownFailure:
                     self.statusLabel.text = L10n.Main.Status.CameraStatus.unknownFailure
