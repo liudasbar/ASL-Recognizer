@@ -1,7 +1,7 @@
 ![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App_Icon_150.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
-__Easily identify Sign Language alphabet letters (A-Z) or numbers (0-9) hand poses with the use of your device camera!__
+__Easily identify Sign Language alphabet letters (A-Z) or numbers (0-9) hand gestures with the use of your device camera!__
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
