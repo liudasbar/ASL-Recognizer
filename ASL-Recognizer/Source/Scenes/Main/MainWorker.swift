@@ -18,8 +18,8 @@ class DefaultMainWorker: MainWorker {
         return request
     }()
     private var imageRequestHandler: VNImageRequestHandler?
-    private var model: ASLHandPoseClassifier16_2?
-    private var result: ASLHandPoseClassifier16_2Output?
+    private var model: ASLHandPoseClassifier17?
+    private var result: ASLHandPoseClassifier17Output?
     private var multiarray: MLMultiArray = MLMultiArray()
     private let confidence: VNConfidence = 0.9
     private let orientatation: CGImagePropertyOrientation = .right
@@ -38,7 +38,7 @@ class DefaultMainWorker: MainWorker {
     
     // MARK: - Methods
     init() {
-        model = try? ASLHandPoseClassifier16_2(configuration: .init())
+        model = try? ASLHandPoseClassifier17(configuration: .init())
         initializeResultOutput()
     }
     

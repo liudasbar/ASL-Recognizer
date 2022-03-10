@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C7FCB976BD8219F86E781FFD /* Pods_ASL_Recognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862A5F6B2D413220DD2F8837 /* Pods_ASL_Recognizer.framework */; };
-		C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C906586927C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel */; };
 		C937957E27C158A500B737DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937957D27C158A500B737DD /* AppDelegate.swift */; };
 		C937958027C158A500B737DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937957F27C158A500B737DD /* SceneDelegate.swift */; };
 		C937958527C158A500B737DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C937958327C158A500B737DD /* Main.storyboard */; };
@@ -80,6 +79,7 @@
 		F4A2355D27CA2B6400A2A8B7 /* HandPosesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */; };
 		F4A2355F27CA306400A2A8B7 /* MainViews+HandPosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */; };
 		F4ADA0DF27C71AC2003013A1 /* MainViews+DetectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */; };
+		F4BA337B27D97F1F003148A0 /* ASLHandPoseClassifier17.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4BA337A27D97F1F003148A0 /* ASLHandPoseClassifier17.mlmodel */; };
 		F4C01E1D27D0469600C32425 /* ThermalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C01E1C27D0469600C32425 /* ThermalState.swift */; };
 		F4D002A527CA42120023D438 /* HandPosesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A427CA42120023D438 /* HandPosesData.swift */; };
 		F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */; };
@@ -94,7 +94,6 @@
 		6BDAC7F64AB0668DC25AEF7C /* Pods-ASL-Recognizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASL-Recognizer.debug.xcconfig"; path = "Target Support Files/Pods-ASL-Recognizer/Pods-ASL-Recognizer.debug.xcconfig"; sourceTree = "<group>"; };
 		862A5F6B2D413220DD2F8837 /* Pods_ASL_Recognizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASL_Recognizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		988CD32D5D4354EB1AB78FED /* Pods-ASL-Recognizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASL-Recognizer.release.xcconfig"; path = "Target Support Files/Pods-ASL-Recognizer/Pods-ASL-Recognizer.release.xcconfig"; sourceTree = "<group>"; };
-		C906586927C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLHandPoseClassifier16_2.mlmodel; sourceTree = "<group>"; };
 		C937957A27C158A500B737DD /* ASL-Recognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ASL-Recognizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C937957D27C158A500B737DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C937957F27C158A500B737DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		F4A2355427CA2B6400A2A8B7 /* HandPosesViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandPosesViews.swift; sourceTree = "<group>"; };
 		F4A2355E27CA306400A2A8B7 /* MainViews+HandPosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+HandPosesView.swift"; sourceTree = "<group>"; };
 		F4ADA0DE27C71AC2003013A1 /* MainViews+DetectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViews+DetectStatusView.swift"; sourceTree = "<group>"; };
+		F4BA337A27D97F1F003148A0 /* ASLHandPoseClassifier17.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLHandPoseClassifier17.mlmodel; sourceTree = "<group>"; };
 		F4C01E1C27D0469600C32425 /* ThermalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermalState.swift; sourceTree = "<group>"; };
 		F4D002A427CA42120023D438 /* HandPosesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPosesData.swift; sourceTree = "<group>"; };
 		F4D002A627CA45B20023D438 /* HandPoseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				C937959327C1592A00B737DD /* Animations */,
 				C93795B527C15E6100B737DD /* Localizable.strings */,
 				C93795B727C1659700B737DD /* Generated */,
-				C906586927C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel */,
+				F4BA337A27D97F1F003148A0 /* ASLHandPoseClassifier17.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -625,6 +625,7 @@
 				F4A2355527CA2B6400A2A8B7 /* HandPosesViewController.swift in Sources */,
 				C93795C127C1660D00B737DD /* DispatchQueue.swift in Sources */,
 				F4D002A727CA45B20023D438 /* HandPoseCollectionViewCell.swift in Sources */,
+				F4BA337B27D97F1F003148A0 /* ASLHandPoseClassifier17.mlmodel in Sources */,
 				C93795BA27C1659700B737DD /* Strings.swift in Sources */,
 				F4DFA8A627D3FD5000CD3A3B /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C93795E027C1974C00B737DD /* AVCapture.swift in Sources */,
@@ -634,7 +635,6 @@
 				C93795D027C1690A00B737DD /* ThemeColors.swift in Sources */,
 				C9E4879327C44B640079FC40 /* AnyPublisher+Shorthands.swift in Sources */,
 				C93795CB27C1685900B737DD /* MakeDefaultLabel.swift in Sources */,
-				C906586A27C32241003C4833 /* ASLHandPoseClassifier16_2.mlmodel in Sources */,
 				F4C01E1D27D0469600C32425 /* ThermalState.swift in Sources */,
 				C937958027C158A500B737DD /* SceneDelegate.swift in Sources */,
 				C93795AD27C15D9600B737DD /* MainViewController.swift in Sources */,
