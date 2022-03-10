@@ -107,6 +107,10 @@ pod install
 ```
 3. Open __ASL-Recognizer.xcworkspace__ file.
 
+## App icon
+
+Hand pose icon is made by [Vitaly Gorbachev](https://www.flaticon.com/premium-icon/letter-v_3776585?related_id=3776585).
+
 ## License
 
 MIT License
