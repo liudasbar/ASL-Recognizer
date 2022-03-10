@@ -9,13 +9,13 @@ __Easily identify Sign Language alphabet letters (A-Z) or numbers (0-9) hand ges
 ASL Recognizer uses machine learning based model that is trained for high accuracy detection in any environment.
 
 ### UNIVERSAL
-Identify world’s most recognizable sign language basic hand gestures.
+Identify world’s most recognizable sign language basic gestures.
 
 ### MAKE WORDS
 By recognizing each hand pose, you can combine whole words to understand what is being said in sign language.
 
 ### LEARN SIGN LANGUAGE BASICS
-Find all basic alphabet American Sign Language hand gestures in one place for easier identification and learning.
+Find all basic alphabet American Sign Language gestures in one place for easier identification and learning.
 
 ### FOR DEVELOPERS
 The project uses Combine, AVFoundation and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
