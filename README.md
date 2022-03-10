@@ -37,14 +37,14 @@ The project is written on Xcode 13 __for iOS/iPadOS devices from iOS 14__.
 ## ML model
 
 Accuracy:
-* Training - 96 %
-* Validation - 88 %
+* Training - 95 %
+* Validation - 86 %
 
 Training data:
 * 36 classes
-* 11 128 items
+* 11 897 items
 
-⚠️ __It should be noted that detection of some letters is not ideal and can lead to letters being recognized as not the right ones. The ML model is set to be improved.__
+⚠️ __It should be noted that detection of some letters is not ideal and may lead to letters being recognized as not the right ones. The ML model is set to be improved.__
 
 ## Prediction based on ML model from technical perspective
 
