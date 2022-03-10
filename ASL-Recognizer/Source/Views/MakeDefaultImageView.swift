@@ -3,7 +3,7 @@ import UIKit
 extension UIImageView {
     struct Config {
         var image: UIImage
-        var tintColor: UIColor = activeTheme.colors.blank
+        var tintColor: UIColor = activeTheme.colors.textDynamic
         var contentMode: UIView.ContentMode = .scaleAspectFit
     }
     

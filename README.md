@@ -18,7 +18,7 @@ By recognizing each hand pose, you can combine whole words to understand what is
 Find all basic alphabet American Sign Language gestures in one place for easier identification and learning.
 
 ### FOR DEVELOPERS
-The project uses Combine, AVFoundation and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
+The project uses Combine, AVFoundation, SwiftGen and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
 
 [![Download on the App Store](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/Download_on_the_App_Store_Badge_US_180px.png)](https://apps.apple.com/us/app/asl-recognizer/id1612140503)
 

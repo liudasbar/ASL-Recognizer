@@ -10,6 +10,14 @@ extension MainViews {
             return view
         }()
         
+        private lazy var statusImageView: UIImageView = {
+            let imageView = UIImageView.defaultImageView(
+                config: UIImageView.Config(image: UIImage(systemName: "video.slash") ?? UIImage())
+            )
+            imageView.layer.opacity = 0
+            return imageView
+        }()
+        
         private lazy var statusLabel: UILabel = {
             let label = UILabel.defaultLabel(config: UILabel.Config(
                 title: "",
@@ -18,14 +26,6 @@ extension MainViews {
                 font: activeTheme.fonts.regular
             ))
             return label
-        }()
-        
-        private lazy var statusImageView: UIImageView = {
-            let imageView = UIImageView.defaultImageView(
-                config: UIImageView.Config(image: UIImage(systemName: "video.slash") ?? UIImage())
-            )
-            imageView.layer.opacity = 0
-            return imageView
         }()
         
         private lazy var openSettingsButton: UIButton = {
@@ -142,11 +142,13 @@ extension MainViews {
         }
         
         func setupPreviewLayer(_ previewLayer: AVCaptureVideoPreviewLayer) {
-            previewLayer.frame = cameraView.bounds
-            cameraView.layer.addSublayer(previewLayer)
-            UIView.animate(withDuration: Constants.longerAnimationDuration) {
-                self.cameraView.layer.opacity = 1
-            }
+            mainAsync(execute: {
+                previewLayer.frame = self.cameraView.bounds
+                self.cameraView.layer.addSublayer(previewLayer)
+                UIView.animate(withDuration: Constants.longerAnimationDuration) {
+                    self.cameraView.layer.opacity = 1
+                }
+            })
         }
         
         private func setupStatusLabel() {

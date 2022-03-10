@@ -30,6 +30,8 @@
 "Main.Button.detecting" = "Detecting";
 "Main.Button.handPoses" = "Alphabet";
 
+"Main.info" = "Developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";
+
 "HandPoses.title" = "Alphabet hand poses";
 
 "AVCaptureFailure.noCameraDeviceFound" = "No camera device found.\n\nPlease ensure your device camera is working correctly.";
@@ -40,5 +42,3 @@
 "AVCaptureFailure.noPreviewLayerAvailable" = "No camera preview layer available.\n\nPlease restart your device.";
 
 "ThermalState.warning" = "Thermal state is in serious condition.\nCamera is disabled until the device cools down.";
-
-"Main.info" = "Developed by Liudas Baronas.\nSource code is available on GitHub.\nApplication version: %@ (%@)";
