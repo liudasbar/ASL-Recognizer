@@ -133,13 +133,13 @@ class MainViewController: UIViewController {
             rootView.displayAlert(
                 image: UIImage(systemName: "info.circle") ?? UIImage(),
                 title: L10n.Main.info(appVersion, buildNumber),
-                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
+                dismissAfter: Constants.infoAlertDuration
             )
         } else {
             rootView.displayAlert(
                 image: UIImage(systemName: "info.circle") ?? UIImage(),
                 title: L10n.Main.info(L10n.Common.notAvailable, L10n.Common.notAvailable),
-                dismissAfter: Constants.noHandPoseDetectedViewAppearDuration
+                dismissAfter: Constants.infoAlertDuration
             )
         }
     }
