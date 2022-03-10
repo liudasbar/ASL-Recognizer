@@ -1,24 +1,24 @@
 ![Logo](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/App_Icon_150.png)
 # ASL Recognizer - Sign Language Recognition with Camera
 
-__Easily identify Sign Language alphabet letter (A-Z) or number (0-9) hand poses with the use of your device camera!__
+__Easily identify Sign Language alphabet letters (A-Z) or numbers (0-9) hand poses with the use of your device camera!__
 
 ![Image](https://github.com/liudasbar/ASL-Recognizer/blob/main/ASL-Recognizer/Resources/ForReadMe/ASLRecognizerAppShowcase_2048.png)
 
 ### SMART RECOGNITION
-ASL Recognizer uses machine learning based model that is trained for high accuracy hand pose detection in any environment.
+ASL Recognizer uses machine learning based model that is trained for high accuracy detection in any environment.
 
 ### UNIVERSAL
-Identify world’s most recognizable sign language basic hand poses.
+Identify world’s most recognizable sign language basic hand gestures.
 
 ### MAKE WORDS
-By recognizing each hand pose, you can put whole words to understand what is being said in sign language.
+By recognizing each hand pose, you can combine whole words to understand what is being said in sign language.
 
 ### LEARN SIGN LANGUAGE BASICS
-Find all basic alphabet American Sign Language hand poses in one place for easier identification and learning.
+Find all basic alphabet American Sign Language hand gestures in one place for easier identification and learning.
 
 ### FOR DEVELOPERS
-The project uses Combine, AVFoundation and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source and [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
+The project uses Combine, AVFoundation and Apple Vision frameworks, is wrapped around Clean Swift VIP architecture and is fully open-source [documented](https://github.com/liudasbar/ASL-Recognizer) on GitHub.
 
 ## Features and Data Sets
 
